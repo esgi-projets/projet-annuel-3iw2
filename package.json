@@ -1,0 +1,24 @@
+{
+  "name": "projet-annuel-3iw2",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://btnalexandre@github.com/esgi-projets/projet-annuel-3iw2.git"
+  },
+  "keywords": [
+    "esgi",
+    "3iw2",
+    "projet-annuel"
+  ],
+  "author": "@btnalexandre & @LouisAntoine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/esgi-projets/projet-annuel-3iw2/issues"
+  },
+  "homepage": "https://github.com/esgi-projets/projet-annuel-3iw2#readme"
+}
