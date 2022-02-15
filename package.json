@@ -2,9 +2,11 @@
   "name": "projet-annuel-3iw2",
   "description": "",
   "version": "1.0.0",
-  "main": "index.js",
+  "source": "./www/View/scss/styles.scss",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel --dist-dir www/View/dist",
+    "build": "parcel build --dist-dir www/View/dist"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/esgi-projets/projet-annuel-3iw2/issues"
   },
-  "homepage": "https://github.com/esgi-projets/projet-annuel-3iw2#readme"
+  "homepage": "https://github.com/esgi-projets/projet-annuel-3iw2#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "latest",
+    "parcel": "latest"
+  }
 }

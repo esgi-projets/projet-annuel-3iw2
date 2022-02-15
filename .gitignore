@@ -1,3 +1,5 @@
 db_data
 .idea
 /.DS_Store
+/node_modules
+/.parcel-cache
