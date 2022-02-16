@@ -30,7 +30,6 @@ if (!file_exists($routeFile)) {
 $routes = yaml_parse_file($routeFile);
 
 // Load ressources files without routing
-
 if (strpos($uri, '.css') !== false) {
     header("Content-Type: text/css");
     include(dirname(__FILE__) . "/View/" . $uri);
@@ -39,7 +38,7 @@ if (strpos($uri, '.css') !== false) {
     header("Content-Type: application/javascript");
     include(dirname(__FILE__) . "/View/" . $uri);
     exit;
-} elseif (file_exists(dirname(__FILE__) . "/View/" . $uri)) {
+} elseif (file_exists(dirname(__FILE__) . "/View/" . $uri) && $uri != "/") {
     include(dirname(__FILE__) . "/View/" . $uri);
     exit;
 }
