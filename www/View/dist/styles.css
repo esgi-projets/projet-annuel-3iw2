@@ -1,8 +1,9 @@
+@import "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap";
 @charset "UTF-8";
 * {
   box-sizing: border-box;
 }
-
 html {
   -webkit-text-size-adjust: none;
   /*─ Debug font size on iphone when landscape orientation ─*/
@@ -11,7 +12,6 @@ html {
   -webkit-font-smoothing: antialiased;
   /*─ idem : Debug safari font weight when fixed element on the page ─*/
 }
-
 html,
 body,
 nav,
@@ -40,15 +40,12 @@ button {
   font: inherit;
   font-size: 100%;
 }
-
 ul {
   list-style: none;
 }
-
 li {
   list-style: none;
 }
-
 input,
 textarea,
 select,
@@ -61,51 +58,42 @@ button {
   background: none;
   color: inherit;
 }
-
 input:focus,
 textarea:focus,
 button:focus {
   outline: none;
 }
-
 input[type=submit]:hover,
 button:hover {
   cursor: pointer;
 }
-
 input::-ms-clear {
   display: none;
   /*─ IE11 → remove cross to close ─*/
 }
-
 textarea {
   overflow: auto;
   /*─ Hide scroll bar on IE ─*/
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 img,
 video,
 svg,
 picture {
   display: block;
 }
-
 img,
 video {
   width: 100%;
   height: auto;
 }
-
 svg {
   width: 100%;
   height: 100%;
 }
-
 iframe {
   position: absolute;
   top: 0;
@@ -113,11 +101,203 @@ iframe {
   width: 100%;
   height: 100%;
 }
-
+.button {
+  display: inline-block;
+  padding: 1em 2em;
+  color: #FAFCFE;
+  background-color: #4A4A68;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  border-radius: 12px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 1.2vw;
+}
+.button:hover {
+  background-color: #5f5f86;
+}
+.button--success {
+  background-color: #0FA958;
+}
+.button--success:hover {
+  background-color: #13d870;
+}
+.button--error {
+  background-color: #DB162F;
+}
+.button--error:hover {
+  background-color: #eb3950;
+}
+.button--primary {
+  background-color: #4F46E5;
+}
+.button--primary:hover {
+  background-color: #7a73eb;
+}
+.button--warning {
+  background-color: #E67E22;
+}
+.button--warning:hover {
+  background-color: #eb9950;
+}
+.button--secondary {
+  background-color: #EEF0F2;
+  color: #4F46E5;
+}
+.button--secondary:hover {
+  background-color: #fcfdfd;
+}
+.button--secondary--success {
+  background-color: #EEF0F2;
+  color: #0FA958;
+}
+.button--secondary--success:hover {
+  background-color: #fcfdfd;
+}
+.button--secondary--error {
+  background-color: #EEF0F2;
+  color: #DB162F;
+}
+.button--secondary--error:hover {
+  background-color: #fcfdfd;
+}
+.button--secondary--primary {
+  background-color: #EEF0F2;
+  color: #4F46E5;
+}
+.button--secondary--primary:hover {
+  background-color: #fcfdfd;
+}
+.button--secondary--warning {
+  background-color: #EEF0F2;
+  color: #E67E22;
+}
+.button--secondary--warning:hover {
+  background-color: #fcfdfd;
+}
+.button--tertiary {
+  background-color: #FAFCFE;
+  color: #4F46E5;
+  border: 0.01em solid #EEF0F2;
+}
+.button--tertiary:hover {
+  background-color: #4F46E5;
+  color: #FAFCFE;
+}
+.button--tertiary--success {
+  background-color: #FAFCFE;
+  color: #0FA958;
+}
+.button--tertiary--success:hover {
+  background-color: #0FA958;
+  color: #FAFCFE;
+}
+.button--tertiary--error {
+  background-color: #FAFCFE;
+  color: #DB162F;
+  border: 0.01em solid #EEF0F2;
+}
+.button--tertiary--error:hover {
+  background-color: #DB162F;
+  color: #FAFCFE;
+}
+.button--tertiary--warning {
+  background-color: #FAFCFE;
+  color: #E67E22;
+}
+.button--tertiary--warning:hover {
+  background-color: #E67E22;
+  color: #FAFCFE;
+}
+.button--link {
+  background-color: white;
+  color: #4F46E5;
+}
+.button--link:hover {
+  background-color: white;
+  color: #291fd9;
+}
+.button--link--success {
+  background-color: white;
+  color: #0FA958;
+}
+.button--link--success:hover {
+  background-color: white;
+  color: #0b7a40;
+}
+.button--link--error {
+  background-color: white;
+  color: #DB162F;
+}
+.button--link--error:hover {
+  background-color: white;
+  color: #ad1125;
+}
+.button--link--warning {
+  background-color: white;
+  color: #E67E22;
+}
+.button--link--warning:hover {
+  background-color: white;
+  color: #bf6516;
+}
+.button--disabled {
+  cursor: not-allowed;
+  background-color: #EEF0F2;
+  color: #b4bdc6;
+  pointer-events: none;
+}
+input {
+  height: 3vw;
+  width: 15vw;
+  border: 2px solid;
+  margin: 1px;
+  border-radius: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  color: #fcfdfd;
+}
+::placeholder {
+  font-size: 1.2vw;
+}
+.input {
+  background-color: transparent;
+  border-color: #fcfdfd;
+  display: flex;
+  align-items: center;
+}
+.input--error {
+  border-color: #f496a2;
+}
+.input--error:focus {
+  border-color: #f06779;
+}
+.input--valid {
+  border-color: #60f1a5;
+}
+.input--valid:focus {
+  border-color: #31ed8a;
+}
+.input--disabled {
+  border-color: #EEF0F2;
+  background-color: #e0e3e7;
+  pointer-events: none;
+}
+input, .input {
+  font-size: 1.4rem;
+  padding: 0 1.2rem;
+  border-color: #e0e3e7;
+}
+.input:focus {
+  border-color: #a49ff2;
+}
 h1 {
-  color: red;
+  color: #DB162F;
   font-size: 2em;
   font-weight: bold;
   padding: 2rem;
+  font-family: "Montserrat", sans-serif;
 }
 /*# sourceMappingURL=styles.css.map */

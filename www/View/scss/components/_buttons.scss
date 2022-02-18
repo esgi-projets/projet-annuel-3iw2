@@ -1,0 +1,174 @@
+.button{
+	display: inline-block;
+	padding: 1em 2em;
+	color: $color--white;
+	background-color: $color--gray;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s;
+  text-align: center;
+  border-radius: 12px;
+  font-family: $font1;
+  font-weight: bold;
+  font-size: 1.2vw;
+
+
+
+	&:hover{
+		background-color: $color--gray--300;
+	}
+
+
+	&--success{
+		background-color: $color--success;
+		&:hover{
+			background-color: $color--success--300; 
+		}
+	}
+
+	&--error{
+		background-color: $color--error;
+		&:hover{
+			background-color: $color--error--300; 
+		}
+	}
+
+  &--primary{
+		background-color: $color--primary;
+		&:hover{
+			background-color: $color--primary--300; 
+		}
+	}
+
+  &--warning{
+		background-color: $color--warning;
+		&:hover{
+			background-color: $color--warning--300; 
+		}
+	}
+
+  &--secondary{
+    background-color: $color--lightgrey;
+    color: $color--primary;
+    &:hover{
+			background-color: $color--lightgrey--400;
+		}
+
+    &--success{
+      background-color: $color--lightgrey;
+      color: $color--success;
+      &:hover{
+        background-color: $color--lightgrey--400; 
+      }
+    }
+  
+    &--error{
+      background-color: $color--lightgrey;
+      color: $color--error;
+      &:hover{
+        background-color: $color--lightgrey--400; 
+      }
+    }
+  
+    &--primary{
+      background-color: $color--lightgrey;
+      color: $color--primary;
+      &:hover{
+        background-color: $color--lightgrey--400; 
+      }
+    }
+  
+    &--warning{
+      background-color: $color--lightgrey;
+      color: $color--warning;
+      &:hover{
+        background-color: $color--lightgrey--400; 
+      }
+    }
+  }
+
+  &--tertiary{
+    background-color: $color--white;
+    color: $color--primary;
+    border: 0.01em solid $color--lightgrey;
+    &:hover{
+			background-color: $color--primary;
+      color: $color--white;
+		}
+
+    &--success{
+      background-color: $color--white;
+      color: $color--success;
+      &:hover{
+        background-color: $color--success;
+        color: $color--white;
+      }
+    }
+  
+    &--error{
+      background-color: $color--white;
+      color: $color--error;
+      border: 0.01em solid $color--lightgrey;
+      &:hover{
+        background-color: $color--error;
+        color: $color--white;
+      }
+    }
+  
+    &--warning{
+      background-color: $color--white;
+      color: $color--warning;
+      &:hover{
+        background-color: $color--warning;
+        color: $color--white;
+      }
+    }
+  }
+
+  &--link{ 
+    background-color: white;
+    color: $color--primary;
+    &:hover{
+      background-color: white;
+      color: $color--primary--700;
+		}
+
+    &--success{
+      background-color: white;
+      color: $color--success;
+      &:hover{
+        background-color: white;
+        color: $color--success--700; 
+      }
+    }
+  
+    &--error{
+      background-color: white;
+      color: $color--error;
+      &:hover{
+        background-color: white;
+        color: $color--error--700; 
+      }
+    }
+  
+    &--warning{
+      background-color: white;
+      color: $color--warning;
+      &:hover{
+        background-color: white;
+        color: $color--warning--700; 
+      }
+    }
+  }
+
+  &--disabled{
+    cursor: not-allowed;
+    background-color: $color--lightgrey;
+    color: $color--lightgrey--800;
+    pointer-events: none;
+  }
+
+
+}
+
+
