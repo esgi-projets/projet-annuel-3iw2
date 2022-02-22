@@ -6,11 +6,19 @@ input{
   border-radius: 0.8rem;
   font-family: $font1;
   font-weight: bold;
-  color: $color--lightgrey--400;
+  color: $color--dark--400;
+  //font-size: 0.5rem; useless ?
+}
+
+label{
+  font-family: $font1;
+  color: $color--lightgrey--900;
 }
 
 ::placeholder {
   font-size: 1.2vw;
+  text-align: left;
+  vertical-align: middle;
 }
 
 .input{

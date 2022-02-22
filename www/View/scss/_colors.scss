@@ -7,10 +7,10 @@ $color--success:#0FA958;
 $color--error:#DB162F;
 $color--warning:#E67E22;
 
-$color--lightgrey--100: lighten($color--lightgrey, 30%);
-$color--lightgrey--200: lighten($color--lightgrey, 20%);
-$color--lightgrey--300: lighten($color--lightgrey, 10%);
-$color--lightgrey--400: lighten($color--lightgrey, 5%);
+$color--lightgrey--100: lighten($color--lightgrey, 15%);
+$color--lightgrey--200: lighten($color--lightgrey, 10%);
+$color--lightgrey--300: lighten($color--lightgrey, 5%);
+$color--lightgrey--400: lighten($color--lightgrey, 2%);
 $color--lightgrey--500: $color--lightgrey;
 $color--lightgrey--600: darken($color--lightgrey, 5%);
 $color--lightgrey--700: darken($color--lightgrey, 10%);

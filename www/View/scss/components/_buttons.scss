@@ -10,7 +10,9 @@
   border-radius: 12px;
   font-family: $font1;
   font-weight: bold;
-  font-size: 1.2vw;
+  font-size: 1.1vw;
+  margin-top: 1em;
+  
 
 
 
@@ -48,39 +50,49 @@
 	}
 
   &--secondary{
-    background-color: $color--lightgrey;
+    background-color: $color--lightgrey--400;
     color: $color--primary;
     &:hover{
-			background-color: $color--lightgrey--400;
+			background-color: $color--lightgrey--300;
 		}
 
     &--success{
-      background-color: $color--lightgrey;
+      background-color: $color--lightgrey--400;
       color: $color--success;
       &:hover{
-        background-color: $color--lightgrey--400; 
+        background-color: $color--lightgrey--300; 
       }
     }
   
     &--error{
-      background-color: $color--lightgrey;
+      background-color: $color--lightgrey--400;
       color: $color--error;
       &:hover{
-        background-color: $color--lightgrey--400; 
+        background-color: $color--lightgrey--300; 
       }
     }
   
     &--primary{
-      background-color: $color--lightgrey;
+      background-color: $color--lightgrey--400;
       color: $color--primary;
       &:hover{
-        background-color: $color--lightgrey--400; 
+        background-color: $color--lightgrey--300; 
       }
     }
   
     &--warning{
-      background-color: $color--lightgrey;
+      background-color: $color--lightgrey--400;
       color: $color--warning;
+      &:hover{
+        background-color: $color--lightgrey--300; 
+      }
+    }
+
+    &--menu{
+      background-color: $color--lightgrey--300;
+      color: $color--gray--500;
+      margin: 0.5rem;
+      margin-top: 1.5rem;
       &:hover{
         background-color: $color--lightgrey--400; 
       }

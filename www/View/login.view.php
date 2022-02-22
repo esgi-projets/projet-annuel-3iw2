@@ -1,31 +1,27 @@
-<h1>Se connecter</h1>
+<div class="row">
+  <div class="col-6-xl">
 
-<button class="button">Hello</button>
+    <button class="button button--link">
+      < Retour</button>
+        <div class="login">
+          <img class="logo" src="./assets/images/BMW_logo_(gray).svg.png" alt="logo">
+          <h1>Se connecter</h1>
+          <h3>Pour accéder à cette page il est nécessaire de s’authentifier</h3>
 
-<button class="button button--success">Test</button>
+          <label>Email</label>
+          <input type="text" class="input" placeholder="example@test.fr">
 
-<button class="button button--primary">Bouton</button>
+          <label>Mot de passe</label>
+          <input type="password" class="input">
 
-<button class="button button--error">Bouton</button>
+          <button class="button button--primary">Se connecter</button>
+          <button class="button button--secondary">Créer un compte</button>
+          <button class="button button--link">Mot de passe oublié ?</button>
+        </div>
+  </div>
 
-<button class="button button--secondary">Bouton</button>
+  <div class="col-6-xl">
+    <img src="./assets/images/dmitry-timofeew-UU18rjWiQmo-unsplash.jpg" alt="car">
+  </div>
 
-<button class="button button--secondary--success">Bouton</button>
-
-<button class="button button--tertiary">Bouton</button>
-
-<button class="button button--tertiary--error">Bouton</button>
-
-<button class="button button--disabled">Bouton</button>
-
-<button class="button button--link">Lien</button>
-
-<button class="button button--link--warning">Lien</button>
-
-<input type="text" class="input" placeholder="Textfield text">
-
-<input type="text" class="input--error" placeholder="Textfield text">
-
-<input type="text" class="input--valid" placeholder="Textfield text">
-
-<input type="text" class="input--disabled" placeholder="Textfield text">
+</div>

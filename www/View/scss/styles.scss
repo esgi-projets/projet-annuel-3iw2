@@ -1,14 +1,13 @@
-@import '_reset.scss';
-@import '_fonts.scss';
-@import '_colors.scss';
+//base variables
+@import 'reset';
+@import 'fonts';
+@import 'colors';
 
-@import 'components/_buttons.scss';
-@import 'components/_inputs.scss';
+//base & layout
+@import 'breakpoints';
+@import 'grid';
+@import 'base';
 
-h1 {
-  color: $color--error;
-  font-size: 2em;
-  font-weight: bold;
-  padding: 2rem;
-  font-family: $font1;
-}
+//components
+@import 'components/buttons';
+@import 'components/inputs';
