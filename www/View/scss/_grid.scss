@@ -1,12 +1,25 @@
-@use "sass:math";
+@use 'sass:math';
 
 $grid-columns: 12;
+$margin-none: 0;
+$margin-sm: 5;
+$margin-base: 15;
+$margin-lg: 30;
+$margin-xl: 50;
+$margin-xxl: 100;
 
-// base layout classes 
+$padding-xxl: 100;
+$padding-xl: 50;
+$padding-lg: 30;
+$padding-base: 15;
+$padding-sm: 5;
+$padding-none: 0;
+
+// base layout classes
 
 .container {
   width: 100%;
-  max-width : 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
@@ -15,6 +28,11 @@ $grid-columns: 12;
 .row {
   display: flex;
   flex-flow: row wrap;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
 }
 
 // col classes

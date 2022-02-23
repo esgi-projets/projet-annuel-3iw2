@@ -1,4 +1,3 @@
-
 h1 {
   color: $color--dark;
   font-size: 1.8em;
@@ -23,50 +22,52 @@ h2 {
 }
 
 .logo {
-  height: 64px;
-  width: 64px;
-  margin : 1rem;
-  margin-left: 2rem;
+  height: 96px;
+  width: 96px;
 }
-
-.car
-
-.menu {
-  background-color: $color--lightgrey--300;
-  padding-left: 1.5rem;
-}
-
-.login{  
-  button{
-    margin: 0.5rem;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    width: 90%;
-  }
-  input[type="text"],[type="password"]{
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    margin-bottom: 1.5rem;
-    width: 90%;
-    
-    input[type="text"],[type="password"]:placeholder{
-      padding: 5px 5px;
-    }
-  }
-  label{
-    margin-left: 1.5rem;
-    padding-top: 1.5rem;
-  }
-  h3{
-    margin-bottom: 1.5rem;
-  }
-}
-
 
 .align-right {
-  
   position: relative;
   text-align: right;
   top: 0;
 }
 
+$max: 50;
+$offset: 1;
+$unit: 'rem';
+$diviser: 4;
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i} {
+      #{$styleName}: #{calc($i/$diviser) + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+
+@include list-loop('.pl-', 'padding-left');
+
+// Margins
+@include list-loop('.mt-', 'margin-top');
+@include list-loop('.mr-', 'margin-right');
+@include list-loop('.mb-', 'margin-bottom');
+@include list-loop('.ml-', 'margin-left');
+@include list-loop('.mx-', 'margin');
+// Paddings
+@include list-loop('.pt-', 'padding-top');
+@include list-loop('.pr-', 'padding-right');
+@include list-loop('.pb-', 'padding-bottom');
+@include list-loop('.pl-', 'padding-left');
+@include list-loop('.px-', 'padding');
+
+$unit: '%';
+$offset: 5;
+$max: 100;
+$diviser: 1;
+
+// Widths
+@include list-loop('.w-', 'width');
+
+// Heights
+@include list-loop('.h-', 'height');

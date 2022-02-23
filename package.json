@@ -28,5 +28,8 @@
   "devDependencies": {
     "@parcel/transformer-sass": "latest",
     "parcel": "latest"
+  },
+  "dependencies": {
+    "heroicons": "^1.0.5"
   }
 }
