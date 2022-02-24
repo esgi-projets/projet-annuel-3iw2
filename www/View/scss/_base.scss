@@ -26,6 +26,17 @@ h2 {
   width: 96px;
 }
 
+.height-screen {
+  width: auto;
+  height: 100vh;
+}
+
+.flexbox-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
 .align-right {
   position: relative;
   text-align: right;

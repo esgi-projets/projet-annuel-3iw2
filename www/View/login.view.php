@@ -5,8 +5,8 @@
       </svg>
       </svg> Retour
     </button>
-    <div class="ml-5 container">
-      <img class="logo mx-5" src="./assets/images/BMW_logo_(gray).svg.png" alt="logo">
+    <div class="container-center pl-20 pt-10 pr-10">
+      <img class="logo mx-6" src="./assets/images/BMW_logo_(gray).svg.png" alt="logo">
       <h1>Se connecter</h1>
       <h3 class="mb-8">Pour accéder à cette page il est nécessaire de s’authentifier</h3>
 
@@ -31,8 +31,8 @@
     </div>
   </div>
 
-  <div class="col-6-xl h-50">
-    <img src="./assets/images/dmitry-timofeew-UU18rjWiQmo-unsplash.jpg" alt="car">
+  <div class="col-6-xl flexbox-right">
+    <img class="height-screen" src="./assets/images/dmitry-timofeew-UU18rjWiQmo-unsplash.jpg" alt="car">
   </div>
 
 </div>

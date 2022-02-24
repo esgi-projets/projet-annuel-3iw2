@@ -25,6 +25,14 @@ $padding-none: 0;
   box-sizing: border-box;
 }
 
+.container-center {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  overflow: auto;
+}
+
 .row {
   display: flex;
   flex-flow: row wrap;

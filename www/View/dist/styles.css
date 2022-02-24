@@ -108,6 +108,13 @@ iframe {
   padding: 0 20px;
   box-sizing: border-box;
 }
+.container-center {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  overflow: auto;
+}
 .row {
   display: flex;
   flex-flow: row wrap;
@@ -504,6 +511,15 @@ h2 {
 .logo {
   height: 96px;
   width: 96px;
+}
+.height-screen {
+  width: auto;
+  height: 100vh;
+}
+.flexbox-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 .align-right {
   position: relative;
@@ -2331,7 +2347,7 @@ h2 {
   border-radius: 12px;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
-  font-size: 1.1vw;
+  font-size: 18px;
   margin-top: 1em;
 }
 .button:hover {
@@ -2483,13 +2499,13 @@ h2 {
   pointer-events: none;
 }
 input {
-  height: 3vw;
+  height: 48px;
   width: 15vw;
   border: 2px solid;
   margin: 1px;
   border-radius: 0.8rem;
   font-family: "Roboto", sans-serif;
-  font-weight: bold;
+  font-weight: 600;
   color: #272429;
 }
 label {
@@ -2497,7 +2513,7 @@ label {
   color: #97a4b0;
 }
 ::placeholder {
-  font-size: 1.2vw;
+  font-size: 16px;
   text-align: left;
   vertical-align: middle;
 }
@@ -2524,9 +2540,10 @@ label {
   background-color: #e0e3e7;
   pointer-events: none;
 }
-input, .input {
-  font-size: 1.4rem;
-  padding: 0 1.2rem;
+input,
+.input {
+  font-size: 16px;
+  padding: 0 16px;
   border-color: #e0e3e7;
 }
 .input:focus {
