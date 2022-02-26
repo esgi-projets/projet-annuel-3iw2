@@ -34,6 +34,6 @@
   </div>
 
   <div class="col-6-xl hidden-xl">
-    <img src="./assets/images/dmitry-timofeew-UU18rjWiQmo-unsplash.jpg" alt="car">
+    <img class="fit-image" src="./assets/images/dmitry-timofeew-UU18rjWiQmo-unsplash.jpg" alt="side-image">
   </div>
 </div>

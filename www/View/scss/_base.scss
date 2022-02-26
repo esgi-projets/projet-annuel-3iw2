@@ -31,10 +31,20 @@ h2 {
   -ms-user-select: none;
 }
 
-.align-right {
-  position: relative;
-  text-align: right;
-  top: 0;
+.fit-image {
+  inset: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+  border: none;
+  margin: auto;
+  display: block;
+  width: 0px;
+  height: 0px;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }
 
 $max: 50;
