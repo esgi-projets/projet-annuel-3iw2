@@ -27,15 +27,17 @@ $padding-none: 0;
 
 .container-center {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  -webkit-box-flex: 1;
+  text-align: left;
   flex-grow: 1;
-  overflow: auto;
 }
 
 .row {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .column {
@@ -92,5 +94,35 @@ $padding-none: 0;
       flex-grow: 0;
       width: math.div($i * 100%, $grid-columns);
     }
+  }
+}
+
+@include xs-max {
+  .hidden-xs {
+    display: none;
+  }
+}
+
+@include sm-max {
+  .hidden-sm {
+    display: none;
+  }
+}
+
+@include md-max {
+  .hidden-md {
+    display: none;
+  }
+}
+
+@include lg-max {
+  .hidden-lg {
+    display: none;
+  }
+}
+
+@include xl-max {
+  .hidden-xl {
+    display: none;
   }
 }
