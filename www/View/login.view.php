@@ -9,7 +9,7 @@
       <div class="w-80 mt-4">
         <img class="logo mx-6" src="./assets/images/BMW_logo_(gray).svg.png" alt="logo">
         <h1>Se connecter</h1>
-        <h3 class="mb-8">Pour accéder à cette page il est nécessaire de s’authentifier</h3>
+        <h3 class="mb-8 ml-8">Pour accéder à cette page il est nécessaire de s’authentifier</h3>
 
         <div class="pl-5">
           <div class="column pr-3 pl-3 pb-5">

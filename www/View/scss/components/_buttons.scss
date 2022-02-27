@@ -8,7 +8,7 @@
   transition: background-color 0.3s;
   text-align: center;
   border-radius: 12px;
-  font-family: $font1;
+  font-family: $font-roboto;
   font-weight: bold;
   font-size: 18px;
   margin-top: 1em;
@@ -85,12 +85,12 @@
     }
 
     &--menu {
-      background-color: $color--lightgrey--300;
-      color: $color--gray--500;
-      margin: 0.5rem;
+      background-color: #11ffee00;
+      color: $color--gray--400;
       margin-top: 1.5rem;
+      width: 60%;
       &:hover {
-        background-color: $color--lightgrey--400;
+        background-color: $color--lightgrey--700;
       }
     }
   }

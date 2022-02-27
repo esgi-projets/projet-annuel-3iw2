@@ -7,6 +7,18 @@ $color--success:#0FA958;
 $color--error:#DB162F;
 $color--warning:#E67E22;
 
+$colors: (
+  "white":$color--white,
+  "lightgrey":$color--lightgrey,
+  "gray":$color--gray,
+  "dark":$color--dark,
+  "primary":$color--primary,
+  "success":$color--success,
+  "error":$color--error,
+  "warning":$color--warning
+);
+
+
 $color--lightgrey--100: lighten($color--lightgrey, 15%);
 $color--lightgrey--200: lighten($color--lightgrey, 10%);
 $color--lightgrey--300: lighten($color--lightgrey, 5%);
@@ -76,3 +88,30 @@ $color--warning--600: darken($color--warning, 5%);
 $color--warning--700: darken($color--warning, 10%);
 $color--warning--800: darken($color--warning, 20%);
 $color--warning--900: darken($color--warning, 30%);
+
+// Backgrounds
+@each $color-name, $color in $colors {
+  .bg-#{$color-name}{
+    background-color : #{$color};
+  } 
+  .color-#{$color-name}{
+    color : #{$color};
+  } 
+  //$percents:(
+  //  "100": lighten(#{$color}, 30%),
+  //  "200": lighten(#{$color}, 20%),
+  //  "300": lighten(#{$color}, 10%),
+  //  "400": lighten(#{$color}, 5%),
+  //  "500": #{$color},
+  //  "600": darken(#{$color}, 5%),
+  //  "700": darken(#{$color}, 10%),
+  //  "800": darken(#{$color}, 20%),
+  //  "900": darken(#{$color}, 30%),
+  //);
+  //@each $value, $percent in $percents{
+  // .bg-#{$color-name}-#{$value}{
+  //  background-color : $percent;
+  //}
+  //}
+  
+}
