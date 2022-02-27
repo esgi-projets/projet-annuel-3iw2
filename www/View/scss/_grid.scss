@@ -1,19 +1,6 @@
 @use 'sass:math';
 
 $grid-columns: 12;
-$margin-none: 0;
-$margin-sm: 5;
-$margin-base: 15;
-$margin-lg: 30;
-$margin-xl: 50;
-$margin-xxl: 100;
-
-$padding-xxl: 100;
-$padding-xl: 50;
-$padding-lg: 30;
-$padding-base: 15;
-$padding-sm: 5;
-$padding-none: 0;
 
 // base layout classes
 
@@ -36,7 +23,6 @@ $padding-none: 0;
 
 .container-menu {
   display: flex;
-  align-items: center;
   flex-direction: column;
   text-align: left;
   width: 100%;
@@ -48,12 +34,15 @@ $padding-none: 0;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: stretch;
-  height: 100vh;
 }
 
 .column {
   display: flex;
   flex-direction: column;
+}
+
+.align-flex-center {
+  align-items: center;
 }
 
 // col classes

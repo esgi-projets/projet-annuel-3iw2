@@ -2,42 +2,41 @@
 
 .card {
   display: inline-block;
-  padding: 2em;
-  color: $color--primary;
-  background-color: $color--gray--100;
-  border: 0.01em solid $color--lightgrey;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+  padding: 1em;
+  color: $color-primary;
+  background-color: $color-white;
+  border: 0.01em solid $color-lightgrey;
   border-radius: 24px;
   font-family: $font-roboto;
   font-size: 18px;
   margin-top: 1em;
   margin-bottom: 1em;
   width: 95%;
-  height: 25%;
-  box-shadow: 0 4px 8px 0 $color--lightgrey--700;
+  height: auto;
+  
 
-  &--primary {
-    background-color: $color--primary--100;
+  &-primary {
+    background-color: $color-primary-pastel;
   }
 
-  &--success {
-    background-color: $color--success--100;
+  &-success {
+    background-color: $color-success-pastel;
   }
 
-  &--warning {
-    background-color: $color--warning--100;
+  &-warning {
+    background-color: $color-warning-pastel;
   }
 
-  &--error {
-    background-color: $color--error--100;
+  &-error {
+    background-color: $color-error-pastel;
   }
 
-  &--lightgrey {
-    background-color: $color--lightgrey--400;
+  &-lightgrey {
+    background-color: $color-lightgrey--400;
+  }
+
+  &-shadow {
+    box-shadow: 0 4px 8px 0 $color-lightgrey--700;
   }
 }
 

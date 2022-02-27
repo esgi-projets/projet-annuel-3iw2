@@ -1,20 +1,20 @@
 h1 {
-  color: $color--dark;
+  color: $color-dark;
   font-size: 1.8em;
   font-weight: bold;
-  padding: 2rem;
+  padding: 1rem;
   font-family: $font-roboto;
 }
 
 h3 {
-  color: $color--dark;
+  color: $color-dark;
   font-size: 1em;
   font-family: $font-roboto;
 }
 
 h2 {
-  color: $color--dark;
-  font-size: 1em;
+  color: $color-dark;
+  font-size: 1.2em;
   font-weight: bold;
   font-family: $font-roboto;
 }
@@ -39,17 +39,13 @@ h2 {
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  border: 1px solid $color-lightgrey;
+  border-radius:50px
 }
 
-.wrapper {
-  display:table;
+.profile {
+  display:flex;
 }
-
-.inner{
-  display:table-cell;
-  vertical-align:middle;
-  text-align:center;
-  }
 
 .fit-image {
   inset: 0px;
@@ -71,12 +67,28 @@ h2 {
   text-align: center;
 }
 
+.text-left{
+  text-align: left;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  text-align: center;
+}
+
 table {
   margin: 0;
   padding: 0;
   width: 100%;
-  color: $color--dark--500;
+  color: $color-dark--500;
   table-layout: fixed;
+  font-family: $font-roboto;
 }
 
 table tr {
@@ -87,12 +99,12 @@ table th,
 table td {
   padding: .625em;
   text-align: center;
-  word-break: break-word;
+  font-family: $font-roboto;
 }
 
 table th {
   font-size: .9em;
-  border-bottom: 1px solid $color--lightgrey--600;
+  border-bottom: 1px solid $color-lightgrey--600;
 }
 
 @media screen and (max-width: 600px) {
@@ -101,7 +113,7 @@ table th {
   }
   
   table thead {
-    border-bottom: 1px solid $color--lightgrey--600;
+    border-bottom: 1px solid $color-lightgrey--600;
     clip: rect(0 0 0 0);
     height: 1px;
     margin: -1px;
@@ -114,6 +126,7 @@ table th {
   table tr {
     display: block;
     margin-bottom: .625em;
+    border-bottom: 1px solid $color-lightgrey--600;
   }
   
   table td {
@@ -130,7 +143,6 @@ table th {
     content: attr(data-label);
     float: left;
     font-weight: bold;
-    text-transform: uppercase;
   }
   
   table td:last-child {
@@ -180,3 +192,11 @@ $diviser: 1;
 
 // Heights
 @include list-loop('.h-', 'height');
+
+$unit: '';
+$offset: 100;
+$max: 900;
+$diviser: 1;
+
+// Weight
+@include list-loop('.font-', 'font-weight');

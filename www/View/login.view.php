@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-6-xl col-12-xs">
-    <button class="button button--link button--icon"> <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height:24px;" viewBox="0 0 20 20" fill="currentColor">
+    <button class="button button-link button-icon"> <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height:24px;" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
       </svg>
       </svg> Retour
@@ -24,9 +24,9 @@
           </div>
 
           <div class="column mt-8 pr-3 pl-3">
-            <button class="button button--primary">Se connecter</button>
-            <button class="button button--secondary">Créer un compte</button>
-            <button class="button button--link">Mot de passe oublié ?</button>
+            <button class="button button-primary">Se connecter</button>
+            <button class="button button-secondary">Créer un compte</button>
+            <button class="button button-link">Mot de passe oublié ?</button>
           </div>
         </div>
       </div>

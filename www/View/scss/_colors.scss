@@ -1,93 +1,114 @@
-$color--white:#FAFCFE;
-$color--lightgrey:#EEF0F2;
-$color--gray:#4A4A68;
-$color--dark:#1A181B;
-$color--primary:#4F46E5;
-$color--success:#0FA958;
-$color--error:#DB162F;
-$color--warning:#E67E22;
+$color-white:#FAFCFE;
+$color-lightgrey:#EEF0F2;
+$color-gray:#4A4A68;
+$color-dark:#1A181B;
+$color-primary:#4F46E5;
+$color-success:#0FA958;
+$color-error:#DB162F;
+$color-warning:#E67E22;
 
 $colors: (
-  "white":$color--white,
-  "lightgrey":$color--lightgrey,
-  "gray":$color--gray,
-  "dark":$color--dark,
-  "primary":$color--primary,
-  "success":$color--success,
-  "error":$color--error,
-  "warning":$color--warning
+  "white":$color-white,
+  "lightgrey":$color-lightgrey,
+  "gray":$color-gray,
+  "dark":$color-dark,
+  "primary":$color-primary,
+  "success":$color-success,
+  "error":$color-error,
+  "warning":$color-warning
 );
 
 
-$color--lightgrey--100: lighten($color--lightgrey, 15%);
-$color--lightgrey--200: lighten($color--lightgrey, 10%);
-$color--lightgrey--300: lighten($color--lightgrey, 5%);
-$color--lightgrey--400: lighten($color--lightgrey, 2%);
-$color--lightgrey--500: $color--lightgrey;
-$color--lightgrey--600: darken($color--lightgrey, 5%);
-$color--lightgrey--700: darken($color--lightgrey, 10%);
-$color--lightgrey--800: darken($color--lightgrey, 20%);
-$color--lightgrey--900: darken($color--lightgrey, 30%);
+$color-lightgrey--100: lighten($color-lightgrey, 15%);
+$color-lightgrey--200: lighten($color-lightgrey, 10%);
+$color-lightgrey--300: lighten($color-lightgrey, 5%);
+$color-lightgrey--400: lighten($color-lightgrey, 2%);
+$color-lightgrey--500: $color-lightgrey;
+$color-lightgrey--600: darken($color-lightgrey, 5%);
+$color-lightgrey--700: darken($color-lightgrey, 10%);
+$color-lightgrey--800: darken($color-lightgrey, 20%);
+$color-lightgrey--900: darken($color-lightgrey, 30%);
 
-$color--gray--100: lighten($color--gray, 30%);
-$color--gray--200: lighten($color--gray, 20%);
-$color--gray--300: lighten($color--gray, 10%);
-$color--gray--400: lighten($color--gray, 5%);
-$color--gray--500: $color--gray;
-$color--gray--600: darken($color--gray, 5%);
-$color--gray--700: darken($color--gray, 10%);
-$color--gray--800: darken($color--gray, 20%);
-$color--gray--900: darken($color--gray, 30%);
+$color-gray--100: lighten($color-gray, 30%);
+$color-gray--200: lighten($color-gray, 20%);
+$color-gray--300: lighten($color-gray, 10%);
+$color-gray--400: lighten($color-gray, 5%);
+$color-gray--500: $color-gray;
+$color-gray--600: darken($color-gray, 5%);
+$color-gray--700: darken($color-gray, 10%);
+$color-gray--800: darken($color-gray, 20%);
+$color-gray--900: darken($color-gray, 30%);
 
-$color--dark--100: lighten($color--dark, 30%);
-$color--dark--200: lighten($color--dark, 20%);
-$color--dark--300: lighten($color--dark, 10%);
-$color--dark--400: lighten($color--dark, 5%);
-$color--dark--500: $color--dark;
-$color--dark--600: darken($color--dark, 5%);
-$color--dark--700: darken($color--dark, 10%);
-$color--dark--800: darken($color--dark, 20%);
-$color--dark--900: darken($color--dark, 30%);
+$color-dark--100: lighten($color-dark, 30%);
+$color-dark--200: lighten($color-dark, 20%);
+$color-dark--300: lighten($color-dark, 10%);
+$color-dark--400: lighten($color-dark, 5%);
+$color-dark--500: $color-dark;
+$color-dark--600: darken($color-dark, 5%);
+$color-dark--700: darken($color-dark, 10%);
+$color-dark--800: darken($color-dark, 20%);
+$color-dark--900: darken($color-dark, 30%);
 
-$color--primary--100: lighten($color--primary, 30%);
-$color--primary--200: lighten($color--primary, 20%);
-$color--primary--300: lighten($color--primary, 10%);
-$color--primary--400: lighten($color--primary, 5%);
-$color--primary--500: $color--primary;
-$color--primary--600: darken($color--primary, 5%);
-$color--primary--700: darken($color--primary, 10%);
-$color--primary--800: darken($color--primary, 20%);
-$color--primary--900: darken($color--primary, 30%);
+$color-primary--100: lighten($color-primary, 30%);
+$color-primary--200: lighten($color-primary, 20%);
+$color-primary--300: lighten($color-primary, 10%);
+$color-primary--400: lighten($color-primary, 5%);
+$color-primary--500: $color-primary;
+$color-primary--600: darken($color-primary, 5%);
+$color-primary--700: darken($color-primary, 10%);
+$color-primary--800: darken($color-primary, 20%);
+$color-primary--900: darken($color-primary, 30%);
 
-$color--success--100: lighten($color--success, 30%);
-$color--success--200: lighten($color--success, 20%);
-$color--success--300: lighten($color--success, 10%);
-$color--success--400: lighten($color--success, 5%);
-$color--success--500: $color--success;
-$color--success--600: darken($color--success, 5%);
-$color--success--700: darken($color--success, 10%);
-$color--success--800: darken($color--success, 20%);
-$color--success--900: darken($color--success, 30%);
+$color-success--100: lighten($color-success, 30%);
+$color-success--200: lighten($color-success, 20%);
+$color-success--300: lighten($color-success, 10%);
+$color-success--400: lighten($color-success, 5%);
+$color-success--500: $color-success;
+$color-success--600: darken($color-success, 5%);
+$color-success--700: darken($color-success, 10%);
+$color-success--800: darken($color-success, 20%);
+$color-success--900: darken($color-success, 30%);
 
-$color--error--100: lighten($color--error, 30%);
-$color--error--200: lighten($color--error, 20%);
-$color--error--300: lighten($color--error, 10%);
-$color--error--400: lighten($color--error, 5%);
-$color--error--500: $color--error;
-$color--error--600: darken($color--error, 5%);
-$color--error--700: darken($color--error, 10%);
-$color--error--800: darken($color--error, 20%);
-$color--error--900: darken($color--error, 30%);
+$color-error--100: lighten($color-error, 30%);
+$color-error--200: lighten($color-error, 20%);
+$color-error--300: lighten($color-error, 10%);
+$color-error--400: lighten($color-error, 5%);
+$color-error--500: $color-error;
+$color-error--600: darken($color-error, 5%);
+$color-error--700: darken($color-error, 10%);
+$color-error--800: darken($color-error, 20%);
+$color-error--900: darken($color-error, 30%);
 
-$color--warning--100: lighten($color--warning, 30%);
-$color--warning--200: lighten($color--warning, 20%);
-$color--warning--300: lighten($color--warning, 10%);
-$color--warning--400: lighten($color--warning, 5%);
-$color--warning--500: $color--warning;
-$color--warning--600: darken($color--warning, 5%);
-$color--warning--700: darken($color--warning, 10%);
-$color--warning--800: darken($color--warning, 20%);
-$color--warning--900: darken($color--warning, 30%);
+$color-warning--100: lighten($color-warning, 30%);
+$color-warning--200: lighten($color-warning, 20%);
+$color-warning--300: lighten($color-warning, 10%);
+$color-warning--400: lighten($color-warning, 5%);
+$color-warning--500: $color-warning;
+$color-warning--600: darken($color-warning, 5%);
+$color-warning--700: darken($color-warning, 10%);
+$color-warning--800: darken($color-warning, 20%);
+$color-warning--900: darken($color-warning, 30%);
+
+$color-primary-pastel : #E6F5F9;
+$color-success-pastel : #EEFCEF;
+$color-warning-pastel : #FFEEE1;
+$color-error-pastel : lighten($color-error, 45%);
+
+.bg-primary-pastel{
+  background-color : lighten($color-primary, 40%);
+}
+
+.bg-success-pastel{
+  background-color : lighten($color-success, 40%);
+}
+
+.bg-error-pastel{
+  background-color : lighten($color-error, 40%);
+}
+
+.bg-warning-pastel{
+  background-color : lighten($color-warning, 40%);
+}
 
 // Backgrounds
 @each $color-name, $color in $colors {
@@ -97,6 +118,9 @@ $color--warning--900: darken($color--warning, 30%);
   .color-#{$color-name}{
     color : #{$color};
   } 
+  //.bg-#{$color-name}-pastel{
+  //  background-color : lighten(#{$color}, 50%);
+  //} 
   //$percents:(
   //  "100": lighten(#{$color}, 30%),
   //  "200": lighten(#{$color}, 20%),

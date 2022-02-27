@@ -6,12 +6,12 @@ input {
   border-radius: 0.8rem;
   font-family: $font-roboto;
   font-weight: 600;
-  color: $color--dark--400;
+  color: $color-dark--400;
 }
 
 label {
   font-family: $font-roboto;
-  color: $color--lightgrey--900;
+  color: $color-lightgrey--900;
 }
 
 ::placeholder {
@@ -22,27 +22,27 @@ label {
 
 .input {
   background-color: transparent;
-  border-color: $color--lightgrey--400;
+  border-color: $color-lightgrey--400;
   display: flex;
   align-items: center;
 
   &--error {
-    border-color: $color--error--100;
+    border-color: $color-error--100;
     &:focus {
-      border-color: $color--error--200;
+      border-color: $color-error--200;
     }
   }
 
   &--valid {
-    border-color: $color--success--100;
+    border-color: $color-success--100;
     &:focus {
-      border-color: $color--success--200;
+      border-color: $color-success--200;
     }
   }
 
   &--disabled {
-    border-color: $color--lightgrey--500;
-    background-color: $color--lightgrey--600;
+    border-color: $color-lightgrey--500;
+    background-color: $color-lightgrey--600;
     pointer-events: none;
   }
 }
@@ -51,9 +51,9 @@ input,
 .input {
   font-size: 16px;
   padding: 0 16px;
-  border-color: $color--lightgrey--600;
+  border-color: $color-lightgrey--600;
 }
 
 .input:focus {
-  border-color: $color--primary--200;
+  border-color: $color-primary--200;
 }
