@@ -69,7 +69,7 @@
         <button class="button button-secondary">Se déconnecter</button>
       </div>
       <div class="col-12-xl col-12-lg col-12-md col-12-sm col-12-xs">
-        <h1 class="pl-6">Bonne soirée, <span class="color-primary"><?= $firstname ?></span> 🙌</h1>
+        <h1 class="pl-8">Bonne soirée, <span class="color-primary"><?= $firstname ?></span> 🙌</h1>
         <div class="row px-2">
           <div class="card card-3 card-warning card-shadow col-3-xl mx-auto">
             <h2 class="icon">Commandes
