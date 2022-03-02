@@ -3,13 +3,17 @@
 namespace App\Controller;
 
 use App\Core\View;
+use App\Model\User;
 
 class General
 {
 
     public function home()
     {
-        echo "Welcome";
+        $user = new User();
+        $id = $user->find('email', 'test@gmail.com')->id;
+        $user->setId($id);
+        print_r($user);
     }
 
     public function contact()
