@@ -22,6 +22,7 @@ span,
 h1,
 h2,
 h3,
+h4,
 p,
 a,
 img,
@@ -267,6 +268,10 @@ iframe {
     box-sizing: border-box;
     flex-grow: 0;
     width: 100%;
+  }
+
+  .shown-xs {
+    display: none;
   }
 }
 @media (min-width: 480px) {
@@ -562,26 +567,51 @@ iframe {
   }
 }
 @media (max-width: 0) {
-  .hidden-xs {
+  .hidden-under-xs {
     display: none;
   }
 }
 @media (max-width: 480px) {
-  .hidden-sm {
+  .hidden-under-sm {
     display: none;
   }
 }
 @media (max-width: 720px) {
-  .hidden-md {
+  .hidden-under-md {
     display: none;
   }
 }
 @media (max-width: 960px) {
-  .hidden-lg {
+  .hidden-under-lg {
     display: none;
   }
 }
 @media (max-width: 1200px) {
+  .hidden-under-xl {
+    display: none;
+  }
+}
+@media (min-width: 0) and (max-width: 480px) {
+  .hidden-xs {
+    display: none;
+  }
+}
+@media (min-width: 480px) and (max-width: 720px) {
+  .hidden-sm {
+    display: none;
+  }
+}
+@media (min-width: 720px) and (max-width: 960px) {
+  .hidden-md {
+    display: none;
+  }
+}
+@media (min-width: 960px) and (max-width: 1200px) {
+  .hidden-lg {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
   .hidden-xl {
     display: none;
   }
@@ -598,6 +628,11 @@ h3 {
   font-size: 1em;
   font-family: "Roboto", sans-serif;
 }
+h4 {
+  color: #1A181B;
+  font-size: 0.8em;
+  font-family: "Roboto", sans-serif;
+}
 h2 {
   color: #1A181B;
   font-size: 1.2em;
@@ -607,6 +642,15 @@ h2 {
 .logo {
   height: 96px;
   width: 96px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.mini-logo {
+  height: 40px;
+  width: 40px;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;

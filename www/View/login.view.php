@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="col-6-xl hidden-xl">
+  <div class="col-6-xl hidden-under-xl">
     <img class="fit-image" src="./assets/images/dmitry-timofeew-UU18rjWiQmo-unsplash.jpg" alt="side-image">
   </div>
 </div>
