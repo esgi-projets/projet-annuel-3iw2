@@ -1,11 +1,15 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
 }
 
 html {
-  -webkit-text-size-adjust: none; /*─ Debug font size on iphone when landscape orientation ─*/
-  -webkit-font-smoothing: subpixel-antialiased; /*─ Debug safari font weight when fixed element on the page ─*/
-  -webkit-font-smoothing: antialiased; /*─ idem : Debug safari font weight when fixed element on the page ─*/
+  -webkit-text-size-adjust: none;
+  /*─ Debug font size on iphone when landscape orientation ─*/
+  -webkit-font-smoothing: subpixel-antialiased;
+  /*─ Debug safari font weight when fixed element on the page ─*/
+  -webkit-font-smoothing: antialiased;
+  /*─ idem : Debug safari font weight when fixed element on the page ─*/
 }
 
 html,
@@ -18,7 +22,6 @@ span,
 h1,
 h2,
 h3,
-h4,
 p,
 a,
 img,
@@ -35,7 +38,6 @@ button {
   padding: 0;
   border: 0;
   font: inherit;
-  //font-family: inherit;
   font-size: 100%;
 }
 
@@ -66,17 +68,19 @@ button:focus {
   outline: none;
 }
 
-input[type='submit']:hover,
+input[type=submit]:hover,
 button:hover {
   cursor: pointer;
 }
 
 input::-ms-clear {
-  display: none; /*─ IE11 → remove cross to close ─*/
+  display: none;
+  /*─ IE11 → remove cross to close ─*/
 }
 
 textarea {
-  overflow: auto; /*─ Hide scroll bar on IE ─*/
+  overflow: auto;
+  /*─ Hide scroll bar on IE ─*/
 }
 
 a {
@@ -109,3 +113,4 @@ iframe {
   width: 100%;
   height: 100%;
 }
+/*# sourceMappingURL=_reset.css.map */

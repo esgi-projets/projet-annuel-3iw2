@@ -7,12 +7,13 @@ use App\Core\Validator;
 use App\Core\View;
 use App\Model\User as UserModel;
 
-class User{
+class User
+{
 
     public function login()
     {
         $view = new View("Login");
-        $view->assign("titleSeo","Se connecter au site");
+        $view->assign("titleSeo", "Se connecter | CMS");
     }
 
     public function logout()
@@ -26,7 +27,7 @@ class User{
         $user = new UserModel();
 
         print_r($_POST);
-        if( !empty($_POST)){
+        if (!empty($_POST)) {
             $result = Validator::run($user->getFormRegister(), $_POST);
             print_r($result);
         }
@@ -36,7 +37,6 @@ class User{
         //$user->save();
 
         $view = new View("register");
-        $view->assign("user",$user);
+        $view->assign("user", $user);
     }
-
 }

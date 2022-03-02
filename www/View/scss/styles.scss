@@ -1,8 +1,15 @@
-@import '_reset.scss';
+//base variables
+@import 'reset';
+@import 'fonts';
+@import 'colors';
 
-h1 {
-  color: red;
-  font-size: 2em;
-  font-weight: bold;
-  padding: 2rem;
-}
+//base & layout
+@import 'breakpoints';
+@import 'grid';
+@import 'base';
+
+//components
+@import 'components/buttons';
+@import 'components/inputs';
+@import 'components/cards';
+@import 'components/status';

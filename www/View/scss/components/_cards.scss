@@ -1,0 +1,47 @@
+@use 'sass:math';
+
+.card {
+  display: inline-block;
+  padding: 1em;
+  color: $color-primary;
+  background-color: $color-white;
+  border: 0.01em solid $color-lightgrey;
+  border-radius: 24px;
+  font-family: $font-roboto;
+  font-size: 18px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 95%;
+  height: auto;
+  
+
+  &-primary {
+    background-color: $color-primary-pastel;
+  }
+
+  &-success {
+    background-color: $color-success-pastel;
+  }
+
+  &-warning {
+    background-color: $color-warning-pastel;
+  }
+
+  &-error {
+    background-color: $color-error-pastel;
+  }
+
+  &-lightgrey {
+    background-color: $color-lightgrey--400;
+  }
+
+  &-shadow {
+    box-shadow: 0 4px 8px 0 $color-lightgrey--700;
+  }
+}
+
+@for $i from 6 to 1 {
+  .card-#{$i} {
+    width: math.div(90%, $i);
+  }
+}

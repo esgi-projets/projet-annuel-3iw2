@@ -1,0 +1,30 @@
+.status{
+  display: inline-block;
+  padding: 0.5em 1em;
+  color: $color-gray;
+  background-color: $color-lightgrey;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 20px;
+  font-family: $font-roboto;
+  font-weight: bold;
+  width: 8em;
+  font-size: 15px;
+
+  &-primary {
+    background-color: rgba($color-primary, 0.2);
+  }
+
+  &-success {
+    background-color: rgba($color-success, 0.2);
+  }
+
+  &-warning {
+    background-color: rgba($color-warning, 0.2);
+  }
+
+  &-error {
+    background-color: rgba($color-error, 0.2);
+  }
+}

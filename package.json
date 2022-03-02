@@ -2,7 +2,9 @@
   "name": "projet-annuel-3iw2",
   "description": "",
   "version": "1.0.0",
-  "source": "./www/View/scss/styles.scss",
+  "source": [
+    "./www/View/scss/styles.scss"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel --dist-dir www/View/dist",
@@ -26,5 +28,8 @@
   "devDependencies": {
     "@parcel/transformer-sass": "latest",
     "parcel": "latest"
+  },
+  "dependencies": {
+    "heroicons": "^1.0.5"
   }
 }

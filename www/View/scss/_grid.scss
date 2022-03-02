@@ -1,0 +1,161 @@
+@use 'sass:math';
+
+$grid-columns: 12;
+
+// base layout classes
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.container-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.container-menu {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-flex-center {
+  align-items: center;
+}
+
+// col classes + reverse hidden
+
+@include xs {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-xs {
+      box-sizing: border-box;
+      flex-grow: 0;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+  .shown-xs {
+    display: none;
+  }
+}
+
+@include sm {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-sm {
+      box-sizing: border-box;
+      flex-grow: 0;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+@include md {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-md {
+      box-sizing: border-box;
+      flex-grow: 0;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+@include lg {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-xlgs {
+      box-sizing: border-box;
+      flex-grow: 0;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+@include xl {
+  @for $i from 1 through $grid-columns {
+    .col-#{$i}-xl {
+      box-sizing: border-box;
+      flex-grow: 0;
+      width: math.div($i * 100%, $grid-columns);
+    }
+  }
+}
+
+@include xs-max {
+  .hidden-under-xs {
+    display: none;
+  }
+}
+
+@include sm-max {
+  .hidden-under-sm {
+    display: none;
+  }
+}
+
+@include md-max {
+  .hidden-under-md {
+    display: none;
+  }
+}
+
+@include lg-max {
+  .hidden-under-lg {
+    display: none;
+  }
+}
+
+@include xl-max {
+  .hidden-under-xl {
+    display: none;
+  }
+}
+
+@include xs-min {
+  .hidden-xs {
+    display: none;
+  }
+}
+
+@include sm-min {
+  .hidden-sm {
+    display: none;
+  }
+}
+
+@include md-min {
+  .hidden-md {
+    display: none;
+  }
+}
+
+@include lg-min {
+  .hidden-lg {
+    display: none;
+  }
+}
+
+@include xl-min {
+  .hidden-xl {
+    display: none;
+  }
+}

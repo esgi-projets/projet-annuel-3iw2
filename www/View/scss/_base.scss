@@ -1,0 +1,218 @@
+h1 {
+  color: $color-dark;
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 1rem;
+  font-family: $font-roboto;
+}
+
+h3 {
+  color: $color-dark;
+  font-size: 1em;
+  font-family: $font-roboto;
+}
+
+h4 {
+  color: $color-dark;
+  font-size: 0.8em;
+  font-family: $font-roboto;
+}
+
+h2 {
+  color: $color-dark;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: $font-roboto;
+}
+
+.logo {
+  height: 96px;
+  width: 96px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.mini-logo {
+  height: 40px;
+  width: 40px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.avatar {
+  height: 64px;
+  width: 64px;
+  display:inline-block;
+  vertical-align: middle;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  border: 1px solid $color-lightgrey;
+  border-radius:50px
+}
+
+.profile {
+  display:flex;
+}
+
+.fit-image {
+  inset: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+  border: none;
+  margin: auto;
+  display: block;
+  width: 0px;
+  height: 0px;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  text-align: center;
+}
+
+table {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: $color-dark--500;
+  table-layout: fixed;
+  font-family: $font-roboto;
+}
+
+table tr {
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+  font-family: $font-roboto;
+}
+
+table th {
+  font-size: .9em;
+  border-bottom: 1px solid $color-lightgrey--600;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+  
+  table thead {
+    border-bottom: 1px solid $color-lightgrey--600;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    display: block;
+    margin-bottom: .625em;
+    border-bottom: 1px solid $color-lightgrey--600;
+  }
+  
+  table td {
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+$max: 50;
+$offset: 1;
+$unit: 'rem';
+$diviser: 4;
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i} {
+      #{$styleName}: #{calc($i/$diviser) + $unit};
+    }
+    $i: $i + $offset;
+  }
+  #{$className + "auto"} {
+    #{$styleName}: auto;
+  }
+}
+
+@include list-loop('.pl-', 'padding-left');
+
+// Margins
+@include list-loop('.mt-', 'margin-top');
+@include list-loop('.mr-', 'margin-right');
+@include list-loop('.mb-', 'margin-bottom');
+@include list-loop('.ml-', 'margin-left');
+@include list-loop('.mx-', 'margin');
+// Paddings
+@include list-loop('.pt-', 'padding-top');
+@include list-loop('.pr-', 'padding-right');
+@include list-loop('.pb-', 'padding-bottom');
+@include list-loop('.pl-', 'padding-left');
+@include list-loop('.px-', 'padding');
+
+$unit: '%';
+$offset: 5;
+$max: 100;
+$diviser: 1;
+
+// Widths
+@include list-loop('.w-', 'width');
+
+// Heights
+@include list-loop('.h-', 'height');
+
+$unit: '';
+$offset: 100;
+$max: 900;
+$diviser: 1;
+
+// Weight
+@include list-loop('.font-', 'font-weight');
