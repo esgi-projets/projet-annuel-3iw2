@@ -13,17 +13,10 @@ class General
         $user = new User();
         $id = $user->find('email', 'test@gmail.com')->id;
         $user->setId($id);
-        print_r($user);
-    }
 
-    public function contact()
-    {
-        $view = new View("contact");
-    }
-
-    public function test()
-    {
-        $view = new View("test");
-        $view->assign("titleSeo", "test");
+        $view = new View("dashboard");
+        $view->assign("firstname", $user->getFirstname());
+        $view->assign("lastname", $user->getLastname());
+        $view->assign("role", $user->getFormattedRole());
     }
 }

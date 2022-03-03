@@ -12,19 +12,8 @@
         <h3 class="mb-8 ml-8">Pour accéder à cette page il est nécessaire de s’authentifier</h3>
 
         <div class="pl-5">
-          <div class="column pr-3 pl-3 pb-5">
-            <label class="mb-2">Email</label>
-            <input type="text" class="input w-100" placeholder="mail@exemple.com">
-          </div>
-
-
-          <div class="column pr-3 pl-3">
-            <label class="mb-2">Mot de passe</label>
-            <input type="password" class="input w-100">
-          </div>
-
-          <div class="column mt-8 pr-3 pl-3">
-            <button class="button button-primary">Se connecter</button>
+          <?php $this->includePartial("form", $user->getFormLogin()) ?>
+          <div class="column mt-2 pr-3 pl-3">
             <button class="button button-secondary">Créer un compte</button>
             <button class="button button-link">Mot de passe oublié ?</button>
           </div>

@@ -12,7 +12,9 @@ class User
 
     public function login()
     {
-        $view = new View("Login");
+        $user = new UserModel();
+        $view = new View("login");
+        $view->assign("user", $user);
         $view->assign("titleSeo", "Se connecter | CMS");
     }
 

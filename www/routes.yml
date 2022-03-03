@@ -2,10 +2,6 @@
   controller: general
   action: home
 
-/me-contacter:
-  controller: general
-  action: contact
-
 /login:
   controller: user
   action: login
@@ -18,11 +14,9 @@
   controller: user
   action: register
 
+# Admin routes
 
 /dashboard:
   controller: admin
   action: dashboard
-
-/test:
-  controller: general
-  action: test
+  protected: true

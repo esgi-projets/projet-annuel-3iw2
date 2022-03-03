@@ -5,7 +5,7 @@
         <img class="avatar mr-5" src="./assets/images/avatar.png" alt="avatar">
         <div class="column">
           <h2><?= $firstname ?> <?= $lastname ?></h2>
-          <h3 class="pt-1 font-600 color-gray">Administrateur 🇺🇦</h3>
+          <h3 class="pt-1 font-600 color-gray"><?= $role ?></h3>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" style="width: 25px; height:25px;" class="ml-5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -14,7 +14,7 @@
     </div>
     <div class="pt-8 pl-8 button-icon">
       <img class="mini-logo mx-6" src="./assets/images/BMW_logo_(gray).svg.png" alt="logo">
-      <h4>BMW Store - Paris Gambetta</h4>
+      <h3>BMW Store - Paris Gambetta</h3>
     </div>
     <div class="pl-8 pt-3">
       <button class="button button-secondary--menu button-icon w-85">

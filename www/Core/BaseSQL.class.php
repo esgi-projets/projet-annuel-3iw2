@@ -3,7 +3,7 @@
 namespace App\Core;
 
 
-abstract class BaseSQL
+abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
 {
     private $pdo;
     private $stmt;
@@ -11,16 +11,13 @@ abstract class BaseSQL
 
     public function __construct()
     {
-        //Faudra intégrer le singleton
         try {
-            //Connexion à la base de données
             $this->pdo = new \PDO(DBDRIVER . ":host=" . DBHOST . ";port=" . DBPORT . ";dbname=" . DBNAME, DBUSER, DBPWD);
             $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\Exception $e) {
             die("Erreur SQL" . $e->getMessage());
         }
-        //Récupérer le nom de la table :
-        // -> prefixe + nom de la classe enfant
+
         $classExploded = explode("\\", get_called_class());
         $this->table = DBPREFIXE . strtolower(end($classExploded));
     }
@@ -54,11 +51,15 @@ abstract class BaseSQL
         $columns = array_diff_key($columns, $varsToExclude);
         $columns = array_filter($columns);
 
-        $sql = "SELECT * FROM " . $this->table . " WHERE id=:id";
-        $this->query($sql);
-        $this->bind(":id", $this->getId());
+        $mysql = new MySQLBuilder();
 
-        $result = json_decode($this->single(), true);
+        $query = $mysql->select($this->table, ['*'])
+            ->where("id", "=", $this->getId());
+
+        $this->query($query->getQuery());
+
+        $this->execute();
+        $result = $this->stmt->fetch(\PDO::FETCH_ASSOC);
 
         $this->set_object_vars($this, $result);
     }
@@ -119,7 +120,7 @@ abstract class BaseSQL
     }
 
     // Get row count
-    public function rowCount()
+    protected function rowCount()
     {
         return $this->stmt->rowCount();
     }
@@ -131,5 +132,10 @@ abstract class BaseSQL
         $this->query($sql);
         $this->bind(":value", $value);
         return $this->single();
+    }
+
+    public function getPDO()
+    {
+        return $this->pdo;
     }
 }

@@ -13,6 +13,7 @@ class User extends BaseSQL
     protected $firstname;
     protected $lastname;
     protected $status = null;
+    protected $role = 'user';
     protected $token = null;
 
     public function __construct()
@@ -118,6 +119,40 @@ class User extends BaseSQL
     }
 
     /**
+     * @return string
+     */
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param string $role
+     */
+    public function getFormattedRole(): string
+    {
+        switch ($this->role) {
+            case 'admin':
+                return 'Administrateur';
+                break;
+            case 'user':
+                return 'Utilisateur';
+                break;
+            default:
+                return 'Utilisateur';
+                break;
+        }
+    }
+
+    /**
+     * @param string $role
+     */
+    public function setRole(string $role): void
+    {
+        $this->role = $role;
+    }
+
+    /**
      * @return null
      */
     public function getToken(): ?string
@@ -208,21 +243,22 @@ class User extends BaseSQL
             "config" => [
                 "method" => "POST",
                 "action" => "",
-                "submit" => "Se connecter"
+                "submit" => "Se connecter",
+                "class" => "w-100"
             ],
             "inputs" => [
-                "email" => [
+                "Email" => [
                     "type" => "email",
-                    "placeholder" => "Votre email ...",
-                    "id" => "emailRegister",
-                    "class" => "inputRegister",
+                    "placeholder" => "mail@exemple.com",
+                    "id" => "email",
+                    "class" => "input w-100",
                     "required" => true,
                 ],
-                "password" => [
+                "Mot de passe" => [
                     "type" => "password",
-                    "placeholder" => "Votre mot de passe ...",
-                    "id" => "pwdRegister",
-                    "class" => "inputRegister",
+                    "id" => "password",
+                    "class" => "input w-100",
+                    "placeholder" => "",
                     "required" => true,
                 ]
             ]
