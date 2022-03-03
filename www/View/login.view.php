@@ -12,6 +12,9 @@
         <h3 class="mb-8 ml-8">Pour accéder à cette page il est nécessaire de s’authentifier</h3>
 
         <div class="pl-5">
+          <div class="pr-2 pl-2">
+            <?php $this->includePartial("error", ['visible' => isset($error) ? $error : false, 'message' => isset($errorMessage) ? $errorMessage : null]) ?>
+          </div>
           <?php $this->includePartial("form", $user->getFormLogin()) ?>
           <div class="column mt-2 pr-3 pl-3">
             <button class="button button-secondary">Créer un compte</button>

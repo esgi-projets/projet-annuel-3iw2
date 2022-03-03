@@ -15,6 +15,8 @@ class User
         $user = new UserModel();
         $view = new View("login");
         $view->assign("user", $user);
+        $view->assign("error", false);
+        $view->assign("errorMessage", "E-mail ou mot de passe invalide. Vérifiez vos identifiants.");
         $view->assign("titleSeo", "Se connecter | CMS");
     }
 

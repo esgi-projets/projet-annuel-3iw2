@@ -48,7 +48,7 @@ h2 {
 .avatar {
   height: 64px;
   width: 64px;
-  display:inline-block;
+  display: inline-block;
   vertical-align: middle;
   user-select: none;
   -moz-user-select: none;
@@ -56,11 +56,11 @@ h2 {
   -webkit-user-select: none;
   -ms-user-select: none;
   border: 1px solid $color-lightgrey;
-  border-radius:50px
+  border-radius: 50px;
 }
 
 .profile {
-  display:flex;
+  display: flex;
 }
 
 .fit-image {
@@ -79,16 +79,20 @@ h2 {
   object-fit: cover;
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
-.text-left{
+.text-left {
   text-align: left;
 }
 
-.text-right{
+.text-right {
   text-align: right;
+}
+
+.hidden {
+  display: none;
 }
 
 .icon {
@@ -108,18 +112,18 @@ table {
 }
 
 table tr {
-  padding: .35em;
+  padding: 0.35em;
 }
 
 table th,
 table td {
-  padding: .625em;
+  padding: 0.625em;
   text-align: center;
   font-family: $font-roboto;
 }
 
 table th {
-  font-size: .9em;
+  font-size: 0.9em;
   border-bottom: 1px solid $color-lightgrey--600;
 }
 
@@ -127,7 +131,7 @@ table th {
   table {
     border: 0;
   }
-  
+
   table thead {
     border-bottom: 1px solid $color-lightgrey--600;
     clip: rect(0 0 0 0);
@@ -138,19 +142,19 @@ table th {
     position: absolute;
     width: 1px;
   }
-  
+
   table tr {
     display: block;
-    margin-bottom: .625em;
+    margin-bottom: 0.625em;
     border-bottom: 1px solid $color-lightgrey--600;
   }
-  
+
   table td {
     display: block;
-    font-size: .8em;
+    font-size: 0.8em;
     text-align: right;
   }
-  
+
   table td::before {
     /*
     * aria-label has no advantage, it won't be read inside a table
@@ -160,7 +164,7 @@ table th {
     float: left;
     font-weight: bold;
   }
-  
+
   table td:last-child {
     border-bottom: 0;
   }
@@ -178,7 +182,7 @@ $diviser: 4;
     }
     $i: $i + $offset;
   }
-  #{$className + "auto"} {
+  #{$className + 'auto'} {
     #{$styleName}: auto;
   }
 }
@@ -197,6 +201,10 @@ $diviser: 4;
 @include list-loop('.pb-', 'padding-bottom');
 @include list-loop('.pl-', 'padding-left');
 @include list-loop('.px-', 'padding');
+
+$diviser: 1;
+
+@include list-loop('.border-radius-', 'border-radius');
 
 $unit: '%';
 $offset: 5;
