@@ -242,19 +242,21 @@ class User extends BaseSQL
         return [
             "config" => [
                 "method" => "POST",
-                "action" => "",
+                "action" => "login",
                 "submit" => "Se connecter",
                 "class" => "w-100"
             ],
             "inputs" => [
-                "Email" => [
+                "email" => [
+                    "name" => "E-mail",
                     "type" => "email",
                     "placeholder" => "mail@exemple.com",
                     "id" => "email",
                     "class" => "input w-100",
                     "required" => true,
                 ],
-                "Mot de passe" => [
+                "password" => [
+                    "name" => "Mot de passe",
                     "type" => "password",
                     "id" => "password",
                     "class" => "input w-100",

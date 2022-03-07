@@ -1,7 +1,7 @@
 <form class="<?= $config["config"]["class"] ?>" method="<?= $config["config"]["method"] ?? "POST" ?>" action="<?= $config["config"]["action"] ?? "" ?>">
     <?php foreach ($config["inputs"] as $name => $input) : ?>
         <div class="column pr-3 pl-3 pb-5">
-            <label class="mb-2"><?= $name ?></label>
+            <label class="mb-2"><?= $input["name"] ?></label>
             <input name="<?= $name ?>" id="<?= $input["id"] ?>" type="<?= $input["type"] ?>" class="<?= $input["class"] ?>" placeholder="<?= $input["placeholder"] ?>" <?= (!empty($input["required"])) ? 'required="required"' : '' ?>>
         </div>
     <?php endforeach; ?>

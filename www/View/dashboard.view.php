@@ -4,8 +4,8 @@
       <div class="row align-flex-center">
         <img class="avatar mr-5" src="./assets/images/avatar.png" alt="avatar">
         <div class="column">
-          <h2><?= $firstname ?> <?= $lastname ?></h2>
-          <h3 class="pt-1 font-600 color-gray"><?= $role ?></h3>
+          <h2><?= $user->getFirstname() ?> <?= $user->getLastname() ?></h2>
+          <h3 class="pt-1 font-600 color-gray"><?= $user->getFormattedRole() ?></h3>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" style="width: 25px; height:25px;" class="ml-5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -73,13 +73,13 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
           Visiter ma boutique</button>
-        <button class="button button-secondary">Se déconnecter</button>
+        <a href="/logout" class="button button-secondary">Se déconnecter</a>
       </div>
       <div class="col-12-xl col-12-lg col-12-md col-12-sm col-12-xs">
         <div class="col-12-xs hidden-xl hidden-lg hidden-md hidden-sm">
           Hello
         </div>
-        <h1 class="pl-8">Bonne soirée, <span class="color-primary"><?= $firstname ?></span> 🙌</h1>
+        <h1 class="pl-8">Bonne soirée, <span class="color-primary"><?= $user->getFirstname() ?></span> 🙌</h1>
         <div class="row px-2">
           <div class="card card-3 card-warning card-shadow col-3-xl mx-auto">
             <h2 class="icon">Commandes
@@ -172,7 +172,7 @@
                 <tr>
                   <td data-label="Date">13/02/2022</td>
                   <td data-label="ID">5</td>
-                  <td data-label="Utilisateur"><?= $firstname ?></td>
+                  <td data-label="Utilisateur"><?= $user->getFirstname() ?></td>
                   <td data-label="Produits">Courroie, freins, ...</td>
                   <td data-label="Prix Totaux">1200.33€</td>
                   <td data-label="Status">
@@ -182,7 +182,7 @@
                 <tr>
                   <td data-label="Date">10/02/2022</td>
                   <td data-label="ID">4</td>
-                  <td data-label="Utilisateur"><?= $firstname ?></td>
+                  <td data-label="Utilisateur"><?= $user->getFirstname() ?></td>
                   <td data-label="Produits">Échappement, huile, ....</td>
                   <td data-label="Prix Totaux">607.12€</td>
                   <td data-label="Status">
@@ -192,7 +192,7 @@
                 <tr>
                   <td data-label="Date">10/02/2022</td>
                   <td data-label="ID">3</td>
-                  <td data-label="Utilisateur"><?= $firstname ?></td>
+                  <td data-label="Utilisateur"><?= $user->getFirstname() ?></td>
                   <td data-label="Produits">Moteur, porte clé, ...</td>
                   <td data-label="Prix Totaux">10200.33€</td>
                   <td data-label="Status">
@@ -202,7 +202,7 @@
                 <tr>
                   <td data-label="Date">09/02/2022</td>
                   <td data-label="ID">2</td>
-                  <td data-label="Utilisateur"><?= $firstname ?></td>
+                  <td data-label="Utilisateur"><?= $user->getFirstname() ?></td>
                   <td data-label="Produits">Porte, remplacement clé, .</td>
                   <td data-label="Prix Totaux">400.33€</td>
                   <td data-label="Status">
@@ -212,7 +212,7 @@
                 <tr>
                   <td data-label="Date">07/02/2022</td>
                   <td data-label="ID">1</td>
-                  <td data-label="Utilisateur"><?= $firstname ?></td>
+                  <td data-label="Utilisateur"><?= $user->getFirstname() ?></td>
                   <td data-label="Produits">Porte</td>
                   <td data-label="Prix Totaux">200.33€</td>
                   <td data-label="Status">

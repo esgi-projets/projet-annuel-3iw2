@@ -113,10 +113,16 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
     }
 
     // Single record
-    public function single()
+    public function single($model)
     {
         $this->execute();
-        return $this->stmt->fetch(\PDO::FETCH_OBJ);
+
+        if (!$model) {
+            return $this->stmt->fetch(\PDO::FETCH_OBJ);
+        } else {
+            $this->stmt->setFetchMode(\PDO::FETCH_CLASS, $model);
+            return $this->stmt->fetch();
+        }
     }
 
     // Get row count
@@ -126,12 +132,12 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
     }
 
     // Find by column value
-    public function find($column, $value)
+    public function find($column, $value, $model = null)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE " . $column . "=:value";
         $this->query($sql);
         $this->bind(":value", $value);
-        return $this->single();
+        return $this->single($model);
     }
 
     public function getPDO()

@@ -3,17 +3,15 @@
 namespace App\Controller;
 
 use App\Core\View;
+use App\Model\User;
 
 class Admin
 {
     public function dashboard()
     {
-        $firstname = "Yves";
-        $lastname = "SKRZYPCZYK";
-
-        $view = new View("dashboard", "back");
-        $view->assign("firstname", $firstname);
-        $view->assign("lastname", $lastname);
-
+        $user = unserialize($_SESSION["user"]);
+        $view = new View("dashboard");
+        $view->assign("titleSeo", "Dashboard | CMS");
+        $view->assign("user", $user);
     }
 }
