@@ -18,6 +18,10 @@
   controller: user
   action: register
 
+/forgot_password:
+  controller: user
+  action: forgot_password
+
 
 /dashboard:
   controller: admin

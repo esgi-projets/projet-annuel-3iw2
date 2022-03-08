@@ -8,25 +8,19 @@
     <div class="container-center">
       <div class="w-80 mt-4">
         <img class="logo mx-6" src="./assets/images/BMW_logo_(gray).svg.png" alt="logo">
-        <h1 class="ml-4">Se connecter</h1>
-        <h3 class="mb-8 ml-8">Pour accéder à cette page il est nécessaire de s’authentifier</h3>
+        <h1 class="ml-4">Mot de passe oublié ?</h1>
+        <h3 class="mb-8 ml-8">Veuillez rentrer votre email afin de réinisitliser votre mot de passe</h3>
 
         <div class="pl-5">
-          <div class="column pr-3 pl-3 pb-5">
+          <div class="column pr-3 pl-3">
             <label class="mb-2">Email</label>
             <input type="text" class="input w-100" placeholder="mail@exemple.com">
           </div>
 
-
-          <div class="column pr-3 pl-3">
-            <label class="mb-2">Mot de passe</label>
-            <input type="password" class="input w-100">
-          </div>
-
           <div class="column mt-8 pr-3 pl-3">
-            <button class="button button-primary">Se connecter</button>
-            <button class="button button-secondary" onclick="location.href='/register'">Créer un compte</button>
-            <button class="button button-link" onclick="location.href='/forgot_password'">Mot de passe oublié ?</button>
+            <button class="button button-primary">Réinitialiser mon mot de passe</button>
+            <button class="button button-secondary" onclick="location.href='/login'">Se connecter</button>
+            <button class="button button-link" onclick="location.href='/register'">S'inscrire</button>
           </div>
         </div>
       </div>

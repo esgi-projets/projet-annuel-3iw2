@@ -24,9 +24,9 @@ class User
     public function register()
     {
 
-        $user = new UserModel();
+        /*$user = new UserModel();
 
-        print_r($_POST);
+        //print_r($_POST);
         if (!empty($_POST)) {
             $result = Validator::run($user->getFormRegister(), $_POST);
             print_r($result);
@@ -34,9 +34,16 @@ class User
 
         //$user= $user->setId(3);
         //$user->setEmail("toto@gmail.com");
-        //$user->save();
+        //$user->save();*/
 
         $view = new View("register");
-        $view->assign("user", $user);
+        //$view->assign("user", $user);
+        $view->assign("titleSeo", "S'inscrire | CMS");
+    }
+
+    public function forgot_password()
+    {
+        $view = new View("forgot_password");
+        $view->assign("titleSeo", "Réinitialiser son mot de passe | CMS");
     }
 }
