@@ -6,7 +6,10 @@ use App\Model\User as UserModel;
 
 session_start();
 
-require "conf.inc.php";
+require __DIR__ . "/vendor/autoload.php";
+
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->safeLoad(); // load .env file
 
 function myAutoloader($class)
 {

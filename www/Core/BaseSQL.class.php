@@ -12,14 +12,14 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
     public function __construct()
     {
         try {
-            $this->pdo = new \PDO(DBDRIVER . ":host=" . DBHOST . ";port=" . DBPORT . ";dbname=" . DBNAME, DBUSER, DBPWD);
+            $this->pdo = new \PDO($_ENV['DB_DRIVER'] . ":host=" . $_ENV['DB_HOST'] . ";port=" . $_ENV['DB_PORT'] . ";dbname=" . $_ENV['DB_NAME'], $_ENV['DB_USER'], $_ENV['DB_PWD']);
             $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\Exception $e) {
             die("Erreur SQL" . $e->getMessage());
         }
 
         $classExploded = explode("\\", get_called_class());
-        $this->table = DBPREFIXE . strtolower(end($classExploded));
+        $this->table = $_ENV['DB_PREFIX'] . strtolower(end($classExploded));
     }
 
     protected function save()
