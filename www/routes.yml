@@ -22,7 +22,6 @@
   controller: user
   action: forgot_password
 
-
 /dashboard:
   controller: admin
   action: dashboard
@@ -30,3 +29,11 @@
 /test:
   controller: general
   action: test
+
+/terms:
+  controller: general
+  action: terms
+
+/privacy:
+controller: general
+action: privacy

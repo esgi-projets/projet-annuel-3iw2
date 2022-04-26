@@ -25,6 +25,14 @@ h2 {
   font-family: $font-roboto;
 }
 
+input[type=checkbox] {
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  position: relative;
+  top: 2px;
+}
+
 .logo {
   height: 96px;
   width: 96px;

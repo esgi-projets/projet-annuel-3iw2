@@ -3,7 +3,7 @@
     <button class="button button-link button-icon"> <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height:24px;" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
       </svg>
-      </svg> Retour
+      Retour
     </button>
     <div class="container-center">
       <div class="w-80 mt-4">
@@ -19,8 +19,8 @@
 
           <div class="column mt-8 pr-3 pl-3">
             <button class="button button-primary">Réinitialiser mon mot de passe</button>
-            <button class="button button-secondary" onclick="location.href='/login'">Se connecter</button>
-            <button class="button button-link" onclick="location.href='/register'">S'inscrire</button>
+            <a class="button button-secondary" href="/login">Se connecter</a>
+            <a class="button button-secondary" href="/register">Créer un compte</a>
           </div>
         </div>
       </div>

@@ -39,9 +39,13 @@
             <input type="password" class="input w-100">
           </div>
 
+          <div class="row pr-3 pl-3 mt-5">
+            <label class="mb-2"><input type="checkbox" class="mr-5 mb-2">En créant votre compte, vous acceptez les <a href="/terms" class="color-primary">conditions d'utilisation</a> ainsi que la <a href="/privacy" class="color-primary">politique de confidentialité</a></label>
+          </div>
+
           <div class="column mt-8 pr-3 pl-3 pb-5">
             <button class="button button-primary">S'inscrire</button>
-            <button class="button button-secondary" onclick="location.href='/login'">Vous avez déjà un compte ? Connectez-vous</button>
+            <a class="button button-secondary" href="/login">Vous avez déjà un compte ? Connectez-vous</a>
           </div>
         </div>
       </div>
