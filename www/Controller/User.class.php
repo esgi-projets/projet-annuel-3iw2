@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Core\BaseSQL;
+use App\Core\Email;
 use App\Core\Validator;
 use App\Core\View;
 use App\Model\User as UserModel;
@@ -13,7 +14,7 @@ class User
     {
         $user = new UserModel();
 
-        if (isset($_POST["email"]) && isset($_POST["password"])) {
+        if (!empty($_POST)) {
             $isValid = $this->checkLoginPassword();
             if ($isValid) {
                 $findUser = $user->find('email', $_POST["email"], UserModel::class);
@@ -60,29 +61,69 @@ class User
         exit;
     }
 
+    public function activate()
+    {
+        $user = new UserModel();
+        echo $_SERVER['QUERY_STRING'];
+
+        if (!empty($_GET)) {
+            $userFind = $user->find('token', $_GET['token']);
+
+            if (isset($userFind->id) && $userFind !== null) {
+                $user->setId($userFind->id);
+                $user->setStatus(1);
+                $user->generateToken();
+                $user->save();
+
+                echo "Votre compte a bien été activé.";
+                // $view = new View("activation");
+                // $view->assign("user", $user);
+                // $view->assign("titleSeo", "Activation | CMS");
+                return;
+            }
+        }
+    }
+
     public function register()
     {
 
-        /*$user = new UserModel();
+        $user = new UserModel();
 
-        //print_r($_POST);
         if (!empty($_POST)) {
             $result = Validator::run($user->getFormRegister(), $_POST);
-            print_r($result);
+
+            if ($result) {
+                $view = new View("register");
+                $view->assign("user", $user);
+                $view->assign("error", true);
+                $view->assign("errorMessage", "Votre inscription n'a pu aboutir pour les raisons suivantes :");
+                $view->assign("listErrors", $result);
+                return;
+            }
+
+            $dataSanitized = Validator::sanitizeArray($_POST);
+            $user->setFirstname($dataSanitized['firstname']);
+            $user->setLastname($dataSanitized['lastname']);
+            $user->setEmail($dataSanitized['email']);
+            $user->setPassword($dataSanitized['password']);
+            $user->generateToken();
+
+            $user->save();
+
+            $email = new Email();
+            $email->to = $user->getEmail();
+            $email->name = $user->getFirstname() . " " . $user->getLastname();
+            $email->subject = 'Vous y êtes presque 👀';
+            $email->body = '<p>Bonjour ' . $user->getFirstname() . ',</p>
+                            <p>Vous venez de vous inscrire sur notre site.</p>
+                            <p>Pour activer votre compte, veuillez cliquer <a href="http://localhost/activate/' . $user->getToken() . '">ici</a></p>
+                            <p>Vous pouvez dès à présent vous connecter sur le site en utilisant votre adresse e-mail et votre mot de passe.</p>
+                            <p>À bientôt !</p>';
+
+            $email->send();
         }
 
-        //$user= $user->setId(3);
-        //$user->setEmail("toto@gmail.com");
-        //$user->save();*/
-
         $view = new View("register");
-        //$view->assign("user", $user);
-        $view->assign("titleSeo", "S'inscrire | CMS");
-    }
-
-    public function forgot_password()
-    {
-        $view = new View("forgot_password");
-        $view->assign("titleSeo", "Réinitialiser son mot de passe | CMS");
+        $view->assign("user", $user);
     }
 }

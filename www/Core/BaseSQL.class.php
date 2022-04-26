@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Core\Validator;
 
 abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
 {
@@ -28,7 +29,6 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
         $varsToExclude = get_class_vars(get_class());
         $columns = array_diff_key($columns, $varsToExclude);
         $columns = array_filter($columns);
-
 
         if (!is_null($this->getId())) {
             foreach ($columns as $key => $value) {
@@ -60,6 +60,7 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
 
         $this->execute();
         $result = $this->stmt->fetch(\PDO::FETCH_ASSOC);
+        $result = filter_var_array($result, FILTER_SANITIZE_FULL_SPECIAL_CHARS); // XSS protection
 
         $this->set_object_vars($this, $result);
     }

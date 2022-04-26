@@ -172,7 +172,9 @@ class User extends BaseSQL
 
     public function save()
     {
-        parent::populate();
+        if ($this->id) {
+            parent::populate();
+        }
         parent::save();
     }
 
@@ -182,54 +184,53 @@ class User extends BaseSQL
         return [
             "config" => [
                 "method" => "POST",
-                "action" => "",
-                "submit" => "S'inscrire"
+                "action" => "register",
+                "submit" => "S'inscrire",
+                "class" => "w-100",
+                "model" => get_class($this)
             ],
             "inputs" => [
-                "email" => [
-                    "type" => "email",
-                    "placeholder" => "Votre email ...",
-                    "id" => "emailRegister",
-                    "class" => "inputRegister",
-                    "required" => true,
-                    "error" => "Email incorrect",
-                    "unicity" => true,
-                    "errorUnicity" => "Email existe déjà en bdd"
-                ],
-                "password" => [
-                    "type" => "password",
-                    "placeholder" => "Votre mot de passe ...",
-                    "id" => "pwdRegister",
-                    "class" => "inputRegister",
-                    "required" => true,
-                    "error" => "Votre mot de passe doit faire entre 8 et 16 et contenir des chiffres et des lettres",
-                ],
-                "passwordConfirm" => [
-                    "type" => "password",
-                    "placeholder" => "Confirmation ...",
-                    "id" => "pwdConfirmRegister",
-                    "class" => "inputRegister",
-                    "required" => true,
-                    "confirm" => "password",
-                    "error" => "Votre mot de passe de confirmation ne correspond pas",
-                ],
                 "firstname" => [
+                    "name" => "Prénom",
                     "type" => "text",
-                    "placeholder" => "Prénom ...",
-                    "id" => "firstnameRegister",
-                    "class" => "inputRegister",
+                    "placeholder" => "Prénom",
+                    "id" => "firstname",
+                    "class" => "input w-100",
                     "min" => 2,
                     "max" => 50,
-                    "error" => "Votre prénom n'est pas correct",
+                    "required" => true,
+                    "error" => "Votre prénom semble incorrect",
                 ],
                 "lastname" => [
+                    "name" => "Nom de famille",
                     "type" => "text",
-                    "placeholder" => "Nom ...",
-                    "id" => "lastnameRegister",
-                    "class" => "inputRegister",
+                    "placeholder" => "Nom de famille",
+                    "id" => "lastname",
+                    "class" => "input w-100",
                     "min" => 2,
                     "max" => 100,
-                    "error" => "Votre nom n'est pas correct",
+                    "required" => true,
+                    "error" => "Votre nom de famille semble incorrect",
+                ],
+                "email" => [
+                    "name" => "Adresse e-mail",
+                    "type" => "email",
+                    "placeholder" => "Adresse email",
+                    "id" => "email",
+                    "class" => "input w-100",
+                    "required" => true,
+                    "error" => "L'adresse email est invalide",
+                    "unicity" => true,
+                    "errorUnicity" => "L'adresse e-mail a déjà été utilisée"
+                ],
+                "password" => [
+                    "name" => "Mot de passe",
+                    "type" => "password",
+                    "placeholder" => "Mot de passe",
+                    "id" => "password",
+                    "class" => "input w-100",
+                    "required" => true,
+                    "error" => "Votre mot de passe doit faire entre 8 et 16 et contenir des chiffres et des lettres",
                 ],
             ]
 
@@ -244,7 +245,8 @@ class User extends BaseSQL
                 "method" => "POST",
                 "action" => "login",
                 "submit" => "Se connecter",
-                "class" => "w-100"
+                "class" => "w-100",
+                "model" => $this
             ],
             "inputs" => [
                 "email" => [

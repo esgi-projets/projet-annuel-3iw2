@@ -13,11 +13,11 @@
 
         <div class="pl-5">
           <div class="pr-2 pl-2">
-            <?php $this->includePartial("error", ['visible' => isset($error) ? $error : false, 'message' => isset($errorMessage) ? $errorMessage : null]) ?>
+            <?php $this->includePartial("error", ['visible' => isset($error) ? $error : false, 'message' => isset($errorMessage) ? $errorMessage : null, 'list' => isset($listErrors) ? $listErrors : null]) ?>
           </div>
           <?php $this->includePartial("form", $user->getFormLogin()) ?>
           <div class="column mt-2 pr-3 pl-3">
-            <button class="button button-secondary">Créer un compte</button>
+            <a class="button button-secondary" href="register">Créer un compte</a>
             <button class="button button-link">Mot de passe oublié ?</button>
           </div>
         </div>

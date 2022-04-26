@@ -21,7 +21,7 @@ class Email implements EmailBuilder
     $mail = new PHPMailer(true);
 
     //Enable SMTP debugging.
-    $mail->SMTPDebug = $this->debug ? 3 : false;
+    $mail->SMTPDebug = isset($this->debug) && $this->debug ? 3 : false;
     //Set PHPMailer to use SMTP.
     $mail->isSMTP();
     //Set SMTP host name                          
@@ -38,8 +38,10 @@ class Email implements EmailBuilder
 
     $mail->From = "no-reply@alexandre.business";
     $mail->FromName = "CMS";
+    $mail->CharSet = 'UTF-8';
+    $mail->Encoding = 'base64';
 
-    $mail->addAddress($this->to, "Alexandre BETTAN");
+    $mail->addAddress($this->to, $this->name);
 
     $mail->isHTML(true);
 
