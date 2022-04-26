@@ -9,16 +9,55 @@ use App\Model\User as UserModel;
 
 class User
 {
-
     public function login()
     {
-        $view = new View("Login");
+        $user = new UserModel();
+
+        if (isset($_POST["email"]) && isset($_POST["password"])) {
+            $isValid = $this->checkLoginPassword();
+            if ($isValid) {
+                $findUser = $user->find('email', $_POST["email"], UserModel::class);
+                $user->setId($findUser->getId());
+
+                $_SESSION["user"] = serialize($user);
+                header("Location: /dashboard");
+                exit;
+            } else {
+                $view = new View("login");
+                $view->assign("user", $user);
+                $view->assign("error", true);
+                $view->assign("errorMessage", "E-mail ou mot de passe invalide. Vérifiez vos identifiants.");
+                return;
+            }
+        }
+
+        $view = new View("login");
+        $view->assign("user", $user);
         $view->assign("titleSeo", "Se connecter | CMS");
+    }
+
+    public function checkLoginPassword()
+    {
+        $user = new UserModel();
+
+        if (Validator::checkEmail($_POST['email'])) {
+            $userFind = $user->find('email', $_POST['email']);
+
+            if (isset($userFind->id) && $userFind !== null) {
+                if (password_verify($_POST['password'], $userFind->password)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public function logout()
     {
-        echo "Se deco";
+        session_destroy();
+        header("Location: /login");
+        exit;
     }
 
     public function register()

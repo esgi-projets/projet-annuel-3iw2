@@ -2,10 +2,6 @@
   controller: general
   action: home
 
-/me-contacter:
-  controller: general
-  action: contact
-
 /login:
   controller: user
   action: login
@@ -18,22 +14,9 @@
   controller: user
   action: register
 
-/forgot_password:
-  controller: user
-  action: forgot_password
+# Admin routes
 
 /dashboard:
   controller: admin
   action: dashboard
-
-/test:
-  controller: general
-  action: test
-
-/terms:
-  controller: general
-  action: terms
-
-/privacy:
-controller: general
-action: privacy
+  protected: true

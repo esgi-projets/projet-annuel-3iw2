@@ -3,7 +3,7 @@
     <button class="button button-link button-icon"> <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height:24px;" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
       </svg>
-      Retour
+      </svg> Retour
     </button>
     <div class="container-center">
       <div class="w-80 mt-4">
@@ -12,21 +12,13 @@
         <h3 class="mb-8 ml-8">Pour accéder à cette page il est nécessaire de s’authentifier</h3>
 
         <div class="pl-5">
-          <div class="column pr-3 pl-3 pb-5">
-            <label class="mb-2">Email</label>
-            <input type="text" class="input w-100" placeholder="mail@exemple.com">
+          <div class="pr-2 pl-2">
+            <?php $this->includePartial("error", ['visible' => isset($error) ? $error : false, 'message' => isset($errorMessage) ? $errorMessage : null]) ?>
           </div>
-
-
-          <div class="column pr-3 pl-3">
-            <label class="mb-2">Mot de passe</label>
-            <input type="password" class="input w-100">
-          </div>
-
-          <div class="column mt-8 pr-3 pl-3">
-            <button class="button button-primary">Se connecter</button>
-            <a class="button button-secondary" href="/register">Créer un compte</a>
-            <a class="button button-secondary" href="/forgot_password">Mot de passe oublié ?</a>
+          <?php $this->includePartial("form", $user->getFormLogin()) ?>
+          <div class="column mt-2 pr-3 pl-3">
+            <button class="button button-secondary">Créer un compte</button>
+            <button class="button button-link">Mot de passe oublié ?</button>
           </div>
         </div>
       </div>

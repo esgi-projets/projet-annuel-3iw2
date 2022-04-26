@@ -2,25 +2,21 @@
 
 namespace App\Controller;
 
-use App\Core\View;
+use App\Core\Email;
 
 class General
 {
 
     public function home()
     {
-        echo "Welcome";
-    }
-
-    public function contact()
-    {
-        $view = new View("contact");
-    }
-
-    public function test()
-    {
-        $view = new View("test");
-        $view->assign("titleSeo", "test");
+        $email = new Email();
+        $email->to = 'alexandre.esgi@gmail.com';
+        $email->name = 'Alexandre BETTAN';
+        $email->subject = 'Test';
+        $email->body = 'Ceci est un jolie test';
+        $email->debug = true;
+        $email->send();
+        echo "Ceci est la page d'accueil";
     }
 
     public function terms()
