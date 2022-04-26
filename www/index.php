@@ -6,7 +6,7 @@ use App\Model\User as UserModel;
 
 session_start();
 
-require __DIR__ . "/vendor/autoload.php";
+require __DIR__ . "/vendor/autoload.php"; // Composer autoload
 
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad(); // load .env file
@@ -45,6 +45,23 @@ if ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && file_ex
     exit;
 } elseif ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && !file_exists(dirname(__FILE__) . "/View/" . $uri)) {
     die("Page 404");
+}
+
+
+// Dynamic routing
+foreach (array_keys($routes) as $route) {
+    if (preg_match("#^/" . explode('/', $route)[1] . "/\w+.*$#", $uri, $matches) && preg_match_all("#:\w+$#", $route, $params)) {
+        $params = $params[0];
+        $offset = array_search($params[0], explode('/', $route));
+
+        $params = array_slice(explode('/', $uri), $offset);
+
+        var_dump($params);
+        $controller = $routes[$route]["controller"];
+        $action = $routes[$route]["action"];
+
+        break;
+    }
 }
 
 if (empty($routes[$uri]) || empty($routes[$uri]["controller"])  || empty($routes[$uri]["action"])) {
