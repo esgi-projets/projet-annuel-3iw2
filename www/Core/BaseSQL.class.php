@@ -23,25 +23,24 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
         $this->table = $_ENV['DB_PREFIX'] . strtolower(end($classExploded));
     }
 
-    protected function save()
+    public function save()
     {
+
         $columns  = get_object_vars($this);
         $varsToExclude = get_class_vars(get_class());
         $columns = array_diff_key($columns, $varsToExclude);
         $columns = array_filter($columns);
 
+        $mysql = new MySQLBuilder();
+
         if (!is_null($this->getId())) {
-            foreach ($columns as $key => $value) {
-                $setUpdate[] = $key . "=:" . $key;
-            }
-            $sql = "UPDATE " . $this->table . " SET " . implode(",", $setUpdate) . " WHERE id=" . $this->getId();
+            $query = $mysql->update($this->table, $columns)->where('id', '=', $this->getId());
         } else {
-            $sql = "INSERT INTO " . $this->table . " (" . implode(",", array_keys($columns)) . ")
-            VALUES (:" . implode(",:", array_keys($columns)) . ")";
+            $query = $mysql->insert($this->table, $columns);
         }
 
-        $queryPrepared = $this->pdo->prepare($sql);
-        $queryPrepared->execute($columns);
+        $this->query($query->getQuery());
+        $this->execute();
     }
 
     protected function populate()
@@ -74,13 +73,13 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
     }
 
     // Prepare statement with query
-    public function query($sql)
+    protected function query($sql)
     {
         $this->stmt = $this->pdo->prepare($sql);
     }
 
     // Bind values, to prepared statement using named parameters
-    public function bind($param, $value, $type = null)
+    protected function bind($param, $value, $type = null)
     {
         if (is_null($type)) {
             switch (true) {
@@ -101,20 +100,20 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
     }
 
     // Execute query
-    public function execute()
+    protected function execute()
     {
         return $this->stmt->execute();
     }
 
     // Multiple records
-    public function resultSet()
+    protected function resultSet()
     {
         $this->execute();
         return $this->stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
     // Single record
-    public function single($model)
+    protected function single($model)
     {
         $this->execute();
 
@@ -141,7 +140,7 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
         return $this->single($model);
     }
 
-    public function getPDO()
+    private function getPDO()
     {
         return $this->pdo;
     }

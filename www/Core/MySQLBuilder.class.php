@@ -37,7 +37,7 @@ class MySQLBuilder implements QueryBuilder
   public function update(string $table, array $columns): QueryBuilder
   {
     $this->query = "UPDATE $table SET " . implode(", ", array_map(function ($column, $value) {
-      return "$column = $value";
+      return "$column = '" . $value . "'";
     }, array_keys($columns), array_values($columns)));
     return $this;
   }

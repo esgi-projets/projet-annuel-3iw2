@@ -18,7 +18,7 @@
           <?php $this->includePartial("form", $user->getFormLogin()) ?>
           <div class="column mt-2 pr-3 pl-3">
             <a class="button button-secondary" href="register">Créer un compte</a>
-            <button class="button button-link">Mot de passe oublié ?</button>
+            <a class="button button-link" href="reset">Mot de passe oublié ?</a>
           </div>
         </div>
       </div>
