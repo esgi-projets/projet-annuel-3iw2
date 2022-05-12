@@ -289,7 +289,7 @@ class User extends BaseSQL
         return [
             "config" => [
                 "method" => "POST",
-                "action" => "reset",
+                "action" => "",
                 "submit" => "Réinitialiser le mot de passe",
                 "class" => "w-100",
                 "model" => $this

@@ -13,7 +13,10 @@
 
         <div class="pl-5">
           <div class="pr-2 pl-2">
-            <?php $this->includePartial("error", ['visible' => isset($error) ? $error : false, 'message' => isset($errorMessage) ? $errorMessage : null, 'list' => isset($listErrors) ? $listErrors : null]) ?>
+            <?php
+            $this->includePartial("error", ['visible' => isset($error) ? $error : false, 'message' => isset($errorMessage) ? $errorMessage : null, 'list' => isset($listErrors) ? $listErrors : null]);
+            $this->includePartial("success", ['visible' => isset($success) ? $success : false, 'message' => isset($successMessage) ? $successMessage : null, 'list' => isset($listSuccess) ? $listSuccess : null]);
+            ?>
           </div>
           <?php $this->includePartial("form", $user->getFormLogin()) ?>
           <div class="column mt-2 pr-3 pl-3">

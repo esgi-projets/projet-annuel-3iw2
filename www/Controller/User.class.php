@@ -82,7 +82,7 @@ class User
                         $email = new Email();
                         $email->to = $findUser->getEmail();
                         $email->name = $findUser->getFirstname() . " " . $findUser->getLastname();
-                        $email->subject = "⛑ Réinitialisation de votre mot de passe";
+                        $email->subject = "Réinitialisation de votre mot de passe";
                         $email->body = "Bonjour,<br>
                     <br>
                     Vous avez demandé la réinitialisation de votre mot de passe. Pour le réinitialiser, cliquez sur le lien ci-dessous :<br>
@@ -129,7 +129,7 @@ class User
                         $view = new View("reset");
                         $view->assign("user", $user);
                         $view->assign("success", true);
-                        $view->assign("successMessage", "Votre mot de passe a bien été réinitialisé. Vous pouvez vous connecter <a class='font-700' href='/login'>ici</a>.");
+                        $view->assign("successMessage", "Votre mot de passe a bien été réinitialisé. Vous pouvez maintenant vous connecter.");
                         $view->assign("titleSeo", "Réinitialisation de votre mot de passe | CMS");
                         return;
                     }
