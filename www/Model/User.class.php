@@ -169,16 +169,6 @@ class User extends BaseSQL
         $this->token = str_shuffle(md5(uniqid()));
     }
 
-
-    public function save()
-    {
-        if ($this->id) {
-            parent::populate();
-        }
-        parent::save();
-    }
-
-
     public function getFormRegister(): array
     {
         return [
@@ -263,6 +253,60 @@ class User extends BaseSQL
                     "id" => "password",
                     "class" => "input w-100",
                     "placeholder" => "",
+                    "required" => true,
+                ]
+            ]
+
+        ];
+    }
+
+    public function getFormReset(): array
+    {
+        return [
+            "config" => [
+                "method" => "POST",
+                "action" => "reset",
+                "submit" => "Envoyer le lien",
+                "class" => "w-100",
+                "model" => $this
+            ],
+            "inputs" => [
+                "email" => [
+                    "name" => "E-mail",
+                    "type" => "email",
+                    "placeholder" => "mail@exemple.com",
+                    "id" => "email",
+                    "class" => "input w-100",
+                    "required" => true,
+                ]
+            ]
+
+        ];
+    }
+
+    public function getFormResetPassword($token = null): array
+    {
+        return [
+            "config" => [
+                "method" => "POST",
+                "action" => "",
+                "submit" => "Réinitialiser le mot de passe",
+                "class" => "w-100",
+                "model" => $this
+            ],
+            "inputs" => [
+                "token" => [
+                    "type" => "hidden",
+                    "id" => "token",
+                    "value" => $token,
+                    "required" => true,
+                ],
+                "password" => [
+                    "name" => "Mot de passe",
+                    "type" => "password",
+                    "id" => "password",
+                    "class" => "input w-100",
+                    "placeholder" => "Le mot de passe doit contenir au moins 8 caractères dont au moins une majuscule, une minuscule et un chiffre.",
                     "required" => true,
                 ]
             ]

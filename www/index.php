@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Core\Auth;
+use App\Core\Validator;
 use App\Model\User as UserModel;
 
 session_start();
@@ -27,6 +29,7 @@ spl_autoload_register("App\myAutoloader");
 
 
 $uri = $_SERVER["REQUEST_URI"];
+$params = [];
 
 $routeFile = "routes.yml";
 if (!file_exists($routeFile)) {
@@ -47,19 +50,25 @@ if ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && file_ex
     die("Page 404");
 }
 
-
 // Dynamic routing
 foreach (array_keys($routes) as $route) {
     if (preg_match("#^/" . explode('/', $route)[1] . "/\w+.*$#", $uri, $matches) && preg_match_all("#:\w+$#", $route, $params)) {
-        $params = $params[0];
-        $offset = array_search($params[0], explode('/', $route));
+        $params_initials = $params[0];
+        $offset = array_search($params_initials[0], explode('/', $route));
 
-        $params = array_slice(explode('/', $uri), $offset);
+        $params = array_filter(array_slice(explode('/', $uri), $offset));
 
-        var_dump($params);
-        $controller = $routes[$route]["controller"];
-        $action = $routes[$route]["action"];
+        // associate params with their values
+        foreach (array_keys($params) as $key_param) {
+            if (isset($params_initials[$key_param])) {
+                $params[str_replace(":", "", $params_initials[$key_param])] = $params[$key_param];
+                unset($params[$key_param]);
+            } else {
+                unset($params[$key_param]);
+            }
+        }
 
+        $uri = $route;
         break;
     }
 }
@@ -73,7 +82,7 @@ $action = strtolower($routes[$uri]["action"]);
 $protected = isset($routes[$uri]["protected"]) && $routes[$uri]['protected'] || strpos($uri, "admin") !== false; // if URI contains admin or protected route is true
 
 // if routes is protected and user is not logged in
-if ($protected && !isset($_SESSION["user"])) {
+if ($protected && Auth::isLogged() === false) {
     header("Location: /login");
     exit;
 }
@@ -97,5 +106,8 @@ $objectController = new $controller();
 if (!method_exists($objectController, $action)) {
     die("La methode " . $action . " n'existe pas");
 }
+
+$_GET = array_merge($_GET, Validator::sanitizeArray($params));
+$_POST = Validator::sanitizeArray($_POST);
 
 $objectController->$action();
