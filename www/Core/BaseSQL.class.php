@@ -2,8 +2,6 @@
 
 namespace App\Core;
 
-use App\Core\Validator;
-
 abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
 {
     private $pdo;
@@ -34,12 +32,13 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
         $mysql = new MySQLBuilder();
 
         if (!is_null($this->getId())) {
-            $query = $mysql->update($this->table, $columns)->where('id', '=', $this->getId());
+            $query = $mysql->update($this->table, $columns)->where('id', '=')->getQuery();
         } else {
-            $query = $mysql->insert($this->table, $columns);
+            $query = $mysql->insert($this->table, $columns)->getQuery();
         }
 
-        $this->query($query->getQuery());
+        $this->query($query);
+        $this->bindColumns($columns);
         $this->execute();
     }
 
@@ -53,9 +52,11 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
         $mysql = new MySQLBuilder();
 
         $query = $mysql->select($this->table, ['*'])
-            ->where("id", "=", $this->getId());
+            ->where("id", "=")->getQuery();
 
-        $this->query($query->getQuery());
+        $this->query($query);
+
+        $this->bind(":id", $this->getId());
 
         $this->execute();
         $result = $this->stmt->fetch(\PDO::FETCH_ASSOC);
@@ -73,8 +74,12 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
     }
 
     // Prepare statement with query
-    protected function query($sql)
+    protected function query($sql = null)
     {
+        if ($sql === null) {
+            $sql = $this->getQuery();
+        }
+
         $this->stmt = $this->pdo->prepare($sql);
     }
 
@@ -97,6 +102,14 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
             }
         }
         $this->stmt->bindValue($param, $value, $type);
+    }
+
+    // Bind values colums to prepared statement
+    protected function bindColumns(array $columns)
+    {
+        foreach ($columns as $column => $value) {
+            $this->bind(":$column", $value);
+        }
     }
 
     // Execute query
@@ -134,14 +147,9 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
     // Find by column value
     public function find($column, $value, $model = null)
     {
-        $sql = "SELECT * FROM " . $this->table . " WHERE " . $column . "=:value";
+        $sql = $this->select($this->table, ['*'])->where($column, '=')->getQuery();
         $this->query($sql);
-        $this->bind(":value", $value);
+        $this->bind(':' . $column, $value);
         return $this->single($model);
-    }
-
-    private function getPDO()
-    {
-        return $this->pdo;
     }
 }
