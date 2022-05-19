@@ -4,7 +4,6 @@ namespace App;
 
 use App\Core\Auth;
 use App\Core\Validator;
-use App\Model\User as UserModel;
 
 session_start();
 
@@ -26,6 +25,11 @@ function myAutoloader($class)
 }
 
 spl_autoload_register("App\myAutoloader");
+
+if (!isset($_SERVER['REQUEST_URI'])) {
+    // locally accessed
+    return;
+}
 
 
 $uri = $_SERVER["REQUEST_URI"];
