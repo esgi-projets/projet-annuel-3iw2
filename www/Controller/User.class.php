@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Core\Auth;
-use App\Core\BaseSQL;
 use App\Core\Email;
 use App\Core\Validator;
 use App\Core\View;
