@@ -32,3 +32,4 @@
   controller: admin
   action: dashboard
   protected: true
+# role: admin
