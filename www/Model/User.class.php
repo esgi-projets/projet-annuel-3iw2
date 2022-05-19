@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Model;
 
 use App\Core\BaseSQL;
@@ -12,6 +13,7 @@ class User extends BaseSQL
     protected $firstname;
     protected $lastname;
     protected $status = null;
+    protected $role = 'user';
     protected $token = null;
 
     public function __construct()
@@ -26,6 +28,15 @@ class User extends BaseSQL
         return $this->id;
     }
 
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): object
+    {
+        $this->id = $id;
+        parent::populate();
+        return $this;
+    }
 
     /**
      * @return mixed
@@ -94,7 +105,7 @@ class User extends BaseSQL
     /**
      * @return null
      */
-    public function getStatus(): int
+    public function getStatus(): ?int
     {
         return $this->status;
     }
@@ -105,6 +116,40 @@ class User extends BaseSQL
     public function setStatus($status): void
     {
         $this->status = $status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param string $role
+     */
+    public function getFormattedRole(): string
+    {
+        switch ($this->role) {
+            case 'admin':
+                return 'Administrateur';
+                break;
+            case 'user':
+                return 'Utilisateur';
+                break;
+            default:
+                return 'Utilisateur';
+                break;
+        }
+    }
+
+    /**
+     * @param string $role
+     */
+    public function setRole(string $role): void
+    {
+        $this->role = $role;
     }
 
     /**
@@ -124,68 +169,60 @@ class User extends BaseSQL
         $this->token = str_shuffle(md5(uniqid()));
     }
 
-
-    public function save()
-    {
-        parent::save();
-    }
-
-
     public function getFormRegister(): array
     {
         return [
-            "config"=>[
-                "method"=>"POST",
-                "action"=>"",
-                "submit"=>"S'inscrire"
+            "config" => [
+                "method" => "POST",
+                "action" => "register",
+                "submit" => "S'inscrire",
+                "class" => "w-100",
+                "model" => get_class($this)
             ],
-            "inputs"=>[
-                    "email"=>[
-                        "type"=>"email",
-                        "placeholder"=>"Votre email ...",
-                        "id"=>"emailRegister",
-                        "class"=>"inputRegister",
-                        "required"=>true,
-                        "error"=>"Email incorrect",
-                        "unicity"=>true,
-                        "errorUnicity"=>"Email existe déjà en bdd"
-                    ],
-                    "password"=>[
-                        "type"=>"password",
-                        "placeholder"=>"Votre mot de passe ...",
-                        "id"=>"pwdRegister",
-                        "class"=>"inputRegister",
-                        "required"=>true,
-                        "error"=>"Votre mot de passe doit faire entre 8 et 16 et contenir des chiffres et des lettres",
-                    ],
-                    "passwordConfirm"=>[
-                        "type"=>"password",
-                        "placeholder"=>"Confirmation ...",
-                        "id"=>"pwdConfirmRegister",
-                        "class"=>"inputRegister",
-                        "required"=>true,
-                        "confirm"=>"password",
-                        "error"=>"Votre mot de passe de confirmation ne correspond pas",
-                    ],
-                    "firstname"=>[
-                        "type"=>"text",
-                        "placeholder"=>"Prénom ...",
-                        "id"=>"firstnameRegister",
-                        "class"=>"inputRegister",
-                        "min"=>2,
-                        "max"=>50,
-                        "error"=>"Votre prénom n'est pas correct",
-                    ],
-                    "lastname"=>[
-                        "type"=>"text",
-                        "placeholder"=>"Nom ...",
-                        "id"=>"lastnameRegister",
-                        "class"=>"inputRegister",
-                        "min"=>2,
-                        "max"=>100,
-                        "error"=>"Votre nom n'est pas correct",
-                    ],
-                ]
+            "inputs" => [
+                "firstname" => [
+                    "name" => "Prénom",
+                    "type" => "text",
+                    "placeholder" => "Prénom",
+                    "id" => "firstname",
+                    "class" => "input w-100",
+                    "min" => 2,
+                    "max" => 50,
+                    "required" => true,
+                    "error" => "Votre prénom semble incorrect",
+                ],
+                "lastname" => [
+                    "name" => "Nom de famille",
+                    "type" => "text",
+                    "placeholder" => "Nom de famille",
+                    "id" => "lastname",
+                    "class" => "input w-100",
+                    "min" => 2,
+                    "max" => 100,
+                    "required" => true,
+                    "error" => "Votre nom de famille semble incorrect",
+                ],
+                "email" => [
+                    "name" => "Adresse e-mail",
+                    "type" => "email",
+                    "placeholder" => "Adresse email",
+                    "id" => "email",
+                    "class" => "input w-100",
+                    "required" => true,
+                    "error" => "L'adresse email est invalide",
+                    "unicity" => true,
+                    "errorUnicity" => "L'adresse e-mail a déjà été utilisée"
+                ],
+                "password" => [
+                    "name" => "Mot de passe",
+                    "type" => "password",
+                    "placeholder" => "Mot de passe",
+                    "id" => "password",
+                    "class" => "input w-100",
+                    "required" => true,
+                    "error" => "Votre mot de passe doit faire entre 8 et 16 et contenir des chiffres et des lettres",
+                ],
+            ]
 
         ];
     }
@@ -194,25 +231,83 @@ class User extends BaseSQL
     public function getFormLogin(): array
     {
         return [
-            "config"=>[
-                "method"=>"POST",
-                "action"=>"",
-                "submit"=>"Se connecter"
+            "config" => [
+                "method" => "POST",
+                "action" => "login",
+                "submit" => "Se connecter",
+                "class" => "w-100",
+                "model" => $this
             ],
-            "inputs"=>[
-                "email"=>[
-                    "type"=>"email",
-                    "placeholder"=>"Votre email ...",
-                    "id"=>"emailRegister",
-                    "class"=>"inputRegister",
-                    "required"=>true,
+            "inputs" => [
+                "email" => [
+                    "name" => "E-mail",
+                    "type" => "email",
+                    "placeholder" => "mail@exemple.com",
+                    "id" => "email",
+                    "class" => "input w-100",
+                    "required" => true,
                 ],
-                "password"=>[
-                    "type"=>"password",
-                    "placeholder"=>"Votre mot de passe ...",
-                    "id"=>"pwdRegister",
-                    "class"=>"inputRegister",
-                    "required"=>true,
+                "password" => [
+                    "name" => "Mot de passe",
+                    "type" => "password",
+                    "id" => "password",
+                    "class" => "input w-100",
+                    "placeholder" => "",
+                    "required" => true,
+                ]
+            ]
+
+        ];
+    }
+
+    public function getFormReset(): array
+    {
+        return [
+            "config" => [
+                "method" => "POST",
+                "action" => "reset",
+                "submit" => "Envoyer le lien",
+                "class" => "w-100",
+                "model" => $this
+            ],
+            "inputs" => [
+                "email" => [
+                    "name" => "E-mail",
+                    "type" => "email",
+                    "placeholder" => "mail@exemple.com",
+                    "id" => "email",
+                    "class" => "input w-100",
+                    "required" => true,
+                ]
+            ]
+
+        ];
+    }
+
+    public function getFormResetPassword($token = null): array
+    {
+        return [
+            "config" => [
+                "method" => "POST",
+                "action" => "",
+                "submit" => "Réinitialiser le mot de passe",
+                "class" => "w-100",
+                "model" => $this
+            ],
+            "inputs" => [
+                "token" => [
+                    "type" => "hidden",
+                    "id" => "token",
+                    "value" => $token,
+                    "required" => true,
+                ],
+                "password" => [
+                    "name" => "Mot de passe",
+                    "type" => "password",
+                    "id" => "password",
+                    "class" => "input w-100",
+                    "placeholder" => "Le mot de passe doit contenir au moins 8 caractères dont au moins une majuscule, une minuscule et un chiffre.",
+                    "required" => true,
                 ]
             ]
 

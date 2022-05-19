@@ -12,21 +12,16 @@
         <h3 class="mb-8 ml-8">Pour accéder à cette page il est nécessaire de s’authentifier</h3>
 
         <div class="pl-5">
-          <div class="column pr-3 pl-3 pb-5">
-            <label class="mb-2">Email</label>
-            <input type="text" class="input w-100" placeholder="mail@exemple.com">
+          <div class="pr-2 pl-2">
+            <?php
+            $this->includePartial("error", ['visible' => isset($error) ? $error : false, 'message' => isset($errorMessage) ? $errorMessage : null, 'list' => isset($listErrors) ? $listErrors : null]);
+            $this->includePartial("success", ['visible' => isset($success) ? $success : false, 'message' => isset($successMessage) ? $successMessage : null, 'list' => isset($listSuccess) ? $listSuccess : null]);
+            ?>
           </div>
-
-
-          <div class="column pr-3 pl-3">
-            <label class="mb-2">Mot de passe</label>
-            <input type="password" class="input w-100">
-          </div>
-
-          <div class="column mt-8 pr-3 pl-3">
-            <button class="button button-primary">Se connecter</button>
-            <button class="button button-secondary">Créer un compte</button>
-            <button class="button button-link">Mot de passe oublié ?</button>
+          <?php $this->includePartial("form", $user->getFormLogin()) ?>
+          <div class="column mt-2 pr-3 pl-3">
+            <a class="button button-secondary" href="register">Créer un compte</a>
+            <a class="button button-link" href="reset">Mot de passe oublié ?</a>
           </div>
         </div>
       </div>
