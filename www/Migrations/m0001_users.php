@@ -24,6 +24,6 @@ class m0001_users extends Migration
 
   public function down()
   {
-    $this->dropTable("users");
+    $this->dropTable("user");
   }
 }
