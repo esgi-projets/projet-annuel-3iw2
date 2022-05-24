@@ -6,8 +6,12 @@
     },
     "autoload": {
         "psr-4": {
-            "CMS\\": "/"
+            "App\\": "./www/"
         }
+    },
+    "scripts": {
+        "migrate": "php Migrations/migrations.php",
+        "migrate:down": "php Migrations/migrations.php --down"
     },
     "authors": [
         {

@@ -4,7 +4,6 @@ namespace App;
 
 use App\Core\Auth;
 use App\Core\Validator;
-use App\Model\User as UserModel;
 
 session_start();
 
@@ -26,6 +25,11 @@ function myAutoloader($class)
 }
 
 spl_autoload_register("App\myAutoloader");
+
+if (!isset($_SERVER['REQUEST_URI'])) {
+    // locally accessed
+    return;
+}
 
 
 $uri = $_SERVER["REQUEST_URI"];
@@ -80,10 +84,17 @@ if (empty($routes[$uri]) || empty($routes[$uri]["controller"])  || empty($routes
 $controller = ucfirst(strtolower($routes[$uri]["controller"]));
 $action = strtolower($routes[$uri]["action"]);
 $protected = isset($routes[$uri]["protected"]) && $routes[$uri]['protected'] || strpos($uri, "admin") !== false; // if URI contains admin or protected route is true
+$role = isset($routes[$uri]["role"]) ? $routes[$uri]["role"] : false; // if role is set in route
 
 // if routes is protected and user is not logged in
 if ($protected && Auth::isLogged() === false) {
     header("Location: /login");
+    exit;
+}
+
+// if route need a role 
+if ($protected && $role && Auth::getUser()->getRole() !== $role) {
+    header("Location: /404");
     exit;
 }
 

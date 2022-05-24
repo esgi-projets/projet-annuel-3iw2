@@ -25,7 +25,8 @@ class MySQLBuilder implements QueryBuilder
    */
   public function insert(string $table, array $columns): QueryBuilder
   {
-    $this->query = "INSERT INTO $table (" . implode(", ", array_keys($columns)) . ") VALUES (" . implode(", ", array_values($columns)) . ")";
+    $this->query = "INSERT INTO " . $table . " (" . implode(", ", array_keys($columns)) . ")
+    VALUES (:" . implode(", :", array_keys($columns)) . ")";
     return $this;
   }
 
@@ -36,9 +37,11 @@ class MySQLBuilder implements QueryBuilder
    */
   public function update(string $table, array $columns): QueryBuilder
   {
-    $this->query = "UPDATE $table SET " . implode(", ", array_map(function ($column, $value) {
-      return "$column = '" . $value . "'";
-    }, array_keys($columns), array_values($columns)));
+    $this->query = "UPDATE " . $table . " SET ";
+    foreach ($columns as $key => $value) {
+      $this->query .= $key . " = :" . $key . ", ";
+    }
+    $this->query = substr($this->query, 0, -2);
     return $this;
   }
 
@@ -55,12 +58,11 @@ class MySQLBuilder implements QueryBuilder
   /**
    * @param string $column
    * @param string $operator
-   * @param string $value
    * @return QueryBuilder
    */
-  public function where(string $column, string $operator, string $value): QueryBuilder
+  public function where(string $column, string $operator): QueryBuilder
   {
-    $this->query .= " WHERE $column $operator $value";
+    $this->query .= " WHERE $column $operator :$column";
     return $this;
   }
 
