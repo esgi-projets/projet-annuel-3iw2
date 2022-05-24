@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Core\Email;
+use App\Core\View;
 
 class General
 {
 
     public function home()
     {
+        $view = new View("home");
+        $view->assign("titleSeo", "Accueil | CMS");
     }
 
     public function terms()

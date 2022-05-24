@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/dist/styles.css">
 </head>
 
-<body>
+<body onload="highlightButton()">
 
     <?php include $this->view . ".view.php"; ?>
 
