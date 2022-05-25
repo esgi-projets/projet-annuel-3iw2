@@ -33,32 +33,26 @@
   action: dashboard
   protected: true
 
-/orders:
+/admin/orders:
   controller: admin
   action: orders
-  protected: true
 
 /admin/products:
   controller: admin
   action: products
-  protected: true
 
 /admin/users:
   controller: admin
   action: users
-  protected: true
 
 /admin/shop:
   controller: admin
   action: shop
-  protected: true
 
 /admin/pages:
   controller: admin
   action: pages
-  protected: true
 
 /admin/menus:
   controller: admin
   action: menus
-  protected: true

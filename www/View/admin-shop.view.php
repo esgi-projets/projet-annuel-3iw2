@@ -14,7 +14,19 @@
         <a href="/logout" class="button button-secondary">Se déconnecter</a>
       </div>
       <div class="col-12-xl col-12-lg col-12-md col-12-sm col-12-xs">
-        <h1 class="pl-8">Un peu de patience <span class="color-primary"><?= $user->getFirstname() ?></span>, nous travaillons sur cette page 🚧</h1>
+        <h1 class="pl-8">Réglages généraux 🔐</h1>
+        <div class="row" style="min-height:100vh;">
+          <div class="col-8-xl col-8-lg col-8-md col-8-sm col-8-xs">
+            <!-- Rounded switch -->
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="col-4-xl col-4-lg col-4-md col-4-sm col-4-xs">
+            <h1 class="pl-8">Réglages généraux 🔐</h1>
+          </div>
+        </div>
       </div>
     </div>
   </div>
