@@ -26,10 +26,14 @@
   controller: user
   action: reset
 
+/admin/orders:
+  controller: general
+  action: home
+
 # Admin routes
 
 /dashboard:
   controller: admin
   action: dashboard
   protected: true
-# role: admin
+  # role: admin

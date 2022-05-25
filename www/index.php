@@ -56,12 +56,11 @@ if ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && file_ex
 
 // Dynamic routing
 foreach (array_keys($routes) as $route) {
-    if (preg_match("#^/" . explode('/', $route)[1] . "/\w+.*$#", $uri, $matches) && preg_match_all("#:\w+$#", $route, $params)) {
-        $params_initials = $params[0];
+    if (preg_match("#^/" . explode('/', $route)[1] . "/\w+.*$#", $uri, $matches) && preg_match_all("#:\w+$#", $route, $matches)) {
+        $params_initials = $matches[0];
         $offset = array_search($params_initials[0], explode('/', $route));
 
         $params = array_filter(array_slice(explode('/', $uri), $offset));
-
         // associate params with their values
         foreach (array_keys($params) as $key_param) {
             if (isset($params_initials[$key_param])) {
