@@ -82,31 +82,27 @@
   function highlightButton() {
     switch (location.pathname.substr(1)) {
       case "dashboard":
-        console.log("Hello");
         document.getElementById("dashboard-button").setAttribute("style", "background-color: #eeeeee;");
         break;
-      case "orders":
-        console.log("Hello");
+      case "admin/orders":
         document.getElementById("orders-button").setAttribute("style", "background-color: #eeeeee;");
         break;
-      case "products":
-        console.log("Hello");
+      case "admin/products":
         document.getElementById("products-button").setAttribute("style", "background-color: #eeeeee;");
         break;
-      case "users":
-        console.log("Hello");
+      case "admin/users":
         document.getElementById("users-button").setAttribute("style", "background-color: #eeeeee;");
         break;
-      case "shop":
-        console.log("Hello");
+      case "admin/shop":
+        showMenu();
         document.getElementById("shop-button").setAttribute("style", "background-color: #eeeeee;");
         break;
-      case "pages":
-        console.log("Hello");
+      case "admin/pages":
+        showMenu();
         document.getElementById("pages-button").setAttribute("style", "background-color: #eeeeee;");
         break;
-      case "menus":
-        console.log("Hello");
+      case "admin/menus":
+        showMenu();
         document.getElementById("menus-button").setAttribute("style", "background-color: #eeeeee;");
         break;
 

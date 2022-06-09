@@ -1,4 +1,4 @@
-.status{
+.status {
   display: inline-block;
   padding: 0.5em 1em;
   color: $color-gray;
@@ -26,5 +26,9 @@
 
   &-error {
     background-color: rgba($color-error, 0.2);
+  }
+
+  &-neutral {
+    background-color: rgba($color-lightgrey, 0.2);
   }
 }

@@ -110,82 +110,23 @@ input[type=checkbox] {
   text-align: center;
 }
 
-table {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  color: $color-dark--500;
-  table-layout: fixed;
-  font-family: $font-roboto;
-}
-
-table tr {
-  padding: 0.35em;
-}
-
-table th,
-table td {
-  padding: 0.625em;
-  text-align: center;
-  font-family: $font-roboto;
-}
-
-table th {
-  font-size: 0.9em;
-  border-bottom: 1px solid $color-lightgrey--600;
-}
-
-@media screen and (max-width: 600px) {
-  table {
-    border: 0;
-  }
-
-  table thead {
-    border-bottom: 1px solid $color-lightgrey--600;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-
-  table tr {
-    display: block;
-    margin-bottom: 0.625em;
-    border-bottom: 1px solid $color-lightgrey--600;
-  }
-
-  table td {
-    display: block;
-    font-size: 0.8em;
-    text-align: right;
-  }
-
-  table td::before {
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-  }
-
-  table td:last-child {
-    border-bottom: 0;
-  }
-}
 
 $max: 50;
 $offset: 1;
 $unit: 'rem';
 $diviser: 4;
+
 @mixin list-loop($className, $styleName) {
   $i: 0;
-  @while $i <= $max {
+
+  @while $i <=$max {
     #{$className + $i} {
       #{$styleName}: #{calc($i/$diviser) + $unit};
     }
-    $i: $i + $offset;
+
+    $i: $i+$offset;
   }
+
   #{$className + 'auto'} {
     #{$styleName}: auto;
   }

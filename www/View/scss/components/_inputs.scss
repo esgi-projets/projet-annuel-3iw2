@@ -1,4 +1,5 @@
-input {
+input,
+textarea {
   height: 48px;
   width: 15vw;
   border: 2px solid;
@@ -6,7 +7,7 @@ input {
   border-radius: 0.8rem;
   font-family: $font-roboto;
   font-weight: 600;
-  color: $color-dark--400;
+  color: $color-dark--200;
 }
 
 label {
@@ -28,6 +29,7 @@ label {
 
   &--error {
     border-color: $color-error--100;
+
     &:focus {
       border-color: $color-error--200;
     }
@@ -35,6 +37,7 @@ label {
 
   &--valid {
     border-color: $color-success--100;
+
     &:focus {
       border-color: $color-success--200;
     }
@@ -48,12 +51,15 @@ label {
 }
 
 input,
+textarea,
 .input {
   font-size: 16px;
+  font-style: normal;
   padding: 0 16px;
   border-color: $color-lightgrey--600;
-}
+  resize: none;
 
-.input:focus {
-  border-color: $color-primary--200;
+  &:focus {
+    border-color: $color-primary--200;
+  }
 }

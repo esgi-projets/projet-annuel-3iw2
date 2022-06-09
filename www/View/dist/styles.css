@@ -713,65 +713,6 @@ input[type=checkbox] {
   vertical-align: middle;
   text-align: center;
 }
-table {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  color: #1A181B;
-  table-layout: fixed;
-  font-family: "Roboto", sans-serif;
-}
-table tr {
-  padding: 0.35em;
-}
-table th,
-table td {
-  padding: 0.625em;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-}
-table th {
-  font-size: 0.9em;
-  border-bottom: 1px solid #e0e3e7;
-}
-@media screen and (max-width: 600px) {
-  table {
-    border: 0;
-  }
-
-  table thead {
-    border-bottom: 1px solid #e0e3e7;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-
-  table tr {
-    display: block;
-    margin-bottom: 0.625em;
-    border-bottom: 1px solid #e0e3e7;
-  }
-
-  table td {
-    display: block;
-    font-size: 0.8em;
-    text-align: right;
-  }
-
-  table td::before {
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-  }
-
-  table td:last-child {
-    border-bottom: 0;
-  }
-}
 .pl-0 {
   padding-left: 0rem;
 }
@@ -2809,6 +2750,93 @@ table th {
 .font-auto {
   font-weight: auto;
 }
+table {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: #1A181B;
+  table-layout: fixed;
+  font-family: "Roboto", sans-serif;
+}
+.table {
+  display: inline-block;
+  padding: 1em;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 95%;
+  height: auto;
+}
+table tr {
+  padding: 0.35em;
+}
+table th,
+table td {
+  padding: 0.625em;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+table th {
+  font-size: 0.9em;
+  border-bottom: 1px solid #e0e3e7;
+}
+.action {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0em 1em;
+  margin-left: 1em;
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  width: 8em;
+  font-size: 15px;
+  color: #4F46E5;
+}
+.action:hover {
+  background-color: #11ffee00;
+  color: #291fd9;
+}
+@media screen and (max-width: 900px) {
+  table {
+    border: 0;
+  }
+
+  table thead {
+    border-bottom: 1px solid #e0e3e7;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    display: block;
+    margin-bottom: 0.625em;
+    border-bottom: 1px solid #e0e3e7;
+  }
+
+  table td {
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
 .button {
   display: inline-block;
   padding: 1em 2em;
@@ -2971,7 +2999,8 @@ table th {
   color: #b4bdc6;
   pointer-events: none;
 }
-input {
+input,
+textarea {
   height: 48px;
   width: 15vw;
   border: 2px solid;
@@ -2979,7 +3008,7 @@ input {
   border-radius: 0.8rem;
   font-family: "Roboto", sans-serif;
   font-weight: 600;
-  color: #272429;
+  color: #4e4851;
 }
 label {
   font-family: "Roboto", sans-serif;
@@ -3014,11 +3043,16 @@ label {
   pointer-events: none;
 }
 input,
+textarea,
 .input {
   font-size: 16px;
+  font-style: normal;
   padding: 0 16px;
   border-color: #e0e3e7;
+  resize: none;
 }
+input:focus,
+textarea:focus,
 .input:focus {
   border-color: #a49ff2;
 }
@@ -3095,6 +3129,9 @@ input,
 .status-error {
   background-color: rgba(219, 22, 47, 0.2);
 }
+.status-neutral {
+  background-color: rgba(238, 240, 242, 0.2);
+}
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -3132,10 +3169,10 @@ input,
   transition: 0.4s;
 }
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #31D0AA;
 }
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #31D0AA;
 }
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
