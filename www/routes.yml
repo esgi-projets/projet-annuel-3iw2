@@ -49,9 +49,17 @@
   controller: admin
   action: shop
 
+/admin/pages/edit/:id:
+  controller: page
+  action: edit
+
 /admin/pages:
   controller: admin
   action: pages
+
+/admin/pages/create:
+  controller: page
+  action: create
 
 /admin/menus:
   controller: admin

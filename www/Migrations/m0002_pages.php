@@ -8,7 +8,7 @@ class m0002_pages extends Migration
 {
   public function up()
   {
-    $this->createTable("pages", [
+    $this->createTable("page", [
       "id" => "int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY",
       "title" => "varchar(255) NOT NULL",
       "slug" => "varchar(255) NOT NULL",
@@ -20,6 +20,6 @@ class m0002_pages extends Migration
 
   public function down()
   {
-    $this->dropTable("pages");
+    $this->dropTable("page");
   }
 }

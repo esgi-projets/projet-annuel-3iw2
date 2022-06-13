@@ -2,7 +2,11 @@
     <?php foreach ($config["inputs"] as $name => $input) : ?>
         <div class='<?= $input["type"] == 'hidden' ? "" : "column pr-3 pl-3 pb-5" ?>'>
             <label class='<?= $input["type"] == 'hidden' ? "" : "mb-2" ?>'><?= $input["name"] ?? "" ?></label>
-            <input name="<?= $name ?>" id="<?= $input["id"] ?>" type="<?= $input["type"] ?>" class="<?= $input["class"] ?? "" ?>" value="<?= $input["value"] ?? "" ?>" placeholder="<?= $input["placeholder"] ?? "" ?>" <?= (!empty($input["required"])) ? 'required="required"' : '' ?>>
+            <?php if ($input["type"] != 'textarea') : ?>
+                <input name="<?= $name ?>" id="<?= $input["id"] ?>" type="<?= $input["type"] ?>" class="<?= $input["class"] ?? "" ?>" value="<?= $input["value"] ?? "" ?>" placeholder="<?= $input["placeholder"] ?? "" ?>" <?= (!empty($input["required"])) ? 'required="required"' : '' ?>>
+            <?php else : ?>
+                <textarea name="<?= $name ?>" id="<?= $input["id"] ?>" class="<?= $input["class"] ?? "" ?>" placeholder="<?= $input["placeholder"] ?? "" ?>" <?= (!empty($input["required"])) ? 'required="required"' : '' ?>><?= $input["value"] ?? "" ?></textarea>
+            <?php endif ?>
         </div>
     <?php endforeach; ?>
 

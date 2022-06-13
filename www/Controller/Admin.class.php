@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Core\Auth;
 use App\Core\View;
+use App\Model\Page;
 use App\Model\User;
 
 class Admin
@@ -51,8 +52,10 @@ class Admin
     public function pages()
     {
         $user = Auth::getUser();
-        $view = new View("admin-pages");
+        $pages = new Page();
+        $view = new View("admin-pages", "back");
         $view->assign("titleSeo", "Gestion des pages | CMS");
+        $view->assign("pages", $pages);
         $view->assign("user", $user);
     }
 

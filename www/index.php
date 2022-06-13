@@ -61,18 +61,21 @@ foreach (array_keys($routes) as $route) {
         $offset = array_search($params_initials[0], explode('/', $route));
 
         $params = array_filter(array_slice(explode('/', $uri), $offset));
-        // associate params with their values
-        foreach (array_keys($params) as $key_param) {
-            if (isset($params_initials[$key_param])) {
-                $params[str_replace(":", "", $params_initials[$key_param])] = $params[$key_param];
-                unset($params[$key_param]);
-            } else {
-                unset($params[$key_param]);
-            }
-        }
 
-        $uri = $route;
-        break;
+        if (str_replace($params_initials, "", $route) == str_replace($params, "", $uri)) {
+            // associate params with their values
+            foreach (array_keys($params) as $key_param) {
+                if (isset($params_initials[$key_param])) {
+                    $params[str_replace(":", "", $params_initials[$key_param])] = $params[$key_param];
+                    unset($params[$key_param]);
+                } else {
+                    unset($params[$key_param]);
+                }
+            }
+
+            $uri = $route;
+            break;
+        }
     }
 }
 

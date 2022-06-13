@@ -183,7 +183,7 @@ class User extends BaseSQL
                 "firstname" => [
                     "name" => "Prénom",
                     "type" => "text",
-                    "placeholder" => "Prénom",
+                    "placeholder" => "John",
                     "id" => "firstname",
                     "class" => "input w-100",
                     "min" => 2,
@@ -194,7 +194,7 @@ class User extends BaseSQL
                 "lastname" => [
                     "name" => "Nom de famille",
                     "type" => "text",
-                    "placeholder" => "Nom de famille",
+                    "placeholder" => "Doe",
                     "id" => "lastname",
                     "class" => "input w-100",
                     "min" => 2,
@@ -205,7 +205,7 @@ class User extends BaseSQL
                 "email" => [
                     "name" => "Adresse e-mail",
                     "type" => "email",
-                    "placeholder" => "Adresse email",
+                    "placeholder" => "john@doe.com",
                     "id" => "email",
                     "class" => "input w-100",
                     "required" => true,
@@ -216,7 +216,6 @@ class User extends BaseSQL
                 "password" => [
                     "name" => "Mot de passe",
                     "type" => "password",
-                    "placeholder" => "Mot de passe",
                     "id" => "password",
                     "class" => "input w-100",
                     "required" => true,
