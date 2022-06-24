@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Template de back</title>
+    <title><?= $titleSeo ?? 'Template du back' ?></title>
     <meta name="description" content="ceci est la description de ma page">
     <link rel="stylesheet" href="/dist/styles.css">
     <script src="https://cdn.tiny.cloud/1/pav5g98o090khpnxooh9msgp55nbp9tfvzyt79hblmwtq2io/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
@@ -11,10 +11,25 @@
 </head>
 
 <body onload="highlightButton()">
-    <?php include $this->view . ".view.php"; ?>
+
+    <div class="row">
+        <?php
+        include 'back-menu.view.php';
+        ?>
+        <div class="col-9-xl col-12-lg col-12-md col-12-sm col-12-xs">
+            <div class="row">
+                <?php
+
+                include 'back-menu-mobile.view.php';
+
+                include $this->view . ".view.php";
+                ?>
+            </div>
+        </div>
+    </div>
     <script>
         tinymce.init({
-            selector: 'textarea',
+            selector: 'textarea#content',
             plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
             editimage_cors_hosts: ['picsum.photos'],
             menubar: 'file edit view insert format tools table help',

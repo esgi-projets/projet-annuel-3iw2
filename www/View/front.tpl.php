@@ -9,7 +9,7 @@
 </head>
 
 <body onload="highlightButton()">
-
+    <?php include "front-menu.view.php"; ?>
     <?php include $this->view . ".view.php"; ?>
 
 </body>

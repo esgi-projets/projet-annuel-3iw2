@@ -7,16 +7,14 @@ $color-success:#0FA958;
 $color-error:#DB162F;
 $color-warning:#E67E22;
 
-$colors: (
-  "white":$color-white,
+$colors: ("white":$color-white,
   "lightgrey":$color-lightgrey,
   "gray":$color-gray,
   "dark":$color-dark,
   "primary":$color-primary,
   "success":$color-success,
   "error":$color-error,
-  "warning":$color-warning
-);
+  "warning":$color-warning);
 
 
 $color-lightgrey--100: lighten($color-lightgrey, 15%);
@@ -94,30 +92,33 @@ $color-success-pastel : #EEFCEF;
 $color-warning-pastel : #FFEEE1;
 $color-error-pastel : lighten($color-error, 45%);
 
-.bg-primary-pastel{
-  background-color : lighten($color-primary, 40%);
+.bg-primary-pastel {
+  background-color: lighten($color-primary, 40%);
 }
 
-.bg-success-pastel{
-  background-color : lighten($color-success, 40%);
+.bg-success-pastel {
+  background-color: lighten($color-success, 40%);
 }
 
-.bg-error-pastel{
-  background-color : lighten($color-error, 40%);
+.bg-error-pastel {
+  background-color: lighten($color-error, 40%);
 }
 
-.bg-warning-pastel{
-  background-color : lighten($color-warning, 40%);
+.bg-warning-pastel {
+  background-color: lighten($color-warning, 40%);
 }
 
 // Backgrounds
-@each $color-name, $color in $colors {
-  .bg-#{$color-name}{
+@each $color-name,
+$color in $colors {
+  .bg-#{$color-name} {
     background-color : #{$color};
-  } 
-  .color-#{$color-name}{
+  }
+
+  .color-#{$color-name} {
     color : #{$color};
-  } 
+  }
+
   //.bg-#{$color-name}-pastel{
   //  background-color : lighten(#{$color}, 50%);
   //} 
@@ -137,5 +138,5 @@ $color-error-pastel : lighten($color-error, 45%);
   //  background-color : $percent;
   //}
   //}
-  
+
 }

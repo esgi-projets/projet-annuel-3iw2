@@ -12,15 +12,15 @@ class Admin
     public function dashboard()
     {
         $user = Auth::getUser();
-        $view = new View("dashboard");
-        $view->assign("titleSeo", "Dashboard | CMS");
+        $view = new View("dashboard", "back");
+        $view->assign("titleSeo", "Tableau de bord | CMS");
         $view->assign("user", $user);
     }
 
     public function orders()
     {
         $user = Auth::getUser();
-        $view = new View("admin-orders");
+        $view = new View("admin-orders", "back");
         $view->assign("titleSeo", "Commandes | CMS");
         $view->assign("user", $user);
     }
@@ -28,7 +28,7 @@ class Admin
     public function products()
     {
         $user = Auth::getUser();
-        $view = new View("admin-products");
+        $view = new View("admin-products", "back");
         $view->assign("titleSeo", "Produits | CMS");
         $view->assign("user", $user);
     }
@@ -36,7 +36,7 @@ class Admin
     public function users()
     {
         $user = Auth::getUser();
-        $view = new View("admin-users");
+        $view = new View("admin-users", "back");
         $view->assign("titleSeo", "Utilisateurs | CMS");
         $view->assign("user", $user);
     }
@@ -44,7 +44,7 @@ class Admin
     public function shop()
     {
         $user = Auth::getUser();
-        $view = new View("admin-shop");
+        $view = new View("admin-shop", "back");
         $view->assign("titleSeo", "Gestion de la boutique | CMS");
         $view->assign("user", $user);
     }
@@ -62,7 +62,7 @@ class Admin
     public function menus()
     {
         $user = Auth::getUser();
-        $view = new View("admin-menus");
+        $view = new View("admin-menus", "back");
         $view->assign("titleSeo", "Gestion des menus | CMS");
         $view->assign("user", $user);
     }
