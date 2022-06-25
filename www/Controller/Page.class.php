@@ -59,4 +59,18 @@ class Page
       exit;
     }
   }
+
+  public function delete()
+  {
+    if (Auth::isLogged() && Auth::getUser()->getRole() === "admin") {
+      $page = new PageModel();
+      $page->setId($_GET["id"]);
+      $page->deleteRecord();
+      // $page->delete($page->getTable())->where("id", "=", $_GET["id"]);
+      header("Location: /admin/pages");
+    } else {
+      header("Location: /dashboard");
+      exit;
+    }
+  }
 }

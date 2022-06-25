@@ -82,6 +82,15 @@ class Page extends BaseSQL
     $this->content = $content;
   }
 
+  /**
+   * @return mixed
+   */
+  public function deleteRecord(): void
+  {
+    parent::__construct();
+    parent::deleteRecord();
+  }
+
   public function getFormPage($page = null): array
   {
     return [

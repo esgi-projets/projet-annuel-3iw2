@@ -160,4 +160,13 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
         $this->query($sql);
         return $this->resultSet($model);
     }
+
+    // Delete record
+    public function deleteRecord()
+    {
+        $sql = $this->delete($this->table)->where('id', '=')->getQuery();
+        $this->query($sql);
+        $this->bind(':id', $this->getId());
+        $this->execute();
+    }
 }
