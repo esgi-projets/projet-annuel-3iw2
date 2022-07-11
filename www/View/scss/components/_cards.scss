@@ -13,7 +13,7 @@
   margin-bottom: 1em;
   width: 95%;
   height: auto;
-  
+
 
   &-primary {
     background-color: $color-primary-pastel;
@@ -43,5 +43,9 @@
 @for $i from 6 to 1 {
   .card-#{$i} {
     width: math.div(90%, $i);
+
+    @media screen and (max-width: map-get($breakpoints, 'md')) {
+      width: 90%;
+    }
   }
 }

@@ -190,6 +190,16 @@
         color: $color-warning--700;
       }
     }
+
+    &--dark {
+      background-color: #11ffee00;
+      color: $color-dark;
+
+      &:hover {
+        background-color: #11ffee00;
+        color: $color-dark--900;
+      }
+    }
   }
 
   &-disabled {

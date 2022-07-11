@@ -1,4 +1,4 @@
-<div class="col-3-xl hidden-under-xl bg-white column container-menu">
+<div class="col-3-xl hidden-under-xl bg-white column container-menu" id="back-menu" style="min-height:100vh">
   <div class="pt-10 pl-8">
     <div class="row align-flex-center inline-block">
       <img class="avatar mr-5" src="/assets/images/avatar.png" alt="avatar">
@@ -36,6 +36,11 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>
       Utilisateurs</a>
+    <a id="reviews-button" class="button button-secondary--menu button-icon w-85" href="/admin/reviews">
+      <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height:24px;" class="mr-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+      </svg>
+      Commentaires</a>
     <button class="button button-secondary--menu button-icon w-85 mb-5" onclick="showMenu()">
       <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height:24px;" class="mr-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
@@ -104,6 +109,9 @@
       case "admin/menus":
         showMenu();
         document.getElementById("menus-button").setAttribute("style", "background-color: #eeeeee;");
+        break;
+      case "admin/reviews":
+        document.getElementById("reviews-button").setAttribute("style", "background-color: #eeeeee;");
         break;
 
     }

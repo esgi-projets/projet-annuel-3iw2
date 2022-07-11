@@ -46,6 +46,7 @@ input[type=checkbox] {
 .mini-logo {
   height: 40px;
   width: 40px;
+  align-items: center;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
@@ -109,6 +110,13 @@ input[type=checkbox] {
   vertical-align: middle;
   text-align: center;
 }
+
+/* Space for front tpl */
+.front {
+  margin-top: 5rem;
+  margin-left: 2rem;
+}
+
 
 
 $max: 50;

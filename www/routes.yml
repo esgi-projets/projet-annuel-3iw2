@@ -68,3 +68,7 @@
 /admin/menus:
   controller: admin
   action: menus
+
+/admin/reviews:
+  controller: admin
+  action: reviews

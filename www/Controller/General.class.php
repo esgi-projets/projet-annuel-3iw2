@@ -25,4 +25,10 @@ class General
         $view = new View("privacy");
         $view->assign("titleSeo", "Politique de confidentialité");
     }
+
+    public function test()
+    {
+        $view = new View("test");
+        $view->assign("titleSeo", "Accueil | CMS");
+    }
 }

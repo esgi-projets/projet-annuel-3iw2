@@ -1,11 +1,15 @@
 * {
   box-sizing: border-box;
+  //font-family: $font-roboto;
 }
 
 html {
-  -webkit-text-size-adjust: none; /*─ Debug font size on iphone when landscape orientation ─*/
-  -webkit-font-smoothing: subpixel-antialiased; /*─ Debug safari font weight when fixed element on the page ─*/
-  -webkit-font-smoothing: antialiased; /*─ idem : Debug safari font weight when fixed element on the page ─*/
+  -webkit-text-size-adjust: none;
+  /*─ Debug font size on iphone when landscape orientation ─*/
+  -webkit-font-smoothing: subpixel-antialiased;
+  /*─ Debug safari font weight when fixed element on the page ─*/
+  -webkit-font-smoothing: antialiased;
+  /*─ idem : Debug safari font weight when fixed element on the page ─*/
 }
 
 html,
@@ -72,11 +76,13 @@ button:hover {
 }
 
 input::-ms-clear {
-  display: none; /*─ IE11 → remove cross to close ─*/
+  display: none;
+  /*─ IE11 → remove cross to close ─*/
 }
 
 textarea {
-  overflow: auto; /*─ Hide scroll bar on IE ─*/
+  overflow: auto;
+  /*─ Hide scroll bar on IE ─*/
 }
 
 a {
