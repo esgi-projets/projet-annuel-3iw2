@@ -154,9 +154,9 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
     }
 
     // Find all records
-    public function findAll($model = null)
+    public function findAll($model = null, $columns = ['*'])
     {
-        $sql = $this->select($this->table, ['*'])->getQuery();
+        $sql = $this->select($this->table, $columns)->getQuery();
         $this->query($sql);
         return $this->resultSet($model);
     }

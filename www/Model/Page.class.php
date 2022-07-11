@@ -77,6 +77,14 @@ class Page extends BaseSQL
   /**
    * @param mixed $content
    */
+  public function getRoutes(): array
+  {
+    return $this->findAll($this, ['id', 'slug']);
+  }
+
+  /**
+   * @param mixed $content
+   */
   public function setContent($content): void
   {
     $this->content = $content;
