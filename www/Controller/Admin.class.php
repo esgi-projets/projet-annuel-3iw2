@@ -66,4 +66,12 @@ class Admin
         $view->assign("titleSeo", "Gestion des menus | CMS");
         $view->assign("user", $user);
     }
+
+    public function reviews()
+    {
+        $user = Auth::getUser();
+        $view = new View("admin-reviews", "back");
+        $view->assign("titleSeo", "Gestion des commentaires | CMS");
+        $view->assign("user", $user);
+    }
 }

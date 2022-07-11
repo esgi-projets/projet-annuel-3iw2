@@ -1,4 +1,122 @@
 .menu {
+  position: fixed;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 5rem;
+  top: 0;
+  width: 95%;
+  font-family: $font-roboto;
+}
+
+.menu-right {
+  display: flex;
+  margin-right: 1.5rem;
+  margin-left: auto;
+}
+
+.menu-left {
+  display: flex;
+  margin-left: 1rem;
+  margin-right: auto;
+}
+
+.nav {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 4.8rem;
+  top: 0;
+  width: 100%;
+  background: $color-white;
+
+  &-border {
+    border-bottom: 1px solid $color-lightgrey;
+  }
+}
+
+.menu li {
+  width: 125px;
+
+  transition: background-position-x 0.9s linear;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+
+  a {
+    font-size: .875rem;
+    color: $color-dark;
+    text-decoration: none;
+    transition: all 0.45s;
+  }
+
+  &:hover {
+
+    border-bottom: 0.5px solid $color-lightgrey--700;
+  }
+
+  &:hover a {
+    color: $color-primary;
+  }
+}
+
+.menu a {
+  font-size: .9rem;
+  color: $color-dark;
+  text-decoration: none;
+  transition: all 0.45s;
+  margin-right: 1.2rem;
+  margin-left: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &.account {
+    font-weight: bold;
+  }
+}
+
+.links {
+  display: flex;
+  border-left: 0.1px solid $color-lightgrey;
+  margin-left: 2rem;
+  height: 1.5rem;
+  margin-top: 2rem;
+
+  li {
+    margin-left: 2rem;
+  }
+}
+
+.sidenav {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -100%;
+  background-color: $color-white;
+  padding-top: 60px;
+  transition: left 0.5s ease;
+}
+
+/* Active class */
+.sidenav.active {
+  left: 0;
+}
+
+/* Close btn */
+.sidenav .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
 }

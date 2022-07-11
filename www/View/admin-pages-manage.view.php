@@ -1,5 +1,5 @@
 <div class="col-12-xl col-12-lg col-12-md col-12-sm col-12-xs">
-  <h1 class="text-center"><?= $title ?></h1>
+  <h1 class="pl-8"><?= $title ?></h1>
   <?php $this->includePartial("form", $page->getFormPage($page->getId() ? $page : null)) ?>
 </div>
 

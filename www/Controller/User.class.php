@@ -25,7 +25,7 @@ class User
                     header("Location: /dashboard");
                     exit;
                 } else {
-                    $view = new View("login");
+                    $view = new View("login", "auth");
                     $view->assign("user", $user);
                     $view->assign("error", true);
                     $view->assign("errorMessage", "E-mail ou mot de passe invalide. Vérifiez vos identifiants.");
@@ -33,7 +33,7 @@ class User
                 }
             }
 
-            $view = new View("login");
+            $view = new View("login", "auth");
             $view->assign("user", $user);
             $view->assign("titleSeo", "Se connecter | CMS");
         } else {
@@ -92,14 +92,14 @@ class User
                     L'équipe de CMS";
                         $email->send();
 
-                        $view = new View("reset");
+                        $view = new View("reset", "auth");
                         $view->assign("user", $user);
                         $view->assign("success", true);
                         $view->assign("successMessage", "Votre demande de réinitialisation de mot de passe a bien été prise en compte. Vous allez recevoir un e-mail contenant un lien de réinitialisation de votre mot de passe.");
                         $view->assign("titleSeo", "Réinitialisation de votre mot de passe | CMS");
                         return;
                     } else {
-                        $view = new View("reset");
+                        $view = new View("reset", "auth");
                         $view->assign("user", $user);
                         $view->assign("success", true);
                         $view->assign("successMessage", "Votre demande de réinitialisation de mot de passe a bien été prise en compte. Vous allez recevoir un e-mail contenant un lien de réinitialisation de votre mot de passe.");
@@ -111,7 +111,7 @@ class User
                         $result = Validator::run($user->getFormResetPassword(), $_POST);
 
                         if ($result) {
-                            $view = new View("reset");
+                            $view = new View("reset", "auth");
                             $view->assign("user", $user);
                             $view->assign("token", $_POST['token']);
                             $view->assign("error", true);
@@ -125,7 +125,7 @@ class User
                         $userFind->generateToken();
                         $userFind->save();
 
-                        $view = new View("reset");
+                        $view = new View("reset", "auth");
                         $view->assign("user", $user);
                         $view->assign("success", true);
                         $view->assign("successMessage", "Votre mot de passe a bien été réinitialisé. Vous pouvez maintenant vous connecter.");
@@ -136,7 +136,7 @@ class User
             } else if (!empty($_GET)) {
                 $userFind = $user->find('token', $_GET['token'], UserModel::class);
                 if ($userFind) {
-                    $view = new View("reset");
+                    $view = new View("reset", "auth");
                     $view->assign("user", $user);
                     $view->assign("token", $userFind->getToken());
                     $view->assign("titleSeo", "Réinitialisation de votre mot de passe | CMS");
@@ -144,7 +144,7 @@ class User
                 }
             }
 
-            $view = new View("reset");
+            $view = new View("reset", "auth");
             $view->assign("user", $user);
             $view->assign("titleSeo", "Réinitialiser votre mot de passe | CMS");
         } else {
@@ -189,7 +189,7 @@ class User
                 $result = Validator::run($user->getFormRegister(), $_POST);
 
                 if ($result) {
-                    $view = new View("register");
+                    $view = new View("register", "auth");
                     $view->assign("user", $user);
                     $view->assign("error", true);
                     $view->assign("errorMessage", "Votre inscription n'a pu aboutir pour les raisons suivantes :");
@@ -219,7 +219,7 @@ class User
                 $email->send();
             }
 
-            $view = new View("register");
+            $view = new View("register", "auth");
             $view->assign("user", $user);
         } else {
             header("Location: /dashboard");
