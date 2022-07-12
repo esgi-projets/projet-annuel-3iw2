@@ -59,4 +59,27 @@ class Page
       exit;
     }
   }
+
+  public function delete()
+  {
+    if (Auth::isLogged() && Auth::getUser()->getRole() === "admin") {
+      $page = new PageModel();
+      $page->setId($_GET["id"]);
+      $page->deleteRecord();
+      header("Location: /admin/pages");
+    } else {
+      header("Location: /dashboard");
+      exit;
+    }
+  }
+
+  public function viewPage($id)
+  {
+    $page = new PageModel();
+    $page->setId($id);
+    $view = new View("page");
+    $view->assign("page", $page);
+    $view->assign("title", $page->getTitle());
+    $view->assign("titleSeo", $page->getTitle() . " | CMS");
+  }
 }

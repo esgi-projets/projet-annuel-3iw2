@@ -1,7 +1,3 @@
-/:
-  controller: general
-  action: home
-
 /login:
   controller: user
   action: login
@@ -49,10 +45,6 @@
   controller: admin
   action: shop
 
-/admin/pages/edit/:id:
-  controller: page
-  action: edit
-
 /admin/pages:
   controller: admin
   action: pages
@@ -60,6 +52,14 @@
 /admin/pages/create:
   controller: page
   action: create
+
+/admin/pages/edit/:id:
+  controller: page
+  action: edit
+
+/admin/pages/delete/:id:
+  controller: page
+  action: delete
 
 /admin/menus:
   controller: admin

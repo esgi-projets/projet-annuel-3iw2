@@ -6,14 +6,22 @@
 
 
 <script>
+  var is_focus = false;
+
   function truncate(str, no_words) {
     return str.split(" ").splice(0, no_words).join(" ");
   }
 
   $("#title").keyup(function() {
-    var str = truncate($(this).val(), 5)
-    var trims = $.trim(str)
-    var slug = trims.normalize('NFD').replace(/[^a-z0-9]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
-    $("#slug").val('/' + slug.toLowerCase().substring(0, 50))
+    if (!is_focus) {
+      var str = truncate($(this).val(), 5)
+      var trims = $.trim(str)
+      var slug = trims.normalize('NFD').replace(/[^a-z0-9]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')
+      $("#slug").val('/' + slug.toLowerCase().substring(0, 50))
+    }
   })
+
+  $('#slug').on("focusout", function() {
+    is_focus = true;
+  });
 </script>

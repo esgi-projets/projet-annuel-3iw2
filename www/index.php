@@ -2,8 +2,10 @@
 
 namespace App;
 
+use App\Controller\Page;
 use App\Core\Auth;
 use App\Core\Validator;
+use App\Model\Page as PageModel;
 
 session_start();
 
@@ -52,6 +54,17 @@ if ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && file_ex
     exit;
 } elseif ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && !file_exists(dirname(__FILE__) . "/View/" . $uri)) {
     die("Page 404");
+}
+
+$pages = new PageModel();
+$pagesRoute = $pages->getRoutes();
+
+foreach ($pagesRoute as $page) {
+    if ($uri == $page->slug) {
+        $controller = new Page();
+        $controller->viewPage($page->id);
+        return;
+    }
 }
 
 // Dynamic routing

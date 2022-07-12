@@ -77,9 +77,26 @@ class Page extends BaseSQL
   /**
    * @param mixed $content
    */
+  public function getRoutes(): array
+  {
+    return $this->findAll($this, ['id', 'slug']);
+  }
+
+  /**
+   * @param mixed $content
+   */
   public function setContent($content): void
   {
     $this->content = $content;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function deleteRecord(): void
+  {
+    parent::__construct();
+    parent::deleteRecord();
   }
 
   public function getFormPage($page = null): array
