@@ -4,6 +4,7 @@ namespace App;
 
 use App\Core\Auth;
 use App\Core\Validator;
+use Symfony\Component\Yaml\Yaml;
 
 session_start();
 
@@ -40,7 +41,7 @@ if (!file_exists($routeFile)) {
     die("Le fichier " . $routeFile . " n'existe pas");
 }
 
-$routes = yaml_parse_file($routeFile);
+$routes = Yaml::parseFile($routeFile);
 
 // Load ressources files without routing
 if ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && file_exists(dirname(__FILE__) . "/View/" . $uri)) {
