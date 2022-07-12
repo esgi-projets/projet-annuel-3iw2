@@ -10,6 +10,20 @@
         <div class="col-4-xl col-4-lg col-4-md hidden-sm hidden-xs">Le titre sera visible dans le menu et sur l’intégralité de votre site. Cela comprends aussi les moteurs de recherche.</div>
       </label>
       <label class="button-icon mb-8">
+        <div class="col-2-xl col-2-lg col-2-md col-6-sm col-6-xs color-gray">Logo du site</div>
+        <div class="col-6-xl col-6-lg col-6-md col-12-sm col-12-xs">
+          <button class="w-80 button button-secondary">Changer le logo</button>
+        </div>
+        <div class="col-4-xl col-4-lg col-4-md hidden-sm hidden-xs">Le titre sera visible dans le menu et sur l’intégralité de votre site. Cela comprends aussi les moteurs de recherche.</div>
+      </label>
+      <label class="button-icon mb-8">
+        <div class="col-2-xl col-2-lg col-2-md col-6-sm col-6-xs color-gray">Image de fond (page de connexion / inscription)</div>
+        <div class="col-6-xl col-6-lg col-6-md col-12-sm col-12-xs">
+          <button class="w-80 button button-secondary">Changer l'image de fond</button>
+        </div>
+        <div class="col-4-xl col-4-lg col-4-md hidden-sm hidden-xs">Le titre sera visible dans le menu et sur l’intégralité de votre site. Cela comprends aussi les moteurs de recherche.</div>
+      </label>
+      <label class="button-icon mb-8">
         <div class="col-2-xl col-2-lg col-2-md col-6-sm col-6-xs color-gray">Slogan</div>
         <div class="col-6-xl col-6-lg col-6-md col-12-sm col-12-xs">
           <input class="w-80"></input>

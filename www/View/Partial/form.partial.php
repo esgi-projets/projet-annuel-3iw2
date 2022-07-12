@@ -11,6 +11,6 @@
     <?php endforeach; ?>
 
     <div class="column mt-2 pr-3 pl-3">
-        <input type="submit" class="button button-primary w-100 h-100" value="<?= $config["config"]["submit"] ?? "Valider" ?>"></input>
+        <input type="submit" class="button button-primary w-100 h-100 mt-3" value="<?= $config["config"]["submit"] ?? "Valider" ?>"></input>
     </div>
 </form>

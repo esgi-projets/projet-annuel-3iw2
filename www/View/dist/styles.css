@@ -2882,7 +2882,7 @@ table th {
   text-align: center;
 }
 .menu li a {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: #1A181B;
   text-decoration: none;
   transition: all 0.45s;
@@ -2920,27 +2920,45 @@ table th {
 .links li {
   margin-left: 2rem;
 }
-.sidenav {
-  height: 100%;
-  width: 100%;
+.sidebar {
+  /* it's a mobile sidebar, blocker and content */
+  overflow-y: auto;
   position: fixed;
-  z-index: 1;
   top: 0;
-  left: -100%;
-  background-color: #FAFCFE;
-  padding-top: 60px;
-  transition: left 0.5s ease;
-}
-/* Active class */
-.sidenav.active {
   left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 99999;
 }
-/* Close btn */
-.sidenav .close {
+.sidebar.visible {
+  display: block;
+}
+.sidebar .blocker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.sidebar .content {
   position: absolute;
   top: 0;
-  right: 25px;
-  font-size: 36px;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  left: -50%;
+  animation: slide 0.5s forwards;
+}
+@media screen and (max-width: 768px) {
+  .sidebar .content {
+    width: 100%;
+  }
+}
+@keyframes slide {
+  100% {
+    left: 0;
+  }
 }
 .button {
   display: inline-block;
@@ -2955,7 +2973,6 @@ table th {
   font-family: "Roboto", sans-serif;
   font-weight: bold;
   font-size: 18px;
-  margin-top: 1em;
 }
 .button:hover {
   background-color: #5f5f86;

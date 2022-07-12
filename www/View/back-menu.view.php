@@ -1,4 +1,4 @@
-<div class="col-3-xl hidden-under-xl bg-white column container-menu" id="back-menu" style="min-height:100vh">
+<div class="col-3-xl col-3-lg col-3-md col-3-sm col-3-xs hidden-under-xl bg-white column container-menu" id="back-menu" style="min-height:100vh">
   <div class="pt-10 pl-8">
     <div class="row align-flex-center inline-block">
       <img class="avatar mr-5" src="/assets/images/avatar.png" alt="avatar">

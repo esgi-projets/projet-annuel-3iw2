@@ -20,7 +20,7 @@
           </div>
           <?php $this->includePartial("form", $user->getFormRegister()) ?>
           <div class="column mt-2 pr-3 pl-3 pb-5">
-            <a class="button button-link" href="login">Vous avez déjà un compte ? Connectez-vous !</a>
+            <a class="button button-link mt-5" href="login">Vous avez déjà un compte ? Connectez-vous !</a>
           </div>
         </div>
       </div>
