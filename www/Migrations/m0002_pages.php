@@ -20,6 +20,14 @@ class m0002_pages extends Migration
 
   public function down()
   {
+    // Disable foreign key checks
+    $this->query("SET FOREIGN_KEY_CHECKS = 0");
+    $this->execute("SET FOREIGN_KEY_CHECKS = 0");
+
     $this->dropTable("page");
+
+    // Enable foreign key checks
+    $this->query("SET FOREIGN_KEY_CHECKS = 1");
+    $this->execute("SET FOREIGN_KEY_CHECKS = 1");
   }
 }
