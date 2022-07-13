@@ -4,21 +4,31 @@ namespace App\Migration;
 
 use App\Core\Migration;
 
-class m0002_pages extends Migration
+class m0003_menus extends Migration
 {
   public function up()
   {
     $this->createTable("menu", [
       "id" => "int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY",
       "title" => "varchar(255) NOT NULL",
-      "href" => "varchar(255) NOT NULL",
+      "href" => "varchar(255) NULL",
+      "page_id" => "int(11)",
+      "orders" => "int(11) NOT NULL",
       "createdAt" => "timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP",
       "updatedAt" => "timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
-    ]);
+    ], ["CONSTRAINT `fk_menu_page` FOREIGN KEY (`page_id`) REFERENCES `" . $_ENV['DB_PREFIX'] . "page`(`id`) ON DELETE SET NULL ON UPDATE CASCADE"]);
   }
 
   public function down()
   {
+    // Disable foreign key checks
+    $this->query("SET FOREIGN_KEY_CHECKS = 0");
+    $this->execute("SET FOREIGN_KEY_CHECKS = 0");
+
     $this->dropTable("menu");
+
+    // Enable foreign key checks
+    $this->query("SET FOREIGN_KEY_CHECKS = 1");
+    $this->execute("SET FOREIGN_KEY_CHECKS = 1");
   }
 }

@@ -127,6 +127,8 @@ class Page extends BaseSQL
           "placeholder" => "/mon-article-de-blog",
           "value" => $page ? $page->getSlug() : "",
           "required" => true,
+          "unicity" => true,
+          "errorUnicity" => "Ce slug est déjà utilisé"
         ],
         "content" => [
           "name" => "Contenu de la page",
@@ -134,6 +136,12 @@ class Page extends BaseSQL
           "id" => "content",
           "value" => $page ? $page->getContent() : "",
           "class" => "w-100",
+        ],
+        "id" => [
+          "type" => "hidden",
+          "id" => "id",
+          "value" => $page->id ?? "",
+          "required" => false,
         ],
       ]
     ];
