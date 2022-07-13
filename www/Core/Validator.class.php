@@ -23,8 +23,8 @@ class Validator
             }
 
             if (!empty($input["unicity"]) && !empty($data[$name])) {
-                $find = $model->find('email', $_POST["email"], get_class($model));
-                if (!empty($find)) {
+                $find = $model->find($name, $_POST[$name], get_class($model));
+                if (!empty($find) && $find->getId() != $data['id']) {
                     $result[] = $input["errorUnicity"];
                 }
             }
