@@ -1,12 +1,12 @@
 <div class="sidebar" id="mySidebar">
   <div class="blocker"></div>
-  <div class="content bg-white ">
-    <button class="button button-link button-icon" id="closeBtn"><svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height:24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <div class="content bg-white">
+    <button class="button button-link button-icon mt-5" id="closeBtn"><svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height:24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
     <div class="bg-white column container-menu" id="back-menu" style="min-height:100vh">
-      <div class="pt-10 pl-8">
+      <div class="pt-2 pl-8">
         <div class="row align-flex-center inline-block">
           <img class="avatar mr-5" src="/assets/images/avatar.png" alt="avatar">
           <div class="column">

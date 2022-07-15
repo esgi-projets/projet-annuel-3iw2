@@ -1,7 +1,7 @@
 <div class="col-12-xl col-12-lg col-12-md col-12-sm col-12-xs">
   <h1 class="pl-8">Tous les utilisateurs 👤</h1>
 </div>
-<div class="table col-3-xl mx-auto">
+<div class="table mx-auto">
   <table class="mt-5">
     <thead>
       <tr>
@@ -47,12 +47,12 @@
         <td data-label="ID">5</td>
         <td data-label="Prénom"><?= $user->getFirstname() ?></td>
         <td data-label="Nom"><?= $user->getLastname() ?></td>
-        <td data-label="Email">test@mail.com</td>
+        <td data-label="Email"><?= $user->getEmail() ?></td>
         <td data-label="Status">
           <div class="status status-success">Vérifié</div>
         </td>
         <td data-label="Rôle">
-          <div class="status status-error">Admin</div>
+          <div class="status status-error"><?= $user->getStatus() == "1" ? "Admin" : "Utilisateur" ?></div>
         </td>
         <td data-label="Action">
           <div class="action">
@@ -68,12 +68,12 @@
         <td data-label="ID">4</td>
         <td data-label="Prénom"><?= $user->getFirstname() ?></td>
         <td data-label="Nom"><?= $user->getLastname() ?></td>
-        <td data-label="Email">test@mail.com</td>
+        <td data-label="Email"><?= $user->getEmail() ?></td>
         <td data-label="Status">
           <div class="status status-success">Vérifié</div>
         </td>
         <td data-label="Rôle">
-          <div class="status status-error">Admin</div>
+          <div class="status status-error"><?= $user->getStatus() == "1" ? "Admin" : "Utilisateur" ?></div>
         </td>
         <td data-label="Action">
           <div class="action">
@@ -89,12 +89,12 @@
         <td data-label="ID">3</td>
         <td data-label="Prénom"><?= $user->getFirstname() ?></td>
         <td data-label="Nom"><?= $user->getLastname() ?></td>
-        <td data-label="Email">test@mail.com</td>
+        <td data-label="Email"><?= $user->getEmail() ?></td>
         <td data-label="Status">
           <div class="status status-success">Vérifié</div>
         </td>
         <td data-label="Rôle">
-          <div class="status status-error">Admin</div>
+          <div class="status status-error"><?= $user->getStatus() == "1" ? "Admin" : "Utilisateur" ?></div>
         </td>
         <td data-label="Action">
           <div class="action">
@@ -110,12 +110,12 @@
         <td data-label="ID">2</td>
         <td data-label="Prénom"><?= $user->getFirstname() ?></td>
         <td data-label="Nom"><?= $user->getLastname() ?></td>
-        <td data-label="Email">test@mail.com</td>
+        <td data-label="Email"><?= $user->getEmail() ?></td>
         <td data-label="Status">
           <div class="status status-success">Vérifié</div>
         </td>
         <td data-label="Rôle">
-          <div class="status status-error">Admin</div>
+          <div class="status status-error"><?= $user->getStatus() == "1" ? "Admin" : "Utilisateur" ?></div>
         </td>
         <td data-label="Action">
           <div class="action">
@@ -127,16 +127,17 @@
           </div>
         </td>
       </tr>
+
       <tr>
         <td data-label="ID">1</td>
         <td data-label="Prénom"><?= $user->getFirstname() ?></td>
         <td data-label="Nom"><?= $user->getLastname() ?></td>
-        <td data-label="Email">test@mail.com</td>
+        <td data-label="Email"><?= $user->getEmail() ?></td>
         <td data-label="Status">
           <div class="status status">Non vérifié</div>
         </td>
         <td data-label="Rôle">
-          <div class="status status-primary">User</div>
+          <div class="status status-error"><?= $user->getStatus() == "1" ? "Admin" : "Utilisateur" ?></div>
         </td>
         <td data-label="Action">
           <div class="action">
@@ -148,6 +149,7 @@
           </div>
         </td>
       </tr>
+
     </tbody>
   </table>
 </div>
