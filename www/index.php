@@ -67,6 +67,14 @@ foreach ($pagesRoute as $page) {
     }
 }
 
+// if ? in URI => set params to GET
+
+if (strpos($uri, "?") !== false) {
+    $uri = explode("?", $uri);
+    $uri = $uri[0];
+    $params = $_GET;
+}
+
 // Dynamic routing
 foreach (array_keys($routes) as $route) {
     if (preg_match("#^/" . explode('/', $route)[1] . "/\w+.*$#", $uri, $matches) && preg_match_all("#:\w+$#", $route, $matches)) {
