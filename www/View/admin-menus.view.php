@@ -7,8 +7,8 @@
         <a class="ml-3 button button-tertiary" href='/admin/pages/create'>Ajouter un lien</a>
       </div>
 
-      <div id="links">
-
+      <div id="links" style="padding: 30px; border: 1px solid #ccc; border-radius: 5px;">
+        <?php $this->includePartial("form", $menus->getFormMenu()) ?>
       </div>
 
     </div>

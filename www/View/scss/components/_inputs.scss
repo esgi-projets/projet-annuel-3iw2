@@ -63,3 +63,32 @@ textarea,
     border-color: $color-primary--200;
   }
 }
+
+select{
+  height: 48px;
+  width: 15vw;
+  border: 2px solid;
+  margin: 1px;
+  border-radius: 0.8rem;
+  font-family: $font-roboto;
+  font-weight: 600;
+  color: $color-dark--200;
+
+  -moz-appearance:none; /* Firefox */
+  -webkit-appearance:none; /* Safari and Chrome */
+  appearance:none;
+
+  &:focus {
+    border-color: $color-primary--200;
+  }
+
+  &:disabled {
+    border-color: $color-lightgrey--500;
+    background-color: $color-lightgrey--600;
+    pointer-events: none;
+  }
+
+  &:disabled option {
+    color: $color-lightgrey--500;
+  }
+}

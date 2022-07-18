@@ -3169,6 +3169,32 @@ textarea:focus,
 .input:focus {
   border-color: #a49ff2;
 }
+select {
+  height: 48px;
+  width: 15vw;
+  border: 2px solid;
+  margin: 1px;
+  border-radius: 0.8rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  color: #4e4851;
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Safari and Chrome */
+  appearance: none;
+}
+select:focus {
+  border-color: #a49ff2;
+}
+select:disabled {
+  border-color: #EEF0F2;
+  background-color: #e0e3e7;
+  pointer-events: none;
+}
+select:disabled option {
+  color: #EEF0F2;
+}
 .card {
   display: inline-block;
   padding: 1em;

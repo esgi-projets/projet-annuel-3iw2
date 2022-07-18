@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Core\Auth;
 use App\Core\View;
+use App\Model\Menu;
 use App\Model\Page;
 use App\Model\User;
 
@@ -62,8 +63,10 @@ class Admin
     public function menus()
     {
         $user = Auth::getUser();
+        $menus = new Menu();
         $view = new View("admin-menus", "back");
         $view->assign("titleSeo", "Gestion des menus | CMS");
+        $view->assign("menus", $menus);
         $view->assign("user", $user);
     }
 
