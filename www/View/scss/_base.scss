@@ -25,6 +25,12 @@ h2 {
   font-family: $font-roboto;
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  background-color: $color-lightgrey--600;
+}
+
 input[type=checkbox] {
   height: 16px;
   width: 16px;

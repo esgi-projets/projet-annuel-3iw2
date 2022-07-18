@@ -635,6 +635,11 @@ h2 {
   font-weight: bold;
   font-family: "Roboto", sans-serif;
 }
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #e0e3e7;
+}
 input[type=checkbox] {
   height: 16px;
   width: 16px;

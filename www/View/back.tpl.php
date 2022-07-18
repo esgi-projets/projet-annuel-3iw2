@@ -51,6 +51,15 @@
             contextmenu: 'link image table',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
         });
+
+        $(document).ready(function() {
+            $('.file').on('change', function(evt) {
+                const input = evt.currentTarget;
+                var file = $(this).val();
+                var filename = file.split('\\').pop();
+                $(this).siblings('#text').text('Fichier chargé : ' + filename);
+            });
+        });
     </script>
 </body>
 
