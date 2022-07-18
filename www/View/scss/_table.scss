@@ -24,9 +24,12 @@ table tr {
 
 table th,
 table td {
-  padding: 0.625em;
+  padding: 0.65em;
   text-align: center;
   font-family: $font-roboto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 table th {

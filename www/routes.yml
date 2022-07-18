@@ -22,6 +22,14 @@
   controller: user
   action: reset
 
+/payment:
+  controller: order
+  action: payment
+
+/order/complete:
+  controller: order
+  action: complete
+
 # Admin routes
 
 /dashboard:

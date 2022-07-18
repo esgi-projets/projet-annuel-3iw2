@@ -106,7 +106,7 @@ class Page extends BaseSQL
         "method" => "POST",
         "action" => "",
         "submit" => "Enregistrer",
-        "class" => "w-100 mb-5",
+        "class" => "w-90 mb-5 ml-5",
         "model" => $this
       ],
       "inputs" => [

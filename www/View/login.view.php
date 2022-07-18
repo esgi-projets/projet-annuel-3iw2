@@ -20,8 +20,8 @@
           </div>
           <?php $this->includePartial("form", $user->getFormLogin()) ?>
           <div class="column mt-2 pr-3 pl-3 pb-5">
-            <a class="button button-secondary" href="register">Créer un compte</a>
-            <a class="button button-link" href="reset">Mot de passe oublié ?</a>
+            <a class="button button-secondary mt-5" href="register">Créer un compte</a>
+            <a class="button button-link mt-5" href="reset">Mot de passe oublié ?</a>
           </div>
         </div>
       </div>
