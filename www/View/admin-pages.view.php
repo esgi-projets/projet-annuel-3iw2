@@ -5,15 +5,9 @@
   </div>
   <div class="ml-5">
     <?php
-    $color = 0;
-    $colors = ["primary", "success", "warning", "error", "lightgrey"];
     foreach ($pages->findAll() as $page) :
-      echo '<div class="card card-3 card-' . $colors[$color] . ' card-shadow col-3-xl col-12-md mx-3">';
-      if ($color > 4) {
-        $color = 0;
-      } else {
-        $color++;
-      }
+      echo '<div class="card card-3 card-primary card-shadow col-3-xl col-12-md mx-3">';
+
     ?>
       <h2 class="icon"><?= $page->title ?>
         <svg xmlns="http://www.w3.org/2000/svg" style="width: 44px; height:44px;" class="ml-auto mr-3 hidden-under-md" viewBox="0 0 20 20" fill="currentColor">

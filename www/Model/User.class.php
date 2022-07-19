@@ -312,4 +312,86 @@ class User extends BaseSQL
 
         ];
     }
+
+    public function getFormPage($user = null): array
+    {
+        return [
+            "config" => [
+                "method" => "POST",
+                "action" => "",
+                "submit" => "Valider les modifications",
+                "class" => "w-100",
+                "model" => get_class($this)
+            ],
+            "inputs" => [
+                "firstname" => [
+                    "name" => "Prénom",
+                    "type" => "text",
+                    "placeholder" => "John",
+                    "id" => "firstname",
+                    "class" => "input w-100",
+                    "value" => $user ? $user->getFirstname() : '',
+                    "min" => 2,
+                    "max" => 50,
+                    "required" => true,
+                    "error" => "Votre prénom semble incorrect",
+                ],
+                "lastname" => [
+                    "name" => "Nom de famille",
+                    "type" => "text",
+                    "placeholder" => "Doe",
+                    "id" => "lastname",
+                    "class" => "input w-100",
+                    "value" => $user ? $user->getLastname() : '',
+                    "min" => 2,
+                    "max" => 100,
+                    "required" => true,
+                    "error" => "Votre nom de famille semble incorrect",
+                ],
+                "email" => [
+                    "name" => "Adresse e-mail",
+                    "type" => "email",
+                    "placeholder" => "john@doe.com",
+                    "id" => "email",
+                    "class" => "input w-100",
+                    "value" => $user ? $user->getEmail() : '',
+                    "required" => true,
+                    "error" => "L'adresse email est invalide",
+                    "unicity" => true,
+                    "errorUnicity" => "L'adresse e-mail a déjà été utilisée"
+                ],
+                "password" => [
+                    "name" => "Mot de passe",
+                    "type" => "password",
+                    "id" => "password",
+                    "class" => "input w-100",
+                    "placeholder" => "Le mot de passe doit contenir au moins 8 caractères dont au moins une majuscule, une minuscule et un chiffre.",
+                    "required" => false,
+                    "error" => "Votre mot de passe doit faire entre 8 et 16 et contenir des chiffres et des lettres",
+                ],
+                "role" => [
+                    "name" => "Role",
+                    "type" => "select",
+                    "id" => "role",
+                    "class" => "input w-100",
+                    "value" => $user ? $user->getRole() : '',
+                    "required" => true,
+                    "error" => "Votre rôle est incorrect",
+                    "options" => [
+                        "admin" => "Administrateur",
+                        "user" => "Utilisateur",
+                    ]
+                ],
+                "status" => [
+                    "name" => "Email vérifié ?",
+                    "type" => "checkbox",
+                    "id" => "status",
+                    "class" => "input w-100",
+                    "value" => $user ? $user->getStatus() : '',
+                    "required" => false,
+                ]
+            ]
+
+        ];
+    }
 }

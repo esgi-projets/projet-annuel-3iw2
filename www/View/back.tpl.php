@@ -6,9 +6,11 @@
     <title><?= $titleSeo ?? 'Template du back' ?></title>
     <meta name="description" content="ceci est la description de ma page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <link rel="stylesheet" href="/dist/styles.css">
     <script src="https://cdn.tiny.cloud/1/pav5g98o090khpnxooh9msgp55nbp9tfvzyt79hblmwtq2io/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 </head>
 
 <body onload="highlightButton()">

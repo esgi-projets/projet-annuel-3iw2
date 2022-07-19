@@ -33,14 +33,6 @@ class Admin
         $view->assign("user", $user);
     }
 
-    public function users()
-    {
-        $user = Auth::getUser();
-        $view = new View("admin-users", "back");
-        $view->assign("titleSeo", "Utilisateurs | CMS");
-        $view->assign("user", $user);
-    }
-
     public function shop()
     {
         $user = Auth::getUser();

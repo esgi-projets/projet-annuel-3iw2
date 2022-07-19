@@ -46,8 +46,12 @@
   action: products
 
 /admin/users:
-  controller: admin
-  action: users
+  controller: adminUsers
+  action: dashboard
+
+/admin/users/edit/:id:
+  controller: adminUsers
+  action: edit
 
 /admin/shop:
   controller: admin

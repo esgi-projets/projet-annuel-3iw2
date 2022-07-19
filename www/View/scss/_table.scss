@@ -27,9 +27,12 @@ table td {
   padding: 0.65em;
   text-align: center;
   font-family: $font-roboto;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+
+  &.wrap-long {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 
 table th {
@@ -94,4 +97,62 @@ table th {
   table td:last-child {
     border-bottom: 0;
   }
+}
+
+// DataTable
+
+.dataTables_wrapper .dataTables_filter input {
+  border: none;
+  color: $color-lightgrey--900;
+  border-bottom: 1px solid $color-lightgrey--600;
+  border-radius: 0px;
+}
+
+.dataTables_wrapper label,
+.dataTables_filter label {
+  color: $color-lightgrey--800;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+
+  input {
+    @media screen and (max-width: 640px) {
+      width: 75%;
+    }
+  }
+
+  select {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.dataTables_wrapper .dataTables_info {
+  color: $color-lightgrey--800;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: $color-lightgrey--800  !important;
+  margin-left: 0px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: none;
+  box-shadow: none;
+  color: $color-gray  !important;
+  border: none !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  color: $color-primary  !important;
+  background: $color-lightgrey--400  !important;
+  box-shadow: none;
+  border: none !important;
+  border-radius: 100%;
 }
