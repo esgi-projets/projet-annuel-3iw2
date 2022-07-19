@@ -35,7 +35,7 @@ class User
 
             $view = new View("login", "auth");
             $view->assign("user", $user);
-            $view->assign("titleSeo", "Se connecter | CMS");
+            $view->assign("titleSeo", "Se connecter");
         } else {
             header("Location: /dashboard");
             exit;
@@ -96,7 +96,7 @@ class User
                         $view->assign("user", $user);
                         $view->assign("success", true);
                         $view->assign("successMessage", "Votre demande de réinitialisation de mot de passe a bien été prise en compte. Vous allez recevoir un e-mail contenant un lien de réinitialisation de votre mot de passe.");
-                        $view->assign("titleSeo", "Réinitialisation de votre mot de passe | CMS");
+                        $view->assign("titleSeo", "Réinitialisation de votre mot de passe");
                         return;
                     } else {
                         $view = new View("reset", "auth");
@@ -117,7 +117,7 @@ class User
                             $view->assign("error", true);
                             $view->assign("errorMessage", "La réinitialisation de votre mot de passe n'a pu aboutir pour les raisons suivantes :");
                             $view->assign("listErrors", $result);
-                            $view->assign("titleSeo", "Réinitialisation de votre mot de passe | CMS");
+                            $view->assign("titleSeo", "Réinitialisation de votre mot de passe");
                             return;
                         }
 
@@ -129,7 +129,7 @@ class User
                         $view->assign("user", $user);
                         $view->assign("success", true);
                         $view->assign("successMessage", "Votre mot de passe a bien été réinitialisé. Vous pouvez maintenant vous connecter.");
-                        $view->assign("titleSeo", "Réinitialisation de votre mot de passe | CMS");
+                        $view->assign("titleSeo", "Réinitialisation de votre mot de passe");
                         return;
                     }
                 }
@@ -139,14 +139,14 @@ class User
                     $view = new View("reset", "auth");
                     $view->assign("user", $user);
                     $view->assign("token", $userFind->getToken());
-                    $view->assign("titleSeo", "Réinitialisation de votre mot de passe | CMS");
+                    $view->assign("titleSeo", "Réinitialisation de votre mot de passe");
                     return;
                 }
             }
 
             $view = new View("reset", "auth");
             $view->assign("user", $user);
-            $view->assign("titleSeo", "Réinitialiser votre mot de passe | CMS");
+            $view->assign("titleSeo", "Réinitialiser votre mot de passe");
         } else {
             header("Location: /dashboard");
             exit;

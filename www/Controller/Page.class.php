@@ -24,7 +24,7 @@ class Page
           $view->assign("error", true);
           $view->assign("page", $page);
           $view->assign("title", "Créer une page 📝");
-          $view->assign("titleSeo", "Créer une page | CMS");
+          $view->assign("titleSeo", "Créer une page");
           $view->assign("errorMessage", "La page n'a pu être enregistrée pour les raisons suivantes :");
           $view->assign("listErrors", $result);
           return;
@@ -42,7 +42,7 @@ class Page
       $view->assign("user", $user);
       $view->assign("page", $page);
       $view->assign("title", "Créer une page 📝");
-      $view->assign("titleSeo", "Créer une page | CMS");
+      $view->assign("titleSeo", "Créer une page");
     } else {
       header("Location: /dashboard");
       exit;
@@ -65,7 +65,7 @@ class Page
           $view->assign("error", true);
           $view->assign("page", $findPage);
           $view->assign("title", "Créer une page 📝");
-          $view->assign("titleSeo", "Créer une page | CMS");
+          $view->assign("titleSeo", "Créer une page");
           $view->assign("errorMessage", "La page n'a pu être enregistrée pour les raisons suivantes :");
           $view->assign("listErrors", $result);
           return;
@@ -84,7 +84,7 @@ class Page
       $view->assign("user", $user);
       $view->assign("page", $page);
       $view->assign("title", "Modifier une page");
-      $view->assign("titleSeo", "Modifier une page | CMS");
+      $view->assign("titleSeo", "Modifier une page");
     } else {
       header("Location: /dashboard");
       exit;
@@ -111,6 +111,6 @@ class Page
     $view = new View("page");
     $view->assign("page", $page);
     $view->assign("title", $page->getTitle());
-    $view->assign("titleSeo", $page->getTitle() . " | CMS");
+    $view->assign("titleSeo", $page->getTitle() . "");
   }
 }

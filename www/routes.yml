@@ -49,9 +49,9 @@
   controller: admin
   action: users
 
-/admin/shop:
-  controller: admin
-  action: shop
+/admin/settings:
+  controller: settings
+  action: form
 
 /admin/pages:
   controller: admin

@@ -14,7 +14,7 @@ class Admin
     {
         $user = Auth::getUser();
         $view = new View("dashboard", "back");
-        $view->assign("titleSeo", "Tableau de bord | CMS");
+        $view->assign("titleSeo", "Tableau de bord");
         $view->assign("user", $user);
     }
 
@@ -22,7 +22,7 @@ class Admin
     {
         $user = Auth::getUser();
         $view = new View("admin-orders", "back");
-        $view->assign("titleSeo", "Commandes | CMS");
+        $view->assign("titleSeo", "Commandes");
         $view->assign("user", $user);
     }
 
@@ -30,7 +30,7 @@ class Admin
     {
         $user = Auth::getUser();
         $view = new View("admin-products", "back");
-        $view->assign("titleSeo", "Produits | CMS");
+        $view->assign("titleSeo", "Produits");
         $view->assign("user", $user);
     }
 
@@ -38,7 +38,7 @@ class Admin
     {
         $user = Auth::getUser();
         $view = new View("admin-users", "back");
-        $view->assign("titleSeo", "Utilisateurs | CMS");
+        $view->assign("titleSeo", "Utilisateurs");
         $view->assign("user", $user);
     }
 
@@ -46,7 +46,7 @@ class Admin
     {
         $user = Auth::getUser();
         $view = new View("admin-shop", "back");
-        $view->assign("titleSeo", "Gestion de la boutique | CMS");
+        $view->assign("titleSeo", "Gestion de la boutique");
         $view->assign("user", $user);
     }
 
@@ -55,7 +55,7 @@ class Admin
         $user = Auth::getUser();
         $pages = new Page();
         $view = new View("admin-pages", "back");
-        $view->assign("titleSeo", "Gestion des pages | CMS");
+        $view->assign("titleSeo", "Gestion des pages");
         $view->assign("pages", $pages);
         $view->assign("user", $user);
     }
@@ -65,7 +65,7 @@ class Admin
         $user = Auth::getUser();
         $menus = new Menu();
         $view = new View("admin-menus", "back");
-        $view->assign("titleSeo", "Gestion des menus | CMS");
+        $view->assign("titleSeo", "Gestion des menus");
         $view->assign("menus", $menus);
         $view->assign("user", $user);
     }
@@ -74,7 +74,7 @@ class Admin
     {
         $user = Auth::getUser();
         $view = new View("admin-reviews", "back");
-        $view->assign("titleSeo", "Gestion des commentaires | CMS");
+        $view->assign("titleSeo", "Gestion des commentaires");
         $view->assign("user", $user);
     }
 }
