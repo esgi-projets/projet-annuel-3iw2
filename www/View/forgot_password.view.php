@@ -7,7 +7,7 @@
     </button>
     <div class="container-center">
       <div class="w-80 mt-4">
-        <img class="logo mx-6" src="./assets/images/BMW_logo_(gray).svg.png" alt="logo">
+        <img class="logo mx-6" src="/assets/images/<?= $settings->getSetting('logo') ?? 'logo.png' ?>" alt="logo">
         <h1 class="ml-4">Mot de passe oublié ?</h1>
         <h3 class="mb-8 ml-8">Veuillez rentrer votre email afin de réinisitliser votre mot de passe</h3>
 
@@ -28,6 +28,6 @@
   </div>
 
   <div class="col-6-xl hidden-under-xl">
-    <img class="fit-image" src="./assets/images/dmitry-timofeew-UU18rjWiQmo-unsplash.jpg" alt="side-image">
+    <img class="fit-image" src="./assets/images/<?= $settings->getSetting('background') ?? 'background.jpg' ?>" alt="side-image">
   </div>
 </div>

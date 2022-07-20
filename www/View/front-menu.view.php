@@ -2,7 +2,7 @@
   <nav class="nav nav-border">
     <ul class="menu">
       <div class="menu-left">
-        <img class="mini-logo mx-6" src="./assets/images/BMW_logo_(gray).svg.png" alt="logo">
+        <img class="mini-logo mx-6" src="./assets/images/<?= $settings->getSetting('logo') ?? 'logo.png' ?>" alt="logo">
         <div class="links">
           <li><a href="#">Accueil</a></li>
           <li><a href="#">Produits</a></li>
@@ -22,7 +22,7 @@
   <nav class="nav nav-border">
     <ul class="menu">
       <div class="menu-left">
-        <img class="mini-logo mx-6" src="./assets/images/BMW_logo_(gray).svg.png" alt="logo">
+        <img class="mini-logo mx-6" src="/assets/images/<?= $settings->getSetting('logo') ?? 'logo.png' ?>" alt="logo">
       </div>
       <div class="menu-right">
         <button class="button button-link button-icon" id="openMenu"><svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height:24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

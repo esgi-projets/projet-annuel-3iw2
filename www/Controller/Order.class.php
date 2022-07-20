@@ -72,7 +72,7 @@ class Order
 
     $user = Auth::getUser();
     $view = new View("payments", "front");
-    $view->assign("titleSeo", "Paiement | CMS");
+    $view->assign("titleSeo", "Paiement");
     $view->assign("user", $user);
   }
 
@@ -109,7 +109,7 @@ class Order
   {
     $user = Auth::getUser();
     $view = new View("confirmation", "front");
-    $view->assign("titleSeo", "Confirmation | CMS");
+    $view->assign("titleSeo", "Confirmation");
     $view->assign("user", $user);
   }
 }

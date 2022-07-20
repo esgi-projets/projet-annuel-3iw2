@@ -97,4 +97,10 @@ class Migration extends BaseSQL
     }
     return $appliedMigrations;
   }
+
+  public function setForeignKeyChecks(bool $value)
+  {
+    $query = $this->query("SET FOREIGN_KEY_CHECKS = " . ($value ? 1 : 0) . ";");
+    $this->execute($query);
+  }
 }

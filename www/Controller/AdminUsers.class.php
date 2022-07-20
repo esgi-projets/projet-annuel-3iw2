@@ -31,8 +31,8 @@ class AdminUsers
       $user = Auth::getUser();
 
       if (!empty($_POST)) {
-        $result = Validator::run($userEdit->getFormPage(), $_POST);
         $findUser = $userEdit->find('id', $_POST['id'], UserModel::class);
+        $result = Validator::run($userEdit->getFormPage($findUser), $_POST);
 
         if ($result) {
           $view = new View("admin-users-manage", "back");
@@ -60,8 +60,8 @@ class AdminUsers
       $view = new View("admin-users-manage", "back");
       $view->assign("user", $user);
       $view->assign("id", $userEdit);
-      $view->assign("title", "Modifier une page");
-      $view->assign("titleSeo", "Modifier une page | CMS");
+      $view->assign("title", "Modifier un utilisateur 📝");
+      $view->assign("titleSeo", "Modifier un utilisateur");
     } else {
       header("Location: /dashboard");
       exit;

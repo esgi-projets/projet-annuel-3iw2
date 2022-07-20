@@ -320,7 +320,7 @@ class User extends BaseSQL
                 "method" => "POST",
                 "action" => "",
                 "submit" => "Valider les modifications",
-                "class" => "w-100",
+                "class" => "w-100 px-5",
                 "model" => get_class($this)
             ],
             "inputs" => [
@@ -373,7 +373,7 @@ class User extends BaseSQL
                     "name" => "Role",
                     "type" => "select",
                     "id" => "role",
-                    "class" => "input w-100",
+                    "class" => "input w-20",
                     "value" => $user ? $user->getRole() : '',
                     "required" => true,
                     "error" => "Votre rôle est incorrect",

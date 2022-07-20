@@ -7,8 +7,8 @@
     </button>
     <div class="bg-white column container-menu" id="front-menu" style="min-height:100vh">
       <div class="pt-8 pl-8 button-icon">
-        <img class="mini-logo mx-6" src="/assets/images/BMW_logo_(gray).svg.png" alt="logo">
-        <h3>BMW Store - Paris Gambetta</h3>
+        <img class="mini-logo mx-6" src="/assets/images/<?= $settings->getSetting('logo') ?? 'logo.png' ?>" alt="logo">
+        <h3><?= $settings->getSetting('title') ?? 'CMS' ?></h3>
       </div>
       <div class="pl-8 pt-3">
         <a id="home-button" class="button button-secondary--menu button-icon w-85" href="/">

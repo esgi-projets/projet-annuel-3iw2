@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Model\Settings;
+
 class View
 {
     private $view;
@@ -10,8 +12,10 @@ class View
 
     public function __construct($view, $template = "front")
     {
+        $settings = new Settings();
         $this->setView($view);
         $this->setTemplate($template);
+        $this->assign("settings", $settings);
     }
 
     public function setView($view)
@@ -45,7 +49,6 @@ class View
 
     public function __destruct()
     {
-        //Array ( [firstname] => Yves )
         extract($this->data);
         include "View/" . $this->template . ".tpl.php";
     }

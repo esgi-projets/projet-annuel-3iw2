@@ -5,6 +5,7 @@ namespace App\Core;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use App\Model\Settings as SettingsModel;
 
 class Email implements EmailBuilder
 {
@@ -19,25 +20,26 @@ class Email implements EmailBuilder
   public function send(): EmailBuilder
   {
     $mail = new PHPMailer(true);
+    $settings = new SettingsModel();
 
     //Enable SMTP debugging.
     $mail->SMTPDebug = isset($this->debug) && $this->debug ? 3 : false;
     //Set PHPMailer to use SMTP.
     $mail->isSMTP();
     //Set SMTP host name                          
-    $mail->Host = $_ENV['SMTP_HOST'];
+    $mail->Host = $settings->getSetting('smtp_host');
     //Set this to true if SMTP host requires authentication to send email
     $mail->SMTPAuth = true;
     //Provide username and password     
-    $mail->Username = $_ENV['SMTP_USERNAME'];
-    $mail->Password = $_ENV['SMTP_PASSWORD'];
+    $mail->Username = $settings->getSetting('smtp_username');
+    $mail->Password =  $settings->getSetting('smtp_password');
     //If SMTP requires TLS encryption then set it
     $mail->SMTPSecure = "tls";
     //Set TCP port to connect to
-    $mail->Port = $_ENV['SMTP_PORT'];
+    $mail->Port = $settings->getSetting('smtp_port');
 
     $mail->From = "no-reply@alexandre.business";
-    $mail->FromName = "CMS";
+    $mail->FromName = $settings->getSetting('title');
     $mail->CharSet = 'UTF-8';
     $mail->Encoding = 'base64';
 

@@ -63,3 +63,25 @@ textarea,
     border-color: $color-primary--200;
   }
 }
+
+select {
+
+  font-family: $font-roboto;
+  font-weight: 600;
+  color: $color-gray;
+  padding-left: 1rem;
+
+  &:focus {
+    border-color: $color-primary--200;
+  }
+
+  &:disabled {
+    border-color: $color-lightgrey--500;
+    background-color: $color-lightgrey--600;
+    pointer-events: none;
+  }
+
+  &:disabled option {
+    color: $color-lightgrey--500;
+  }
+}

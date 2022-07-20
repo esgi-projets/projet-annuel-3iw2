@@ -18,7 +18,7 @@ class Validator
             if (!isset($data[$name])) {
                 $result[] = "Il manque des champs";
             }
-            if (!empty($input["required"]) && empty($data[$name])) {
+            if (!empty($input["required"]) && empty($data[$name]) && $input['type'] != 'checkbox') {
                 $result[] = "Modification du formulaire détectée";
             }
 
