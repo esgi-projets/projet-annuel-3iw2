@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title><?= $titleSeo ?? "Template page auth" ?></title>
-    <meta name="Description" content="Ceci est la description de ma page">
+    <title><?= "Authentification | " . $settings->getSetting('title') ?? "Authentification" ?></title>
+    <meta name="Description" content="<?= $settings->getSetting('description') ?? "Authentification" ?>">
     <link rel="stylesheet" href="/dist/styles.css">
 </head>
 

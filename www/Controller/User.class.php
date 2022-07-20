@@ -78,7 +78,7 @@ class User
                 $result = Validator::run($model->getFormProfile(), $_POST);
 
                 if ($_FILES['avatar']['error'] !== 4) {
-                    $uploaddir = './View/assets/images/profiles';
+                    $uploaddir = './View/assets/images/profiles/';
                     $uploadname = 'avatar' . date('YmdHis') . '.' . pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
                     $uploadfile = $uploaddir . $uploadname;
 
@@ -114,7 +114,7 @@ class User
                 $find->setLastname($_POST['lastname']);
                 if ($_POST['email'] !== $user->getEmail()) {
                     $find->setEmail($_POST['email']);
-                    $find->setStatus(0);
+                    $find->setStatus(false);
                     $find->generateToken();
                     $find->save();
                     $email = new Email();
@@ -131,24 +131,34 @@ class User
                 }
 
                 if (
-                    $_POST['password'] !== "" && $_POST['password_new'] != "" &&  password_verify($_POST['password'], $find->getPassword())
+                    $_POST['password'] !== "" && $_POST['password_new'] != ""
                 ) {
-                    $find->setPassword($_POST['password_new']);
-                    $find->generateToken();
+                    if (password_verify($_POST['password'], $find->getPassword())) {
+                        $find->setPassword($_POST['password_new']);
+                        $find->generateToken();
 
-                    $email = new Email();
-                    $email->to = $find->getEmail();
-                    $email->name = $find->getFirstname() . " " . $find->getLastname();
-                    $email->subject = "Modification de votre mot de passe";
-                    $email->body = "Bonjour,<br>
+                        $email = new Email();
+                        $email->to = $find->getEmail();
+                        $email->name = $find->getFirstname() . " " . $find->getLastname();
+                        $email->subject = "Modification de votre mot de passe";
+                        $email->body = "Bonjour,<br>
                 <br>
-                Vous venez de modifier votre mot de passe sur notre plateforme.<br>
+                Vous venez de modifier votre mot de passe sur notre plateforme. Votre sécurité est très importante pour nous.
                 <br>
                 Ce mail est simplement une confirmation de cette modification.<br>
                 Si vous n'êtes pas à l'origine de cette modification, veuillez nous contacter immédiatement.<br>
                 <br>
                 Cordialement.";
-                    $email->send();
+                        $email->send();
+                    } else {
+                        $view = new View("profile", "back");
+                        $view->assign("user", $user);
+                        $view->assign("titleSeo", "Mon profil");
+                        $view->assign("error", true);
+                        $view->assign("errorMessage", "Les préférences n'ont pu être enregistrés pour les raisons suivantes :");
+                        $view->assign("listErrors", ["Le mot de passe actuel est incorrect"]);
+                        return;
+                    }
                 }
 
                 $find->save();

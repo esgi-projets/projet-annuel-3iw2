@@ -2,7 +2,7 @@
   <div class="pt-10 pl-8">
     <div class="row align-flex-center inline-block">
       <a href="/profile" class="row align-flex-center inline-block">
-        <img class="avatar mr-5" src="/assets/images/avatar.png" alt="avatar">
+        <img class="avatar mr-5" src="<?= $user->getAvatar() ?>" alt="avatar">
         <div class="column">
           <h2><?= $user->getFirstname(), ' ', $user->getLastname() ?></h2>
           <h3 class="pt-1 font-600 color-gray"><?= $user->getFormattedRole() ?></h3>

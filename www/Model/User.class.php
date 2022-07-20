@@ -13,7 +13,7 @@ class User extends BaseSQL
     protected $firstname;
     protected $lastname;
     protected $avatar;
-    protected $status = null;
+    protected $status;
     protected $role = 'user';
     protected $token = null;
 
@@ -108,7 +108,7 @@ class User extends BaseSQL
      */
     public function getAvatar(): string
     {
-        return $this->avatar;
+        return "/assets/images/profiles/" . $this->avatar;
     }
 
     /**
@@ -132,7 +132,7 @@ class User extends BaseSQL
      */
     public function setStatus($status): void
     {
-        $this->status = intval($status);
+        $this->status = $status;
     }
 
     /**
