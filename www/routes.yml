@@ -2,6 +2,10 @@
   controller: user
   action: login
 
+/profile:
+  controller: user
+  action: profile
+
 /logout:
   controller: user
   action: logout

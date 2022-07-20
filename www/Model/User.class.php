@@ -226,6 +226,77 @@ class User extends BaseSQL
         ];
     }
 
+    public function getFormProfile(): array
+    {
+        return [
+            "config" => [
+                "method" => "POST",
+                "action" => "",
+                "submit" => "Modifier",
+                "class" => "w-100",
+                "model" => get_class($this)
+            ],
+            "inputs" => [
+                "firstname" => [
+                    "name" => "Prénom",
+                    "type" => "text",
+                    "placeholder" => "John",
+                    "id" => "firstname",
+                    "class" => "input w-100",
+                    "min" => 2,
+                    "max" => 50,
+                    "required" => true,
+                    "error" => "Votre prénom semble incorrect",
+                ],
+                "lastname" => [
+                    "name" => "Nom de famille",
+                    "type" => "text",
+                    "placeholder" => "Doe",
+                    "id" => "lastname",
+                    "class" => "input w-100",
+                    "min" => 2,
+                    "max" => 100,
+                    "required" => true,
+                    "error" => "Votre nom de famille semble incorrect",
+                ],
+                "email" => [
+                    "name" => "Adresse e-mail",
+                    "type" => "email",
+                    "placeholder" => "john@doe.com",
+                    "id" => "email",
+                    "class" => "input w-100",
+                    "required" => true,
+                    "error" => "L'adresse email est invalide",
+                    "unicity" => true,
+                    "errorUnicity" => "L'adresse e-mail a déjà été utilisée"
+                ],
+                "old_password" => [
+                    "name" => "Ancien mot de passe",
+                    "type" => "password",
+                    "id" => "old_password",
+                    "class" => "input w-100",
+                    "required" => false
+                ],
+                "password" => [
+                    "name" => "Nouveau mot de passe",
+                    "type" => "password",
+                    "id" => "password",
+                    "class" => "input w-100",
+                    "required" => false,
+                    "error" => "Votre mot de passe doit faire entre 8 et 16 et contenir des chiffres et des lettres",
+                ],
+                "password_confirm" => [
+                    "name" => "Confirmation du mot de passe",
+                    "type" => "password",
+                    "id" => "password_confirm",
+                    "class" => "input w-100",
+                    "required" => false,
+                    "error" => "Votre mot de passe doit faire entre 8 et 16 et contenir des chiffres et des lettres",
+                ],
+            ]
+        ];
+    }
+
 
     public function getFormLogin(): array
     {

@@ -19,11 +19,17 @@ class User
                 $isValid = $this->checkLoginPassword();
                 if ($isValid) {
                     $findUser = $user->find('email', $_POST["email"], UserModel::class);
-                    $user->setId($findUser->getId());
-
-                    $_SESSION["user"] = serialize($user);
-                    header("Location: /dashboard");
-                    exit;
+                    if ($findUser->getStatus()) {
+                        $user->setId($findUser->getId());
+                        $_SESSION["user"] = serialize($user);
+                        header("Location: /dashboard");
+                    } else {
+                        $view = new View("login", "auth");
+                        $view->assign("user", $user);
+                        $view->assign("error", true);
+                        $view->assign("errorMessage", "Votre adresse e-mail n'a pas été confirmée. Veuillez vérifier votre boîte de réception.");
+                        exit;
+                    }
                 } else {
                     $view = new View("login", "auth");
                     $view->assign("user", $user);
@@ -57,6 +63,19 @@ class User
         }
 
         return false;
+    }
+
+    public function profile()
+    {
+        if (Auth::isLogged()) {
+            $user = Auth::getUser();
+            $view = new View("profile", "back");
+            $view->assign("user", $user);
+            $view->assign("titleSeo", "Mon profil");
+        } else {
+            header("Location: /login");
+            exit;
+        }
     }
 
     public function logout()
