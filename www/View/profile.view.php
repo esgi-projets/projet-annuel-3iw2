@@ -13,21 +13,21 @@
       <label class="button-icon mb-8">
         <div class="col-2-xl col-2-lg col-2-md col-6-sm col-6-xs color-gray">Votre prénom</div>
         <div class="col-6-xl col-6-lg col-6-md col-12-sm col-12-xs">
-          <input name="title" type="text" class="w-80" value="<?= $user->getFirstname() ?>" required></input>
+          <input name="firstname" type="text" class="w-80" value="<?= $user->getFirstname() ?>" required></input>
         </div>
       </label>
 
       <label class="button-icon mb-8">
         <div class="col-2-xl col-2-lg col-2-md col-6-sm col-6-xs color-gray">Votre nom</div>
         <div class="col-6-xl col-6-lg col-6-md col-12-sm col-12-xs">
-          <input name="slogan" type="text" class="w-80" value="<?= $user->getLastname() ?>" required></input>
+          <input name="lastname" type="text" class="w-80" value="<?= $user->getLastname() ?>" required></input>
         </div>
       </label>
 
       <label class="button-icon mb-8">
         <div class="col-2-xl col-2-lg col-2-md col-6-sm col-6-xs color-gray">Votre email</div>
         <div class="col-6-xl col-6-lg col-6-md col-12-sm col-12-xs">
-          <input name="description" type="text" class="w-80" value="<?= $user->getEmail() ?>" required></input>
+          <input name="email" type="text" class="w-80" value="<?= $user->getEmail() ?>" required></input>
         </div>
         <div class=" col-4-xl col-4-lg col-4-md hidden-sm hidden-xs">En cas de changement de votre email, vous serez invité à le confirmer et à vous reconnecter.</div>
       </label>
@@ -53,7 +53,7 @@
         <div class="col-6-xl col-6-lg col-6-md col-12-sm col-12-xs">
           <div class="w-80 button button-secondary">
             <span id="text">Changer mon avatar</span>
-            <input name="logo" type="file" class="hidden file" accept="image/*" />
+            <input name="avatar" type="file" class="hidden file" accept="image/*" />
           </div>
         </div>
         <div class="col-4-xl col-4-lg col-4-md hidden-sm hidden-xs">Le format de l'image doit être .png, .jpg, .jpeg ou .gif</div>

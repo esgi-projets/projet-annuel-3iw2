@@ -27,7 +27,7 @@ class Email implements EmailBuilder
     //Set PHPMailer to use SMTP.
     $mail->isSMTP();
     //Set SMTP host name                          
-    $mail->Host = $settings->getSetting('smtp_host');
+    $mail->Host = $settings->getSetting('smtp_url');
     //Set this to true if SMTP host requires authentication to send email
     $mail->SMTPAuth = true;
     //Provide username and password     
@@ -38,7 +38,7 @@ class Email implements EmailBuilder
     //Set TCP port to connect to
     $mail->Port = $settings->getSetting('smtp_port');
 
-    $mail->From = "no-reply@alexandre.business";
+    $mail->From = $settings->getSetting('smtp_email');
     $mail->FromName = $settings->getSetting('title');
     $mail->CharSet = 'UTF-8';
     $mail->Encoding = 'base64';

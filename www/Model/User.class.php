@@ -12,6 +12,7 @@ class User extends BaseSQL
     protected $password;
     protected $firstname;
     protected $lastname;
+    protected $avatar;
     protected $status = null;
     protected $role = 'user';
     protected $token = null;
@@ -103,6 +104,22 @@ class User extends BaseSQL
     }
 
     /**
+     * @return mixed
+     */
+    public function getAvatar(): string
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @param mixed $avatar
+     */
+    public function setAvatar($avatar): void
+    {
+        $this->avatar = $avatar;
+    }
+
+    /**
      * @return null
      */
     public function getStatus(): ?int
@@ -115,7 +132,7 @@ class User extends BaseSQL
      */
     public function setStatus($status): void
     {
-        $this->status = $status;
+        $this->status = intval($status);
     }
 
     /**
@@ -270,14 +287,14 @@ class User extends BaseSQL
                     "unicity" => true,
                     "errorUnicity" => "L'adresse e-mail a déjà été utilisée"
                 ],
-                "old_password" => [
+                "password" => [
                     "name" => "Ancien mot de passe",
                     "type" => "password",
                     "id" => "old_password",
                     "class" => "input w-100",
                     "required" => false
                 ],
-                "password" => [
+                "password_new" => [
                     "name" => "Nouveau mot de passe",
                     "type" => "password",
                     "id" => "password",
@@ -285,13 +302,13 @@ class User extends BaseSQL
                     "required" => false,
                     "error" => "Votre mot de passe doit faire entre 8 et 16 et contenir des chiffres et des lettres",
                 ],
-                "password_confirm" => [
-                    "name" => "Confirmation du mot de passe",
-                    "type" => "password",
-                    "id" => "password_confirm",
+                "id" => [
+                    "name" => "id",
+                    "type" => "hidden",
+                    "id" => "id",
                     "class" => "input w-100",
-                    "required" => false,
-                    "error" => "Votre mot de passe doit faire entre 8 et 16 et contenir des chiffres et des lettres",
+                    "required" => true,
+                    "error" => "Votre id semble incorrect",
                 ],
             ]
         ];
