@@ -27,7 +27,9 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
         $columns  = get_object_vars($this);
         $varsToExclude = get_class_vars(get_class());
         $columns = array_diff_key($columns, $varsToExclude);
-        $columns = array_filter($columns);
+        $columns = array_filter($columns, function ($value) {
+            return !is_null($value) && $value !== '';
+        });
 
         $mysql = new MySQLBuilder();
 
@@ -151,5 +153,31 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
         $this->query($sql);
         $this->bind(':' . $column, $value);
         return $this->single($model);
+    }
+
+    // Find all records
+    public function findAll($model = null, $columns = ['*'])
+    {
+        $sql = $this->select($this->table, $columns)->getQuery();
+        $this->query($sql);
+        return $this->resultSet($model);
+    }
+
+    // Find all records by column value
+    public function findAllBy($column, $value, $model = null, $columns = ['*'])
+    {
+        $sql = $this->select($this->table, $columns)->where($column, '=')->getQuery();
+        $this->query($sql);
+        $this->bind(':' . $column, $value);
+        return $this->resultSet($model);
+    }
+
+    // Delete record
+    public function deleteRecord()
+    {
+        $sql = $this->delete($this->table)->where('id', '=')->getQuery();
+        $this->query($sql);
+        $this->bind(':id', $this->getId());
+        $this->execute();
     }
 }

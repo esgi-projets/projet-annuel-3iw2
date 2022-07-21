@@ -1,15 +1,20 @@
 //base variables
-@import 'reset';
 @import 'fonts';
+@import 'reset';
 @import 'colors';
 
 //base & layout
 @import 'breakpoints';
 @import 'grid';
 @import 'base';
+@import 'table';
+@import 'menu';
+@import 'payments';
+
 
 //components
 @import 'components/buttons';
 @import 'components/inputs';
 @import 'components/cards';
 @import 'components/status';
+@import 'components/toggle';

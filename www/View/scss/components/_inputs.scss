@@ -1,4 +1,5 @@
-input {
+input,
+textarea {
   height: 48px;
   width: 15vw;
   border: 2px solid;
@@ -6,7 +7,7 @@ input {
   border-radius: 0.8rem;
   font-family: $font-roboto;
   font-weight: 600;
-  color: $color-dark--400;
+  color: $color-dark--200;
 }
 
 label {
@@ -28,6 +29,7 @@ label {
 
   &--error {
     border-color: $color-error--100;
+
     &:focus {
       border-color: $color-error--200;
     }
@@ -35,6 +37,7 @@ label {
 
   &--valid {
     border-color: $color-success--100;
+
     &:focus {
       border-color: $color-success--200;
     }
@@ -48,12 +51,57 @@ label {
 }
 
 input,
+textarea,
 .input {
   font-size: 16px;
+  font-style: normal;
   padding: 0 16px;
   border-color: $color-lightgrey--600;
+  resize: none;
+
+  &:focus {
+    border-color: $color-primary--200;
+  }
 }
 
-.input:focus {
-  border-color: $color-primary--200;
+select {
+
+  font-family: $font-roboto;
+  font-weight: 600;
+  color: $color-gray;
+  padding-left: 1rem;
+
+  &:focus {
+    border-color: $color-primary--200;
+  }
+
+  &:disabled {
+    border-color: $color-lightgrey--500;
+    background-color: $color-lightgrey--600;
+    pointer-events: none;
+  }
+
+  &:disabled option {
+    color: $color-lightgrey--500;
+  }
+}
+
+.role {
+  @media screen and (max-width: 940px) {
+    width: 100%;
+  }
+}
+
+.img-product {
+  width: 50%;
+  height: auto;
+  max-width: 50%;
+  max-height: 50%;
+  margin: auto;
+
+  @media screen and (max-width: 1200px) {
+    width: 20%;
+    height: auto;
+    margin-right: 0rem;
+  }
 }

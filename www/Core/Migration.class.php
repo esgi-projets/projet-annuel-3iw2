@@ -4,12 +4,17 @@ namespace App\Core;
 
 class Migration extends BaseSQL
 {
-  protected function createTable(string $table, array $columns)
+  protected function createTable(string $table, array $columns, array $options = [])
   {
     $table = $_ENV['DB_PREFIX'] . $table;
-    $query = $this->query("CREATE TABLE if not exists $table (" . implode(", ", array_map(function ($column, $value) {
+    $query = "CREATE TABLE if not exists $table (" . implode(", ", array_map(function ($column, $value) {
       return "$column $value";
-    }, array_keys($columns), array_values($columns))) . ")");
+    }, array_keys($columns), array_values($columns)));
+    if (count($options) > 0) {
+      $query .= ", " . implode(", ", $options);
+    }
+    $query .= ")";
+    $this->query($query);
     $this->execute($query);
   }
 
@@ -91,5 +96,11 @@ class Migration extends BaseSQL
       $appliedMigrations[] = $migration->name;
     }
     return $appliedMigrations;
+  }
+
+  public function setForeignKeyChecks(bool $value)
+  {
+    $query = $this->query("SET FOREIGN_KEY_CHECKS = " . ($value ? 1 : 0) . ";");
+    $this->execute($query);
   }
 }

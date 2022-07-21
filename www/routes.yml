@@ -1,10 +1,10 @@
-/:
-  controller: general
-  action: home
-
 /login:
   controller: user
   action: login
+
+/profile:
+  controller: user
+  action: profile
 
 /logout:
   controller: user
@@ -26,9 +26,120 @@
   controller: user
   action: reset
 
+/payment:
+  controller: order
+  action: payment
+
+/order/complete:
+  controller: order
+  action: complete
+
+/404:
+  controller: errors
+  action: error404
+
+/500:
+  controller: errors
+  action: error500
+
+/orders:
+  controller: order
+  action: dashboard
+  protected: true
+
 # Admin routes
 
 /dashboard:
   controller: admin
   action: dashboard
   protected: true
+
+/admin/orders:
+  controller: order
+  action: dashboard
+  protected: true
+  
+/admin/products:
+  controller: products
+  action: dashboard
+  protected: true
+  role: admin
+
+/admin/products/create:
+  controller: products
+  action: create
+  protected: true
+  role: admin
+
+/admin/products/edit/:id:
+  controller: products
+  action: edit
+  protected: true
+  role: admin
+
+/admin/products/delete/:id:
+  controller: products
+  action: delete
+  protected: true
+  role: admin
+
+/admin/users:
+  controller: adminUsers
+  action: dashboard
+  protected: true
+  role: admin
+
+/admin/users/edit/:id:
+  controller: adminUsers
+  action: edit
+  protected: true
+  role: admin
+
+/admin/users/delete/:id:
+  controller: adminUsers
+  action: delete  
+  protected: true
+  role: admin
+
+/admin/settings:
+  controller: settings
+  action: form
+  protected: true
+  role: admin
+
+/admin/pages:
+  controller: page
+  action: dashboard
+  protected: true
+  role: admin
+
+/admin/pages/create:
+  controller: page
+  action: create
+  protected: true
+  role: admin
+
+/admin/pages/edit/:id:
+  controller: page
+  action: edit
+  protected: true
+  role: admin
+
+/admin/pages/delete/:id:
+  controller: page
+  action: delete
+  protected: true
+  role: admin
+
+/admin/menus:
+  controller: admin
+  action: menus
+  protected: true
+  role: admin
+
+/admin/reviews:
+  controller: admin
+  action: reviews
+  protected: true
+  role: admin
+

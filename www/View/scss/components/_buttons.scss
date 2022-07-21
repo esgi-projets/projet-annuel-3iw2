@@ -11,7 +11,6 @@
   font-family: $font-roboto;
   font-weight: bold;
   font-size: 18px;
-  margin-top: 1em;
 
   &:hover {
     background-color: $color-gray--300;
@@ -19,6 +18,7 @@
 
   &-success {
     background-color: $color-success;
+
     &:hover {
       background-color: $color-success--300;
     }
@@ -26,6 +26,7 @@
 
   &-error {
     background-color: $color-error;
+
     &:hover {
       background-color: $color-error--300;
     }
@@ -33,6 +34,7 @@
 
   &-primary {
     background-color: $color-primary;
+
     &:hover {
       background-color: $color-primary--300;
     }
@@ -40,6 +42,7 @@
 
   &-warning {
     background-color: $color-warning;
+
     &:hover {
       background-color: $color-warning--300;
     }
@@ -48,6 +51,7 @@
   &-secondary {
     background-color: $color-white;
     color: $color-primary;
+
     &:hover {
       background-color: $color-lightgrey--400;
     }
@@ -55,6 +59,7 @@
     &--success {
       background-color: $color-lightgrey--400;
       color: $color-success;
+
       &:hover {
         background-color: $color-lightgrey--300;
       }
@@ -63,6 +68,7 @@
     &--error {
       background-color: $color-lightgrey--400;
       color: $color-error;
+
       &:hover {
         background-color: $color-lightgrey--300;
       }
@@ -71,6 +77,7 @@
     &--primary {
       background-color: $color-lightgrey--400;
       color: $color-primary;
+
       &:hover {
         background-color: $color-lightgrey--300;
       }
@@ -79,6 +86,7 @@
     &--warning {
       background-color: $color-lightgrey--400;
       color: $color-warning;
+
       &:hover {
         background-color: $color-lightgrey--300;
       }
@@ -89,6 +97,7 @@
       color: $color-gray--400;
       margin-top: 1.5rem;
       text-align: left;
+
       &:hover {
         background-color: $color-lightgrey--700;
       }
@@ -99,6 +108,7 @@
     background-color: $color-white;
     color: $color-primary;
     border: 0.01em solid $color-lightgrey;
+
     &:hover {
       background-color: $color-primary;
       color: $color-white;
@@ -107,6 +117,7 @@
     &--success {
       background-color: $color-white;
       color: $color-success;
+
       &:hover {
         background-color: $color-success;
         color: $color-white;
@@ -117,6 +128,7 @@
       background-color: $color-white;
       color: $color-error;
       border: 0.01em solid $color-lightgrey;
+
       &:hover {
         background-color: $color-error;
         color: $color-white;
@@ -126,6 +138,7 @@
     &--warning {
       background-color: $color-white;
       color: $color-warning;
+
       &:hover {
         background-color: $color-warning;
         color: $color-white;
@@ -141,6 +154,7 @@
   &-link {
     background-color: #11ffee00;
     color: $color-primary;
+
     &:hover {
       background-color: #11ffee00;
       color: $color-primary--700;
@@ -149,6 +163,7 @@
     &--success {
       background-color: #11ffee00;
       color: $color-success;
+
       &:hover {
         background-color: #11ffee00;
         color: $color-success--700;
@@ -158,6 +173,7 @@
     &--error {
       background-color: #11ffee00;
       color: $color-error;
+
       &:hover {
         background-color: #11ffee00;
         color: $color-error--700;
@@ -167,9 +183,20 @@
     &--warning {
       background-color: #11ffee00;
       color: $color-warning;
+
       &:hover {
         background-color: #11ffee00;
         color: $color-warning--700;
+      }
+    }
+
+    &--dark {
+      background-color: #11ffee00;
+      color: $color-dark;
+
+      &:hover {
+        background-color: #11ffee00;
+        color: $color-dark--900;
       }
     }
   }

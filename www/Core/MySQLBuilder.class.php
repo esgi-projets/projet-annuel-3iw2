@@ -77,6 +77,19 @@ class MySQLBuilder implements QueryBuilder
   }
 
   /**
+   * @param string $orderBy
+   * @param string $order
+   * @return QueryBuilder
+   */
+
+  public function orderBy(string $orderBy, string $order): QueryBuilder
+  {
+    $this->query .= " ORDER BY $orderBy $order";
+    return $this;
+  }
+
+
+  /**
    * @return string
    */
   public function getQuery(): string

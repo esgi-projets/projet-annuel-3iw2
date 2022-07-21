@@ -12,6 +12,7 @@ class m0001_users extends Migration
       "id" => "int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY",
       "firstname" => "varchar(50) NOT NULL",
       "lastname" => "varchar(100) NOT NULL",
+      "avatar" => "varchar(255) NOT NULL DEFAULT 'avatar_default.jpeg'",
       "email" => "varchar(320) NOT NULL",
       "password" => "varchar(255) NOT NULL",
       "status" => "tinyint(1) NOT NULL DEFAULT '0'",
