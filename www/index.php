@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Controller\Page;
+use App\Controller\Errors;
 use App\Core\Auth;
 use App\Core\Validator;
 use App\Model\Page as PageModel;
@@ -13,6 +14,8 @@ require __DIR__ . "/vendor/autoload.php"; // Composer autoload
 
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad(); // load .env file
+
+// error_reporting(0);
 
 function myAutoloader($class)
 {
@@ -26,7 +29,28 @@ function myAutoloader($class)
     }
 }
 
+function catchError()
+{
+    $error = error_get_last();
+    if ($error['type'] === E_ERROR) {
+        if (Auth::isLogged() && Auth::getUser()->getRole() === "admin") {
+            echo "<h1>Error</h1>";
+            echo "Vous êtes connecté en tant qu'administrateur, vous pouvez voir le message d'erreur ci-dessous :<br>";
+            echo "<pre>";
+            print_r($error);
+            echo "</pre>";
+            exit;
+        } else {
+            header("HTTP/1.1 500 Internal Server Error");
+            $error = new Errors();
+            $error->error500();
+            exit;
+        }
+    }
+}
+
 spl_autoload_register("App\myAutoloader");
+//register_shutdown_function("App\catchError");
 
 if (!isset($_SERVER['REQUEST_URI'])) {
     // locally accessed
@@ -101,7 +125,9 @@ foreach (array_keys($routes) as $route) {
 }
 
 if (empty($routes[$uri]) || empty($routes[$uri]["controller"])  || empty($routes[$uri]["action"])) {
-    die("Page 404");
+    $error = new Errors();
+    $error->error404();
+    exit;
 }
 
 $controller = ucfirst(strtolower($routes[$uri]["controller"]));
@@ -117,7 +143,8 @@ if ($protected && Auth::isLogged() === false) {
 
 // if route need a role 
 if ($protected && $role && Auth::getUser()->getRole() !== $role) {
-    header("Location: /404");
+    $error = new Errors();
+    $error->error404();
     exit;
 }
 

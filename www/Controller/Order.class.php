@@ -11,6 +11,16 @@ use Omnipay\Omnipay;
 
 class Order
 {
+  public function dashboard()
+  {
+    $orders = new OrderModel();
+    $user = Auth::getUser();
+    $view = new View("admin-orders", "back");
+    $view->assign("titleSeo", "Commandes");
+    $view->assign("orders", $orders);
+    $view->assign("user", $user);
+  }
+
   public function payment()
   {
     if (!empty($_POST)) {

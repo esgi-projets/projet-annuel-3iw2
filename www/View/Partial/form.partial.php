@@ -1,4 +1,4 @@
-<form class="<?= $config["config"]["class"] ?>" method="<?= $config["config"]["method"] ?? "POST" ?>" action="<?= $config["config"]["action"] ?? "" ?>">
+<form enctype="multipart/form-data" class="<?= $config["config"]["class"] ?>" method="<?= $config["config"]["method"] ?? "POST" ?>" action="<?= $config["config"]["action"] ?? "" ?>">
     <?php foreach ($config["inputs"] as $name => $input) : ?>
         <div class='<?= $input["type"] == 'hidden' ? "" : "column pr-3 pl-3 pb-5" ?>'>
             <label class='<?= $input["type"] == 'hidden' ? "" : "mb-2" ?>'><?= $input["name"] ?? "" ?></label>
@@ -10,10 +10,19 @@
                         <option value="<?= $key ?>" <?= ($input["value"] == $key) ? 'selected' : '' ?>><?= $value ?></option>
                     <?php endforeach; ?>
                 </select>
+            <?php elseif ($input["type"] == 'file') : ?>
+                <label class="">
+
+                    <div class="w-100 button button-secondary">
+                        <span id="text">Ajouter une image</span>
+                        <input name="<?= $input["id"] ?>" id="<?= $input["id"] ?>" type="file" class="hidden file" accept="image/*" />
+                    </div>
+
+                </label>
             <?php else : ?>
                 <?php if ($input["type"] == "checkbox") : ?>
                     <label class="switch ml-5">
-                        <input type="checkbox" name="<?= $name ?>" id="<?= $input["id"] ?>" value="<?= $input["value"] ?? "" ?>">
+                        <input type="checkbox" name="<?= $name ?>" id="<?= $input["id"] ?>" <?= $input['value'] ? 'checked' : '' ?> <?= (!empty($input["required"])) ? 'required="required"' : '' ?>>
                         <span class="slider round"></span>
                     </label>
                 <?php else : ?>

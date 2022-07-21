@@ -7,6 +7,6 @@
     ?>
   </div>
   <?php
-  $this->includePartial("form", $userEdit->getFormEdit($userEdit->getId() ? $userEdit : null)) ?>
-  <a class="button button-link--error w-90 mb-5 ml-5" href="/admin/users/delete/<?= $userEdit->getId() ?>">Supprimer cet utilisateur</a>
+  $this->includePartial("form", $product->getFormProduct($product->getId() ? $product : null)) ?>
+  <a class="button button-link--error w-90 mb-5 ml-5" href="/admin/products/delete/<?= $product->getId() ?>">Supprimer ce produit</a>
 </div>

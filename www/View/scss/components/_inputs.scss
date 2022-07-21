@@ -85,3 +85,23 @@ select {
     color: $color-lightgrey--500;
   }
 }
+
+.role {
+  @media screen and (max-width: 940px) {
+    width: 100%;
+  }
+}
+
+.img-product {
+  width: 50%;
+  height: auto;
+  max-width: 50%;
+  max-height: 50%;
+  margin: auto;
+
+  @media screen and (max-width: 1200px) {
+    width: 20%;
+    height: auto;
+    margin-right: 0rem;
+  }
+}

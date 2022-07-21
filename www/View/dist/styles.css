@@ -728,6 +728,42 @@ input[type=checkbox] {
   margin-left: 2rem;
   margin-right: 2rem;
 }
+.error-page {
+  color: #97a4b0;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+}
+@media screen and (max-width: 1200px) {
+  .error-page {
+    width: 100%;
+  }
+}
+.error-page h1 {
+  color: #4F46E5;
+  padding: 0;
+  font-size: 7rem;
+  position: relative;
+  line-height: 1;
+  width: 12.5rem;
+}
+.error-page h2 {
+  color: #4F46E5;
+}
+.error-page .content-error {
+  margin-top: 0.5rem;
+}
+.error-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .pl-0 {
   padding-left: 0rem;
 }
@@ -2860,7 +2896,6 @@ table th {
 }
 .dataTables_wrapper .dataTables_filter input {
   border: none;
-  color: #97a4b0;
   border-bottom: 1px solid #e0e3e7;
   border-radius: 0px;
 }
@@ -3296,6 +3331,25 @@ select:disabled {
 }
 select:disabled option {
   color: #EEF0F2;
+}
+@media screen and (max-width: 940px) {
+  .role {
+    width: 100%;
+  }
+}
+.img-product {
+  width: 50%;
+  height: auto;
+  max-width: 50%;
+  max-height: 50%;
+  margin: auto;
+}
+@media screen and (max-width: 1200px) {
+  .img-product {
+    width: 20%;
+    height: auto;
+    margin-right: 0rem;
+  }
 }
 .card {
   display: inline-block;

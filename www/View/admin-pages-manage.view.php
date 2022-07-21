@@ -1,5 +1,5 @@
 <div class="col-12-xl col-12-lg col-12-md col-12-sm col-12-xs">
-  <h1 class="pl-8"><?= $title ?></h1>
+  <h1 class="pl-8 mb-1"><?= $title ?></h1>
   <div class="pr-2 pl-2">
     <?php
     $this->includePartial("error", ['visible' => isset($error) ? $error : false, 'message' => isset($errorMessage) ? $errorMessage : null, 'list' => isset($listErrors) ? $listErrors : null]);
@@ -7,9 +7,10 @@
     ?>
   </div>
   <?php $this->includePartial("form", $page->getFormPage($page->getId() ? $page : null)) ?>
+  <?php if ($page->getId()) : ?>
+    <a class="button button-link--error w-90 mb-5 ml-5" href="/admin/pages/delete/<?= $page->getId() ?>">Supprimer cette page</a>
+  <?php endif; ?>
 </div>
-
-
 
 <script>
   var is_focus = false;

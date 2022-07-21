@@ -9,6 +9,16 @@ use App\Model\Page as PageModel;
 
 class Page
 {
+  public function dashboard()
+  {
+    $user = Auth::getUser();
+    $pages = new PageModel();
+    $view = new View("admin-pages", "back");
+    $view->assign("titleSeo", "Gestion des pages | CMS");
+    $view->assign("pages", $pages);
+    $view->assign("user", $user);
+  }
+
   public function create()
   {
     if (Auth::isLogged() && Auth::getUser()->getRole() === "admin") {

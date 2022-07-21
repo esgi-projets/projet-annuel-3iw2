@@ -169,6 +169,12 @@ class User extends BaseSQL
         $this->token = str_shuffle(md5(uniqid()));
     }
 
+    public function deleteRecord(): void
+    {
+        parent::__construct();
+        parent::deleteRecord();
+    }
+
     public function getFormRegister(): array
     {
         return [
@@ -313,14 +319,14 @@ class User extends BaseSQL
         ];
     }
 
-    public function getFormPage($user = null): array
+    public function getFormEdit($user = null): array
     {
         return [
             "config" => [
                 "method" => "POST",
                 "action" => "",
                 "submit" => "Valider les modifications",
-                "class" => "w-100 px-5",
+                "class" => "w-90 mb-5 ml-5",
                 "model" => get_class($this)
             ],
             "inputs" => [
@@ -367,13 +373,14 @@ class User extends BaseSQL
                     "class" => "input w-100",
                     "placeholder" => "Le mot de passe doit contenir au moins 8 caractères dont au moins une majuscule, une minuscule et un chiffre.",
                     "required" => false,
+                    "value" => 'noPassw0rd',
                     "error" => "Votre mot de passe doit faire entre 8 et 16 et contenir des chiffres et des lettres",
                 ],
                 "role" => [
                     "name" => "Role",
                     "type" => "select",
                     "id" => "role",
-                    "class" => "input w-20",
+                    "class" => "input role w-20",
                     "value" => $user ? $user->getRole() : '',
                     "required" => true,
                     "error" => "Votre rôle est incorrect",
@@ -389,7 +396,13 @@ class User extends BaseSQL
                     "class" => "input w-100",
                     "value" => $user ? $user->getStatus() : '',
                     "required" => false,
-                ]
+                ],
+                "id" => [
+                    "type" => "hidden",
+                    "id" => "id",
+                    "value" => $user->id ?? "",
+                    "required" => false,
+                ],
             ]
 
         ];
