@@ -27,7 +27,9 @@ abstract class BaseSQL extends MySQLBuilder implements QueryBuilder
         $columns  = get_object_vars($this);
         $varsToExclude = get_class_vars(get_class());
         $columns = array_diff_key($columns, $varsToExclude);
-        $columns = array_filter($columns);
+        $columns = array_filter($columns, function ($value) {
+            return !is_null($value) && $value !== '';
+        });
 
         $mysql = new MySQLBuilder();
 

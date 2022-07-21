@@ -1,15 +1,17 @@
 <div class="col-3-xl col-3-lg col-3-md col-3-sm col-3-xs hidden-under-xl bg-white column container-menu" id="back-menu" style="min-height:100vh">
   <div class="pt-10 pl-8">
     <div class="row align-flex-center inline-block">
-      <img class="avatar mr-5" src="/assets/images/avatar.png" alt="avatar">
-      <div class="column">
-        <h2><?= $user->getFirstname(), ' ', $user->getLastname() ?></h2>
-        <h3 class="pt-1 font-600 color-gray"><?= $user->getFormattedRole() ?></h3>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" style="width: 25px; height:25px;" class="ml-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-      </svg>
+      <a href="/profile" class="row align-flex-center inline-block">
+        <img class="avatar mr-5" src="<?= $user->getAvatar() ?>" alt="avatar">
+        <div class="column">
+          <h2><?= $user->getFirstname(), ' ', $user->getLastname() ?></h2>
+          <h3 class="pt-1 font-600 color-gray"><?= $user->getFormattedRole() ?></h3>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: 25px; height:25px;" class="ml-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
     </div>
+    </a>
   </div>
   <div class="pt-8 pl-8 button-icon">
     <img class="mini-logo mx-6" src="/assets/images/<?= $settings->getSetting('logo') ?? 'logo.png' ?>" alt="logo">

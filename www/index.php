@@ -7,6 +7,7 @@ use App\Controller\Errors;
 use App\Core\Auth;
 use App\Core\Validator;
 use App\Model\Page as PageModel;
+use App\Model\User;
 
 session_start();
 
@@ -146,6 +147,17 @@ if ($protected && $role && Auth::getUser()->getRole() !== $role) {
     $error = new Errors();
     $error->error404();
     exit;
+}
+
+// if user token is expired
+if (Auth::isLogged()) {
+    $user = new User();
+    $find = $user->find('token', Auth::getUser()->getToken(), User::class);
+    if (empty($find)) {
+        session_destroy();
+        header("Location: /login");
+        exit;
+    }
 }
 
 // $controller = User ou $controller = Global

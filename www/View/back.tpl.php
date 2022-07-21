@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $titleSeo . ' | ' . $settings->getSetting('title') ?? 'Template du back' ?></title>
-    <meta name="description" content="ceci est la description de ma page">
+    <meta name="description" content="<?= $descriptionSeo ?? $settings->getSetting('description') ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <link rel="stylesheet" href="/dist/styles.css">

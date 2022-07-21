@@ -29,7 +29,7 @@ class Validator
                 }
             }
 
-            if ($input["type"] == "password" && !self::checkPassword($data[$name])) {
+            if ($input["type"] == "password" && !self::checkPassword($data[$name]) && !empty($data[$name])) {
                 $result[] = "Le mot de passe doit contenir au moins 8 caractères dont au moins une majuscule, une minuscule et un chiffre";
             } else if ($input["type"] == "email"  && !self::checkEmail($data[$name])) {
                 $result[] = "L'adresse e-mail semble incorrecte";
