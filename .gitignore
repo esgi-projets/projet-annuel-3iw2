@@ -6,4 +6,5 @@ db_data
 
 */vendor/
 */.env
-www/View/assets/
+www/View/assets/images/profiles/*
+!www/View/assets/images/profiles/avatar_default.jpeg
