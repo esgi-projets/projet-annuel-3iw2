@@ -16,6 +16,7 @@ class Settings
       $user = Auth::getUser();
 
       if (!empty($_POST)) {
+        $_POST['email_grant'] = NULL;
         if (isset($_POST['allow_reviews']) && $_POST['allow_reviews'] === "on") {
           $_POST['allow_reviews'] = 1;
         } else {

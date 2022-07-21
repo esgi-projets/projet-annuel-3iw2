@@ -97,6 +97,11 @@ class Settings extends BaseSQL
         "model" => $this
       ],
       "inputs" => [
+        "email_grant" => [
+          "name" => "Email administrateur installation",
+          "type" => "text",
+          "placeholder" => "Email administrateur installation",
+        ],
         "title" => [
           "name" => "Titre",
           "type" => "text",

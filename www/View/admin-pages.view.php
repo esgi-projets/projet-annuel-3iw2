@@ -1,12 +1,12 @@
 <div class="col-12-xl col-12-lg col-12-md col-12-sm col-12-xs">
   <h1 class="pl-8">Toutes les pages 📑</h1>
   <div class="row mt-2 pr-3 pl-3 pb-5">
-    <a class="ml-3 button button-tertiary" href='/admin/pages/create'>Créer une page</a>
+    <a class="ml-5 button button-tertiary" href='/admin/pages/create'>Créer une page</a>
   </div>
   <div class="ml-5">
     <?php
     if (empty($pages->findAll())) : ?>
-      <h2 class="pl-8">Un peu de patience <span class="color-primary"><?= $user->getFirstname() ?></span>, vous n'avez pas encore créé de page 🚧</h2>
+      <h2 class="color-dark text-center mt-5">Il semblerait que vous n'ayez pas encore de page.</h2>
     <?php else : ?>
       <?php foreach ($pages->findAll() as $page) :
       ?>

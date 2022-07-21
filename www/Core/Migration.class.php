@@ -48,7 +48,7 @@ class Migration extends BaseSQL
     $this->execute($query);
   }
 
-  public function applyMigrations()
+  public function applyMigrations($logs = true)
   {
     $migrations = glob(__DIR__ . '/../Migrations/*.php');
     $this->createMigrationsTable();
@@ -61,12 +61,14 @@ class Migration extends BaseSQL
         $migration = new $migrationClass();
         $migration->up();
         self::addMigration($migrationName);
-        echo ("[CMS] \e[0;35;35mApplied migration: \e[0m" . $migrationName . "\n");
+        if ($logs) {
+          echo ("[CMS] \e[0;35;35mApplied migration: \e[0m" . $migrationName . "\n");
+        }
       }
     }
   }
 
-  public function downMigrations()
+  public function downMigrations($logs = true)
   {
     $migrations = glob(__DIR__ . '/../Migrations/*.php');
     $this->createMigrationsTable();
@@ -79,7 +81,9 @@ class Migration extends BaseSQL
         $migration = new $migrationClass();
         $migration->down();
         self::removeMigration($migrationName);
-        echo ("[CMS] \e[0;35;35mRemoved migration: \e[0m" . $migrationName . "\n");
+        if ($logs) {
+          echo ("[CMS] \e[0;35;35mRemoved migration: \e[0m" . $migrationName . "\n");
+        }
       }
     }
   }

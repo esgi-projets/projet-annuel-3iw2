@@ -58,7 +58,7 @@
   controller: order
   action: dashboard
   protected: true
-  
+
 /admin/products:
   controller: products
   action: dashboard
@@ -97,7 +97,7 @@
 
 /admin/users/delete/:id:
   controller: adminUsers
-  action: delete  
+  action: delete
   protected: true
   role: admin
 
@@ -142,4 +142,3 @@
   action: reviews
   protected: true
   role: admin
-

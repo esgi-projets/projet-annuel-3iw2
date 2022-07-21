@@ -4,6 +4,7 @@ namespace App;
 
 use App\Controller\Page;
 use App\Controller\Errors;
+use App\Controller\Installer;
 use App\Core\Auth;
 use App\Core\Validator;
 use Symfony\Component\Yaml\Yaml;
@@ -84,6 +85,13 @@ if ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && file_ex
     $error = new Errors();
     $error->error404();
     exit;
+}
+
+$installer = new Installer();
+
+if (!$installer->isInstalled()) {
+    $installer->checkIfInstalled();
+    return;
 }
 
 $pages = new PageModel();

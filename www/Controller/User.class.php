@@ -7,6 +7,7 @@ use App\Core\Email;
 use App\Core\Validator;
 use App\Core\View;
 use App\Model\User as UserModel;
+use App\Model\Settings as SettingsModel;
 
 class User
 {
@@ -305,6 +306,7 @@ class User
     {
         if (!Auth::isLogged()) {
             $user = new UserModel();
+            $settings = new SettingsModel();
 
             if (!empty($_POST)) {
                 $result = Validator::run($user->getFormRegister(), $_POST);
@@ -324,6 +326,12 @@ class User
                 $user->setEmail($dataSanitized['email']);
                 $user->setPassword($dataSanitized['password']);
                 $user->generateToken();
+
+                if ($settings->getSetting('email_grant') === $dataSanitized['email']) {
+                    $user->setRole("admin");
+                    $settings->setSetting('email_grant', NULL);
+                    $settings->save();
+                }
 
                 $user->save();
 

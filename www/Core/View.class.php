@@ -12,10 +12,13 @@ class View
 
     public function __construct($view, $template = "front")
     {
-        $settings = new Settings();
         $this->setView($view);
         $this->setTemplate($template);
-        $this->assign("settings", $settings);
+
+        if ($template !== "installer") {
+            $settings = new Settings();
+            $this->assign("settings", $settings);
+        }
     }
 
     public function setView($view)
