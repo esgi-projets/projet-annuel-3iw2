@@ -197,7 +197,7 @@ class Installer
       }
 
       foreach ($_POST as $key => $value) {
-        $find = $settings->find('name', $key, SettingsModel::class);
+        $find = $settings->find('name', $key, Settings::class);
 
         if ($find) {
           if ($key === "stripe_private_key") {
