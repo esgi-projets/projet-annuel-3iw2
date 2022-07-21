@@ -52,7 +52,7 @@ function catchError()
 }
 
 spl_autoload_register("App\myAutoloader");
-//register_shutdown_function("App\catchError");
+register_shutdown_function("App\catchError");
 
 if (!isset($_SERVER['REQUEST_URI'])) {
     // locally accessed
