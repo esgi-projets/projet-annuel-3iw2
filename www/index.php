@@ -73,10 +73,10 @@ $routes = Yaml::parseFile($routeFile);
 // Load ressources files without routing
 if ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && file_exists(dirname(__FILE__) . "/View/" . $uri)) {
     header("Content-Type: text/css");
-    include(dirname(__FILE__) . "/View/" . $uri);
+    include(dirname(__FILE__) . "/View" . $uri);
     exit;
 } elseif (file_exists(dirname(__FILE__) . "/View/" . $uri) && $uri != "/") {
-    include(dirname(__FILE__) . "/View/" . $uri);
+    include(dirname(__FILE__) . "/View" . $uri);
     exit;
 } elseif ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && !file_exists(dirname(__FILE__) . "/View/" . $uri)) {
     $error = new Errors();
