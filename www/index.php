@@ -76,7 +76,9 @@ if ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && file_ex
     include(dirname(__FILE__) . "/View" . $uri);
     exit;
 } elseif (file_exists(dirname(__FILE__) . "/View/" . $uri) && $uri != "/") {
-    include(dirname(__FILE__) . "/View" . $uri);
+    $content = file_get_contents(dirname(__FILE__) . "/View/" . $uri);
+    header('Content-Type: image/gif');
+    echo $content;
     exit;
 } elseif ((strpos($uri, '.css') !== false || strpos($uri, '.js') !== false) && !file_exists(dirname(__FILE__) . "/View/" . $uri)) {
     $error = new Errors();
