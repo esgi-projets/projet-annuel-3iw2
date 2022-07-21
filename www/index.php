@@ -132,7 +132,7 @@ if (empty($routes[$uri]) || empty($routes[$uri]["controller"])  || empty($routes
     exit;
 }
 
-$controller = ucfirst(strtolower($routes[$uri]["controller"]));
+$controller = ucfirst($routes[$uri]["controller"]);
 $action = strtolower($routes[$uri]["action"]);
 $protected = isset($routes[$uri]["protected"]) && $routes[$uri]['protected'] || strpos($uri, "admin") !== false; // if URI contains admin or protected route is true
 $role = isset($routes[$uri]["role"]) ? $routes[$uri]["role"] : false; // if role is set in route
