@@ -146,7 +146,7 @@ class Installer
 
         if ($_FILES['favicon']['size'] < 2000 * 1024) {
           if (move_uploaded_file($_FILES['favicon']['tmp_name'], $uploadfile)) {
-            $find = $settings->find('name', 'favicon', SettingsModel::class);
+            $find = $settings->find('name', 'favicon', Settings::class);
 
             if ($find) {
               $find->setValue($uploadname);
@@ -170,7 +170,7 @@ class Installer
 
         if ($_FILES['background']['size'] < 2000 * 1024) {
           if (move_uploaded_file($_FILES['background']['tmp_name'], $uploadfile)) {
-            $find = $settings->find('name', 'background', SettingsModel::class);
+            $find = $settings->find('name', 'background', Settings::class);
 
             if ($find) {
               $find->setValue($uploadname);
