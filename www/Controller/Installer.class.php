@@ -122,7 +122,7 @@ class Installer
 
         if ($_FILES['logo']['size'] < 2000 * 1024) {
           if (move_uploaded_file($_FILES['logo']['tmp_name'], $uploadfile)) {
-            $find = $settings->find('name', 'logo', SettingsModel::class);
+            $find = $settings->find('name', 'logo', Settings::class);
 
             if ($find) {
               $find->setValue($uploadname);
