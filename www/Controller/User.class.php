@@ -289,15 +289,18 @@ class User
                     $findUser->generateToken();
                     $findUser->save();
 
-                    echo "Votre compte a bien été activé."; //TODO: redirection avec message de succès type checkmark
+                    $view = new View("email-validation", "auth");
+                    $view->assign("user", $user);
                     return;
                 } else {
-                    echo "Votre compte est déjà actif."; //TODO: redirection avec message de succès type checkmark
+                    $view = new View("email-validation", "auth");
+                    $view->assign("user", $user);
                     return;
                 }
             } else {
-                echo "Ce lien d'activation n'est pas valide."; //TODO : page d'erreur
-                return;
+                $error = new Errors();
+                $error->error404();
+                exit;
             }
         }
     }

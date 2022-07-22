@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <div class="row">
         <?php
         include "front-menu.view.php";
@@ -21,7 +20,31 @@
             <?php include $this->view . ".view.php"; ?>
         </div>
     </div>
-
 </body>
+
+<script>
+    $(document).ready(function() {
+        $('#add-to-cart').click(function() {
+            var id = $(this).data('id');
+            var quantity = $('#quantity').val();
+            $.ajax({
+                url: '/cart/add?id=' + id + '&quantity=' + quantity,
+                type: 'GET',
+                success: function(data) {
+                    $('#cart-count').html(data);
+                    $("#success").fadeIn(500).delay(5000).fadeOut(500);
+                }
+            });
+        });
+
+        $.ajax({
+            url: '/cart/count',
+            type: 'GET',
+            success: function(data) {
+                $('#cart-count').html(data);
+            }
+        });
+    });
+</script>
 
 </html>

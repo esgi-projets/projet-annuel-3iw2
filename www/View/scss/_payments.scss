@@ -26,3 +26,19 @@
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
+
+.line {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  input {
+    justify-content: space-between;
+  }
+}
+
+.validate-payment {
+  align-items: center;
+  margin-left: 3rem;
+  margin-top: 5rem;
+}

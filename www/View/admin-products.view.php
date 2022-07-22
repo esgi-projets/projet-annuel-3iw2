@@ -53,7 +53,7 @@
           <td class="wrap-long" data-label="Description"><?= $product->description ?></td>
           <td class="wrap-long" data-label="Image"><img class="img-product" src="/assets/images/products/<?= $product->image ?>"></td>
           <td class="wrap-long" data-label="Stock"><?= $product->stock ?></td>
-          <td class="wrap-long" data-label="Prix à l'unité"><?= $product->price ?>€</td>
+          <td class="wrap-long" data-label="Prix à l'unité"><?= $product->price ?> EUR</td>
           <td data-label="Action">
             <div class="action">
               <a class="button-icon" href="/admin/products/edit/<?= $product->id ?>">
