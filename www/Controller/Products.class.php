@@ -114,7 +114,7 @@ class Products
         $_POST['image'] = 'empty';
 
         $findProduct = $product->find('id', $_POST['id'], ProductModel::class);
-        $result = Validator::run($product->getFormProduct($findProduct), $_POST);
+        $result = Validator::run($product->getFormProduct(), $_POST);
 
         if ($_FILES['image']['error'] !== 4) {
           $uploaddir = './View/assets/images/products/';
