@@ -6,7 +6,7 @@
   <div class="ml-5">
     <?php
     if (empty($pages->findAll())) : ?>
-      <h2 class="pl-8">Un peu de patience <span class="color-primary"><?= $user->getFirstname() ?></span>, vous n'avez pas encore créé de page 🚧</h2>
+      <h2 class="pl-8">Il n'y a rien à voir ici <span class="color-primary"><?= $user->getFirstname() ?></span>, vous n'avez pas encore créé de page ! 🚧</h2>
     <?php else : ?>
       <?php foreach ($pages->findAll() as $page) :
       ?>

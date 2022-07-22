@@ -1,20 +1,22 @@
-$color-white:#FAFCFE;
-$color-lightgrey:#EEF0F2;
-$color-gray:#4A4A68;
-$color-dark:#1A181B;
-$color-primary:#4F46E5;
-$color-success:#0FA958;
-$color-error:#DB162F;
-$color-warning:#E67E22;
+$color-white: #FAFCFE;
+$color-lightgrey: #EEF0F2;
+$color-gray: #4A4A68;
+$color-dark: #1A181B;
+$color-primary: #4F46E5;
+$color-success: #0FA958;
+$color-error: #DB162F;
+$color-warning: #E67E22;
 
-$colors: ("white":$color-white,
+$colors: (
+  "white":$color-white,
   "lightgrey":$color-lightgrey,
   "gray":$color-gray,
   "dark":$color-dark,
   "primary":$color-primary,
   "success":$color-success,
   "error":$color-error,
-  "warning":$color-warning);
+  "warning":$color-warning
+);
 
 
 $color-lightgrey--100: lighten($color-lightgrey, 15%);
@@ -97,7 +99,7 @@ $color-error-pastel : lighten($color-error, 45%);
 }
 
 .bg-success-pastel {
-  background-color: lighten($color-success, 40%);
+  background-color: lighten($color-success, 40%) !important;
 }
 
 .bg-error-pastel {

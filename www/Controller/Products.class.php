@@ -16,13 +16,33 @@ class Products
       $user = Auth::getUser();
       $products = new ProductModel();
       $view = new View("admin-products", "back");
-      $view->assign("titleSeo", "Produits | CMS");
+      $view->assign("titleSeo", "Produits");
       $view->assign("products", $products);
       $view->assign("user", $user);
     } else {
       header("Location: /dashboard");
       exit;
     }
+  }
+
+  public function list()
+  {
+    $products = new ProductModel();
+    $user = Auth::getUser();
+    $view = new View("products-list", "front");
+    $view->assign("titleSeo", "Liste des produits");
+    $view->assign("products", $products);
+    $view->assign("user", $user);
+  }
+
+  public function detail()
+  {
+    $product = new ProductModel();
+    $user = Auth::getUser();
+    $view = new View("products-detail", "front");
+    $view->assign("titleSeo", "Détails du produit");
+    $view->assign("product", $product);
+    $view->assign("user", $user);
   }
 
   public function create()

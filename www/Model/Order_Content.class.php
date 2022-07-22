@@ -4,12 +4,12 @@ namespace App\Model;
 
 use App\Core\BaseSQL;
 
-class OrderContent extends BaseSQL
+class Order_Content extends BaseSQL
 {
 
   protected $id = null;
-  protected $orderId;
-  protected $productId;
+  protected $order_id;
+  protected $product_id;
   protected $quantity;
   protected $createdAt;
   protected $updatedAt;
@@ -46,7 +46,7 @@ class OrderContent extends BaseSQL
 
   public function getOrderId(): ?int
   {
-    return $this->orderId;
+    return $this->order_id;
   }
 
   /**
@@ -55,7 +55,7 @@ class OrderContent extends BaseSQL
 
   public function setOrderId($orderId): object
   {
-    $this->orderId = $orderId;
+    $this->order_id = $orderId;
     return $this;
   }
 
@@ -65,7 +65,7 @@ class OrderContent extends BaseSQL
 
   public function getProductId(): ?int
   {
-    return $this->productId;
+    return $this->product_id;
   }
 
   /**
@@ -74,7 +74,7 @@ class OrderContent extends BaseSQL
 
   public function setProductId($productId): object
   {
-    $this->productId = $productId;
+    $this->product_id = $productId;
     return $this;
   }
 

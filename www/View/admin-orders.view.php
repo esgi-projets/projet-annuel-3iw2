@@ -51,15 +51,15 @@
           <td data-label="Adresse"><?= $order->name . ' ' . $order->lastname . ' ' . $order->address . ' ' . $order->postal_code . ' ' . $order->city . ' ' . $order->country ?> </td>
           <td data-label="Prix Total"><?= $order->amount . ' ' . $order->currency ?></td>
           <td data-label="Status">
-            <div class="status status-success"><?= $order->payment_status ?></div>
+            <div class="status <?= $order->payment_status == "PAID" ? "status-success" : "status-neutral" ?>"><?= $order->payment_status == 'PAID' ? 'Payé' : 'En attente' ?></div>
           </td>
-          <td data-label="Action">
+          <td data-label=" Action">
             <div class="action">
-              <button class="button-icon">
+              <a class="button-icon" href="/order/detail/<?= $order->id ?>">
                 Consulter
                 <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height:24px;" class="ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg></button>
+                </svg></a>
             </div>
           </td>
         </tr>

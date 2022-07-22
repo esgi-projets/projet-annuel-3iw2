@@ -47,6 +47,39 @@
   action: dashboard
   protected: true
 
+/order/detail/:id:
+  controller: order
+  action: detail
+  protected: true
+
+/products:
+  controller: products
+  action: list
+
+/products/detail/:id:
+  controller: products
+  action: detail
+
+/cart:
+  controller: cart
+  action: getCartView
+
+/cart/add:
+  controller: cart
+  action: addProductToCart
+
+/cart/count:
+  controller: cart
+  action: getTotalQuantityView
+
+/cart/remove:
+  controller: cart
+  action: removeProductFromCart
+
+/cart/clear:
+  controller: cart
+  action: clearCart
+
 # Admin routes
 
 /dashboard:
@@ -57,6 +90,11 @@
 /admin/orders:
   controller: order
   action: dashboard
+  protected: true
+
+/admin/orders/edit/:id:
+  controller: order
+  action: edit
   protected: true
   
 /admin/products:

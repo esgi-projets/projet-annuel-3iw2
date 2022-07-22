@@ -6,6 +6,8 @@ use App\Core\Auth;
 use App\Core\View;
 use App\Model\Page;
 use App\Model\User;
+use App\Model\Products as ProductModel;
+use App\Model\User as UserModel;
 use App\Model\Order as OrderModel;
 
 class Admin
@@ -14,9 +16,13 @@ class Admin
     {
         $user = Auth::getUser();
         $orders = new OrderModel();
+        $products = new ProductModel();
+        $users = new UserModel();
         $view = new View("dashboard", "back");
         $view->assign("titleSeo", "Tableau de bord | CMS");
         $view->assign("orders", $orders);
+        $view->assign("products", $products);
+        $view->assign("users", $users);
         $view->assign("user", $user);
     }
 

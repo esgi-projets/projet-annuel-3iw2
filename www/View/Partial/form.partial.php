@@ -26,7 +26,7 @@
                         <span class="slider round"></span>
                     </label>
                 <?php else : ?>
-                    <input name="<?= $name ?>" id="<?= $input["id"] ?>" type="<?= $input["type"] ?>" class="<?= $input["class"] ?? "" ?>" options="<?= $input["options"] ?? "" ?>" value="<?= $input["value"] ?? "" ?>" placeholder="<?= $input["placeholder"] ?? "" ?>" <?= (!empty($input["required"])) ? 'required="required"' : '' ?>>
+                    <input name="<?= $name ?>" id="<?= $input["id"] ?>" type="<?= $input["type"] ?>" class="<?= $input["class"] ?? "" ?>" options="<?= $input["options"] ?? "" ?>" value="<?= $input["value"] ?? "" ?>" placeholder="<?= $input["placeholder"] ?? "" ?>" <?= (!empty($input["required"])) ? 'required="required"' : '' ?> <?= (!empty($input["disabled"])) ? 'disabled' : '' ?> <?= (!empty($input["step"])) ? 'step=' . $input["step"] . '' : '' ?>>
                 <?php endif ?>
             <?php endif ?>
         </div>
