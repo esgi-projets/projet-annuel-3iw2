@@ -252,6 +252,7 @@ class Order
       $view->assign("cart", $cart);
       $view->assign("products", $products);
     } else {
+      $user = new User();
       $view = new View("login", "auth");
       $view->assign("user", $user);
       $view->assign("error", true);
