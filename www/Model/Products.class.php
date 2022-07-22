@@ -57,7 +57,7 @@ class Products extends BaseSQL
   /**
    * @return mixed
    */
-  public function getDescription(): string
+  public function getDescription()
   {
     return $this->description;
   }
