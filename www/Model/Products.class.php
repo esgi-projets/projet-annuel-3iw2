@@ -186,12 +186,10 @@ class Products extends BaseSQL
         "description" => [
           "name" => "Description",
           "type" => "text",
-          "placeholder" => "M. Sananes est le meilleur prof de l'ESGI (derrière M. Skrzypczyk",
+          "placeholder" => "Description",
           "id" => "description",
           "class" => "input w-100",
           "value" => $product ? $product->getDescription() : '',
-          "min" => 2,
-          "max" => 500,
           "required" => false,
           "error" => "La description semble incorrect",
         ],

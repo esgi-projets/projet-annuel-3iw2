@@ -4,7 +4,7 @@
       <div class="menu-left">
         <img class="mini-logo mx-6" src="./assets/images/<?= $settings->getSetting('logo') ?? 'logo.png' ?>" alt="logo">
         <div class="links">
-          <li><a href="#">Accueil</a></li>
+          <li><a href="/">Accueil</a></li>
           <li><a href="/products">Produits</a></li>
         </div>
       </div>
