@@ -123,7 +123,7 @@ class Products
 
           if ($_FILES['image']['size'] < 2000 * 1024) {
             if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
-              $product->setImage($uploadname);
+              $findProduct->setImage($uploadname);
             } else {
               $result[] = "L'upload de l'image a échoué";
             }
