@@ -73,3 +73,26 @@ To deploy this project locally run
 
 Access to http://localhost directly after starting Docker.
 
+## Design Patterns
+
+- **Singleton** : https://github.com/esgi-projets/projet-annuel-3iw2/blob/develop/www/Core/BaseSQL.class.php
+
+  Pertinent pour éviter de multiples appels à la base de données et d'avoir une classe abstraite pour save, populate et gérer nos querys SQL.
+
+  Utilisé sur l'ensemble du projet avec des extends sur tous les **Models**
+
+- **Builder** : https://github.com/esgi-projets/projet-annuel-3iw2/blob/develop/www/Core/MySQLBuilder.class.php et https://github.com/esgi-projets/projet-annuel-3iw2/blob/develop/www/Core/QueryBuilder.class.php
+
+  Très utile pour créer les requêtes SQL en une ligne et permet un gain de temps sans précédent !
+
+  Les requêtes générées nécessitent tout de même un prepare() pour des raisons de sécurités 🙃
+
+  Utilisé ici : https://github.com/esgi-projets/projet-annuel-3iw2/blob/develop/www/Core/BaseSQL.class.php#L152
+
+- **Observer** : N'étant que deux personnes dans le projet annuel et ayant des deadlines assez serré nous n'avons pas eu le temps de réaliser un Observer pertinent pour notre projet et nous nous en excusons 🙁
+
+- **Deuxième Builder** : https://github.com/esgi-projets/projet-annuel-3iw2/blob/develop/www/Core/Email.class.php Email et EmailBuilder
+
+  Permet l'envoi des emails sur les commandes, les confirmations d'inscription, réinitialisation de mot de passe, etc..
+
+  Utilisé ici : https://github.com/esgi-projets/projet-annuel-3iw2/blob/develop/www/Controller/User.class.php#L116-L132
